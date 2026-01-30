@@ -55,6 +55,9 @@ collections:
   manuals:
     output: true
     permalink: /manuals/:path/
+  ecss:
+    output: true
+    permalink: /ecss/:path/
 
 
 
