@@ -70,17 +70,37 @@
     <div class="sidebar">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-
-<div class="sidebar-item sidebar-header">
-	<div class="sidebar-brand">
-	<a href="/" class="sidebar-logo">
-		<img src="/assets/laser_logo2.png" alt="Logo">
-		<span class="logo-by-qrt"><em>By QRT</em></span>
-		<!--span>LASER2COTS</span-->
-	</a>
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
+			ECSS Archive
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Connectors</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Fuses</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Intergrated Circuits</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+	</ul>
 </div>
 
-	<p class="lead"></p></div>
 
 <!-- 언어 선택 버튼 (데스크탑 전용) -->
 <div id="lang-switch" style="text-align: center; margin-top:10px ;">
@@ -88,129 +108,6 @@
 	<span class="lang-divider" style="margin: 0 6px;">|</span>
 	<span id="lang-en" class="lang-toggle" style="cursor: pointer; margin-left: 8px;">EN</span>
 </div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 👤 아이콘 추가된 About 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
-		</li>
-
-		<!-- Home 항목 먼저 -->
-		<li>
-			<a class="nav-item" href="/">Home</a>
-		</li>
-
-		<!-- About LASER2COTS만 먼저 표시 -->
-		<li>
-			<a id="about-laser2cots-link" class="nav-item" href="/about/">About LASER2COTS</a>
-		</li>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const currentLang = localStorage.getItem('lang') || 'ko';
-				const aboutLink = document.getElementById('about-laser2cots-link');
-				if (!aboutLink) return;
-
-				aboutLink.href = currentLang === 'en' ? '/en/about/' : '/ko/about/';
-			});
-		</script>
-
-
-
-
-		<!-- QRT homepage -->
-		<li>
-			<a id="qrt-home-link" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
-				QRT homepage
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i>
-			Services
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/upscreen.html">Up-Screening</a>
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/pulsedlaser.html">Pulsed Laser</a>
-		</li>
-		<li>
-			<a id="more-services-link" class="nav-item" href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php"
-				target="_blank">
-				More Services
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
-			QRT - LITE Manual
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="/manuals/#lite_kor">
-				<span class="name">KOR</span>
-				<!--span class="badge">76</span-->
-			</a>
-		</li>
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 🗂️ 아이콘 추가 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
-			contents
-		</li>
-
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#news">
-				<span class="name">news</span>
-				<span class="badge">5</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#publications">
-				<span class="name">publications</span>
-				<span class="badge">3</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#article">
-				<span class="name">article</span>
-				<span class="badge">30</span>
-			</a>
-		</li>
-		
-	</ul>
-</div>
-
 
 
 
@@ -479,9 +376,8 @@
 	<ul id="results-container" class="search-results" style="margin-top: 10px; list-style: none; padding-left: 0;"></ul>
 	<p id="no-results" style="margin-top: 10px; color: #000; display: none;">검색 결과가 없습니다</p>
 </div>
-
-
 <!-- 검색 패널 끝 -->
+
 
 <div class="sidebar-item sidebar-footer" style="font-size: 0.8em; text-align: center; margin-top: 20px;">
 	<p>
@@ -774,410 +670,37 @@
             <div class="post-content"><ul class="post-list" id="manual-list"><!-- 1000, 2000 등 -->
                     <li class="post-list-item post-category-lite_kor"
                         style="font-size: 1.8em; font-weight: bold;padding-left: 0px;"><a class="post-link" href="/manuals_lite_kor/ch1/#m1000">
-                            1. About QRT-LITE
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch1/#m1100">
-                            1.1. About QRT Laser Evaluation System
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch1/#m1110">
-                            1.1.1. QRT Femtosecond laser spec.
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch1/#m1200">
-                            1.2. 레이저 평가 방법
+                            IC&#39;s Generic
                         </a>
 
                     </li><hr class="manual-divider post-category-lite_kor"><!-- 1000, 2000 등 -->
                     <li class="post-list-item post-category-lite_kor"
                         style="font-size: 1.8em; font-weight: bold;padding-left: 0px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2000">
-                            2. Test Guide
+                            MMIC Generic and Sectional Basic Spec.
                         </a>
 
                     </li><!-- 1100, 1200 등 -->
                     <li class="post-list-item post-category-lite_kor"
                         style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2100">
-                            2.1.	레이저 조사 준비하기
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2110">
-                            2.1.1.	DUT 준비
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2120">
-                            2.1.2.	에너지 측정하기
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2130">
-                            2.1.3.	DUT 수평 맞추기
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2140">
-                            2.1.4.	Chip Image 준비
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2141">
-                            2.1.4.1.	스크린 샷을 이용한 촬영
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2142">
-                            2.1.4.2.	Stitch를 이용한 촬영
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2143">
-                            2.1.4.3.	Chip Image Setting
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2150">
-                            2.1.5.	위치정보 Set-Up
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2151">
-                            2.1.5.1.	위치정보 수정
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2160">
-                            2.1.6. 초점(Focus) 잡기
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2161">
-                            2.1.6.1. 자동으로 Focus 잡기
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2162">
-                            2.1.6.2. 수동으로 Focus 잡기
+                            Internal Visual inspection of Monolithic Microwave Intergrated Circuits
                         </a>
 
                     </li><!-- 1100, 1200 등 -->
                     <li class="post-list-item post-category-lite_kor"
                         style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2200">
-                            2.2.	테스트 수행하기
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2210">
-                            2.2.1.	스캔 영역을 지정하여 테스트하기
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2220">
-                            2.2.2.	수동으로 테스트하기
+                            Evaluation Test Programme for Monolithic Microwave Intergrated Circuits (MMICs)
                         </a>
 
                     </li><!-- 1100, 1200 등 -->
                     <li class="post-list-item post-category-lite_kor"
                         style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2300">
-                            2.3.	QRT SEE Analysis System 장비로 평가하기
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2310">
-                            2.3.1. Intelligent SEU Manager(ISM) 설정하기
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch2/#m2400">
-                            2.4.	오실로스코프를 사용해서 평가하기
+                            Requirements for Capability Approval of Monolithic Microwave Intergrated Circuits (MMICs)
                         </a>
 
                     </li><hr class="manual-divider post-category-lite_kor"><!-- 1000, 2000 등 -->
                     <li class="post-list-item post-category-lite_kor"
                         style="font-size: 1.8em; font-weight: bold;padding-left: 0px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3000">
-                            3.	프로그램
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3100">
-                            3.1.	메인 화면
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3110">
-                            3.1.1.	간단한 조작버튼
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3120">
-                            3.1.2.	Image View
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3121">
-                            3.1.2.1.	Chip Image
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3122">
-                            3.1.2.2.	IR Camera
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3123">
-                            3.1.2.3.	Visual Camera
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3124">
-                            3.1.2.4.	Laser
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3125">
-                            3.1.2.5.	Webcam
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3130">
-                            3.1.3.	이미지 좌표 입력
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3140">
-                            3.1.4.	패널 오픈
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3150">
-                            3.1.5.	창 크기
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3200">
-                            3.2.	Control 패널
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3210">
-                            3.2.1. Main 탭
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3220">
-                            3.2.2. Motion 탭
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3221">
-                            3.2.2.1.	XYZ
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3222">
-                            3.2.2.2.	Objective (대물렌즈)
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3223">
-                            3.2.2.3.	Goniometer(각도 제어 장치)
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3224">
-                            3.2.2.4.	Piezo
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3230">
-                            3.2.3. Control 탭
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3231">
-                            3.2.3.1.	Shutter 탭
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3232">
-                            3.2.3.2.	Pulse 탭
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3233">
-                            3.2.3.3.	PEM(Pulse Energy Meter)탭
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3234">
-                            3.2.3.4.	Energy탭
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3240">
-                            3.2.4.	Setting 탭
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3241">
-                            3.2.4.1.	Connection
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3242">
-                            3.2.4.2.	Settings
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3300">
-                            3.3.	Auto Focus 패널
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3310">
-                            3.3.1.	Focus 탭
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3320">
-                            3.3.2.	Corner Detection 탭
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3330">
-                            3.3.3.	Level 탭
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3400">
-                            3.4.	Scan 패널
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3410">
-                            3.4.1.	Create Scan Item
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3420">
-                            3.4.2.	Scan Setting
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3430">
-                            3.4.3.	Scan 시작
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3500">
-                            3.5.	Point 패널
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3600">
-                            3.6.	Stitch 패널
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3610">
-                            3.6.1.	Auto Image Scan
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3620">
-                            3.6.2.	Calibrate
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3630">
-                            3.6.3.	Visual, IR Stitch
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3700">
-                            3.7.	Keysight MSO 패널
-                        </a>
-
-                    </li><!-- 1110, 1210 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3710">
-                            3.7.1.	오실로스코프(MSO)를 이용한 트리거 측정
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3711">
-                            3.7.1.1.	측정 실행
-                        </a>
-
-                    </li><!-- 기본 -->
-                    <li class="post-list-item post-category-lite_kor" style="padding-left: 60px;"><a class="post-link" href="/manuals_lite_kor/ch3/#m3712">
-                            3.7.1.2.	오실로스코프(MSO)를 이용한 민감 영역 분석(Sensitive Area) 이미지 생성
-                        </a>
-
-                    </li><hr class="manual-divider post-category-lite_kor"><!-- 1000, 2000 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.8em; font-weight: bold;padding-left: 0px;"><a class="post-link" href="/manuals_lite_kor/ch4/#m4000">
-                            4.	그 밖의 주변 장치
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch4/#m4100">
-                            4.1.	Light Box
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch4/#m4200">
-                            4.2.	Laser &amp; Shutter Controller
-                        </a>
-
-                    </li><!-- 1100, 1200 등 -->
-                    <li class="post-list-item post-category-lite_kor"
-                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;"><a class="post-link" href="/manuals_lite_kor/ch4/#m4300">
-                            4.3.	XY Stage Controller
+                            High Speed CMOS 54HC Series
                         </a>
 
                     </li></ul></div>

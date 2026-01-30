@@ -44,6 +44,7 @@ tag_dir: tag/
 
 include:
   - assets
+  - ecss
 
 kramdown:
   parse_block_html: true
@@ -54,6 +55,7 @@ collections:
   manuals:
     output: true
     permalink: /manuals/:path/
+
 
 
 analytics:

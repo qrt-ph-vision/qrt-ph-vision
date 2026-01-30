@@ -70,17 +70,37 @@
     <div class="sidebar">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-
-<div class="sidebar-item sidebar-header">
-	<div class="sidebar-brand">
-	<a href="/" class="sidebar-logo">
-		<img src="/assets/laser_logo2.png" alt="Logo">
-		<span class="logo-by-qrt"><em>By QRT</em></span>
-		<!--span>LASER2COTS</span-->
-	</a>
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
+			ECSS Archive
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Connectors</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Fuses</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Intergrated Circuits</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+	</ul>
 </div>
 
-	<p class="lead"></p></div>
 
 <!-- 언어 선택 버튼 (데스크탑 전용) -->
 <div id="lang-switch" style="text-align: center; margin-top:10px ;">
@@ -88,129 +108,6 @@
 	<span class="lang-divider" style="margin: 0 6px;">|</span>
 	<span id="lang-en" class="lang-toggle" style="cursor: pointer; margin-left: 8px;">EN</span>
 </div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 👤 아이콘 추가된 About 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
-		</li>
-
-		<!-- Home 항목 먼저 -->
-		<li>
-			<a class="nav-item" href="/">Home</a>
-		</li>
-
-		<!-- About LASER2COTS만 먼저 표시 -->
-		<li>
-			<a id="about-laser2cots-link" class="nav-item" href="/about/">About LASER2COTS</a>
-		</li>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const currentLang = localStorage.getItem('lang') || 'ko';
-				const aboutLink = document.getElementById('about-laser2cots-link');
-				if (!aboutLink) return;
-
-				aboutLink.href = currentLang === 'en' ? '/en/about/' : '/ko/about/';
-			});
-		</script>
-
-
-
-
-		<!-- QRT homepage -->
-		<li>
-			<a id="qrt-home-link" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
-				QRT homepage
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i>
-			Services
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/upscreen.html">Up-Screening</a>
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/pulsedlaser.html">Pulsed Laser</a>
-		</li>
-		<li>
-			<a id="more-services-link" class="nav-item" href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php"
-				target="_blank">
-				More Services
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
-			QRT - LITE Manual
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="/manuals/#lite_kor">
-				<span class="name">KOR</span>
-				<!--span class="badge">76</span-->
-			</a>
-		</li>
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 🗂️ 아이콘 추가 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
-			contents
-		</li>
-
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#news">
-				<span class="name">news</span>
-				<span class="badge">5</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#publications">
-				<span class="name">publications</span>
-				<span class="badge">3</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#article">
-				<span class="name">article</span>
-				<span class="badge">30</span>
-			</a>
-		</li>
-		
-	</ul>
-</div>
-
 
 
 
@@ -479,9 +376,8 @@
 	<ul id="results-container" class="search-results" style="margin-top: 10px; list-style: none; padding-left: 0;"></ul>
 	<p id="no-results" style="margin-top: 10px; color: #000; display: none;">검색 결과가 없습니다</p>
 </div>
-
-
 <!-- 검색 패널 끝 -->
+
 
 <div class="sidebar-item sidebar-footer" style="font-size: 0.8em; text-align: center; margin-top: 20px;">
 	<p>
@@ -791,345 +687,10 @@
     -->
   </div>
 
-  <!-- Gallery Section -->
-  <div class="gallery-container">
-
-    <!-- Up-Screen -->
-    <div class="gallery-item">
-      <img src="/assets/Articles/upscreen.webp" alt="Up-Screen">
-      <div class="label-center">Up-Screen</div>
-      <div class="overlay">
-        <h3 style="color: #fff; cursor: default;">Up-Screen</h3>
-        <p class="gallery-text-ko" style="cursor: default;">우주 환경에 적합한 부품을 선별하는 Up-screening 서비스</p>
-        <p class="gallery-text-en" style="display: none; cursor: default;">Up-screening service for selecting components
-          suitable for space environments</p>
-        <a href="/ko/upscreen.html" class="button gallery-btn" data-ko="자세히 보기" data-en="See Details">자세히
-          보기</a>
-      </div>
-    </div>
-
-    <!-- Laser Evaluation -->
-    <div class="gallery-item">
-      <img src="/assets/Articles/laser.webp" alt="Laser Evaluation">
-      <div class="label-center">Laser Evaluation & Lab. Access</div>
-      <div class="overlay">
-        <h3 style="color: #fff; cursor: default;">Laser Evaluation & Lab. Access</h3>
-        <p class="gallery-text-ko" style="cursor: default;">레이저를 이용한 내방사선 평가 및 시설 대여 서비스</p>
-        <p class="gallery-text-en" style="display: none; cursor: default;">Laser-based radiation evaluation and lab. access service</p>
-        <a href="/ko/pulsedlaser.html" class="button gallery-btn" data-ko="자세히 보기" data-en="See Details">자세히 보기</a>
-      </div>
-    </div>
-
-    <!-- Radiation Hardness Evaluation -->
-    <div class="gallery-item">
-      <img src="/assets/Articles/space2.jpg" alt="Radiation Hardness Evaluation">
-      <div class="label-center">Radiation Hardness Evaluation</div>
-      <div class="overlay">
-        <h3 style="color: #fff; cursor: default;">Radiation Hardness Evaluation</h3>
-        <p class="gallery-text-ko" style="cursor: default;">방사선 내성(내방사선) 평가 대행 서비스</p>
-        <p class="gallery-text-en" style="display: none; cursor: default;">Radiation Hardness Evaluation Services</p>
-        <a href="/ko/article/3.방사선-내성-평가.html" class="button gallery-btn" data-ko="자세히 보기" data-en="See Details">자세히 보기</a>
-      </div>
-    </div>
-
-  </div>
-
-
-  <!-- 본문 -->
-  <div style="display: flex; margin: 0 20px; padding: 0 5% 0; gap: 40px; flex-wrap: wrap;">
-
-    <!-- 좌측: About -->
-    <div class="content" style="flex: 1; min-width: 300px;">
-      <div class="post-content">
-        
-        
-        
-        <div id="about-ko"><h2 id="laser2cots">LASER2COTS</h2>
-<blockquote>
-  <p><strong>LASER2COTS</strong>는 QRT에서 진행한 반도체 레이저 SEE(Single Event Effect) 평가 결과와 관련 기술 정보를 공유하기 위해 오픈한 페이지 입니다.<br />
-QRT에서 진행한 레이저 기반 SEE 평가에 대한 사례, 기술 자료, 그리고 엔지니어가 직접 레이저 장비를 조작하기 위한 매뉴얼을 제공하고 이를 통해 연구자와 개발자들이 필요한 정보를 쉽게 얻고 활용할 수 있도록 구성되어 있습니다.<br />
-QRT에서 제시하는 반도체 신뢰성 평가의 최신 기술 동향과 실용적 인사이트, New Standard를 LASER2COTS에서 확인하세요.</p>
-</blockquote>
-
-<h2 id="qrt-lite">QRT-LITE</h2>
-<blockquote>
-  <p>QRT-LITE(Laser Irradiation Tools for Evaluation)는 Pulsed Laser를 통해 우주 방사선이 반도체 소자에 미치는 영향을 모사하여 기존 방사선 시험을 대체하여 평가를 수행할 수 있도록 도와주는 프로그램입니다.</p>
-</blockquote>
-</div>
-        
-        
-        <div id="about-en" style="display: none;"><h2 id="laser2cots">LASER2COTS</h2>
-<blockquote>
-  <p><strong>LASER2COTS</strong> is a page created by QRT to share semiconductor laser SEE (Single Event Effect) evaluation results and related technical information.<br />
-It provides case studies, technical documents, and manuals for engineers to directly operate laser equipment based on SEE evaluations conducted by QRT. The site is designed to help researchers and developers easily access and utilize the necessary information.<br />
-Discover the latest trends in semiconductor reliability evaluation, practical insights, and New Standards presented by QRT on LASER2COTS.</p>
-</blockquote>
-
-<h2 id="qrt-lite">QRT-LITE</h2>
-<blockquote>
-  <p>QRT-LITE (Laser Irradiation Tools for Evaluation) is a program that simulates the effects of space radiation on semiconductor devices using pulsed lasers, enabling evaluation as an alternative to conventional radiation testing.</p>
-</blockquote>
-</div>
-        
-      </div>
-    </div>
-
-    <!-- 우측: Articles -->
-<div class="content" style="flex: 1; min-width: 300px;">
-  <header class="post-header home">
-    <div class="post-title">Articles</div>
-  </header>
-
-  <div class="post-content">
-    
-    
-    
-    <ul class="post-list" id="post-list">
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/4.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80.html">Semiconductor Radiation Hardness Laser Evaluation (Laser Test)</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/4.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80.html">반도체 방사선 내성 (내방사선) 레이저 평가</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/2.SPA-%EC%99%80-TPA.html">SPA vs TPA</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/2.SPA-%EC%99%80-TPA.html">SPA vs TPA</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/11.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0-(%EB%B9%84%EC%9A%A9%EC%A0%81-%EC%B8%A1%EB%A9%B4).html">레이저 평가가 필요한 이유 (비용적 측면)</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/11.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0-(%EB%B9%84%EC%9A%A9%EC%A0%81-%EC%B8%A1%EB%A9%B4).html">Why Laser Evaluation is Necessary (Cost Perspective)</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/17.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80-%EC%A0%81%EC%9A%A9-%EA%B7%BC%EA%B1%B0.html">Laser Evaluation Based on NASA Documents</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/17.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80-%EC%A0%81%EC%9A%A9-%EA%B7%BC%EA%B1%B0.html">NASA 문건으로 본 레이저 평가</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/9.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80-%EC%84%B8%EA%B3%84%EB%8F%99%ED%96%A5.html">레이저 평가의 글로벌 동향</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/20.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80%EA%B0%80%EB%8A%A5%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4.html">Analysis of Laser Evaluation Feasibility by Semiconductor Package Type</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/20.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80%EA%B0%80%EB%8A%A5%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4.html">반도체 패키지 타입별 SEE 레이저 평가 가능성 분석</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/14.%EB%B0%98%EB%8F%84%EC%B2%B4%EC%86%8C%EC%9E%AC.html">Comparison of Band Gaps and Optical Absorption Mechanisms of Semiconductor Substrates</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/14.%EB%B0%98%EB%8F%84%EC%B2%B4%EC%86%8C%EC%9E%AC.html">반도체 기판의 밴드갭 및 광흡수 메커니즘 비교</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/30.QRTlaser.html">Strengths of QRT Laser Testing</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/30.QRTlaser.html">QRT Laser Testing(레이저 평가)의 강점</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/28.radiationEffects.html">방사선이 반도체에 미치는 영향</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/28.radiationEffects.html">Radiation Effects on Semiconductors</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="en">
-        <a class="post-link" href="/en/article/3.%EB%B0%A9%EC%82%AC%EC%84%A0-%EB%82%B4%EC%84%B1-%ED%8F%89%EA%B0%80.html">Radiation Hardness Test</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/3.%EB%B0%A9%EC%82%AC%EC%84%A0-%EB%82%B4%EC%84%B1-%ED%8F%89%EA%B0%80.html">방사선 내성 평가(Radiation Hardness Test); 내방사선 평가</a>
-        
-      </li>
-      
-      <li class="post-list-item" data-lang="ko">
-        <a class="post-link" href="/ko/article/1.-SEE.html">SEE (Single Event Effect)란?</a>
-        
-      </li>
-      
-    </ul>
-
-    <div class="qrt-button-wrapper" style="text-align: center; margin-top: 20px;">
-      <a id="more-button" href="/category/#article" class="qrt-button">더 많은 글 보기</a>
-    </div>
-    
-  </div>
-</div>
-
-<!-- 언어별 필터링 JavaScript 추가 -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const currentLang = localStorage.getItem('lang') || 'ko';
-    const listItems = document.querySelectorAll('#post-list .post-list-item');
-
-    let shown = 0;
-    const maxPosts = 10;
-
-    listItems.forEach(item => {
-      const lang = item.dataset.lang || 'ko';
-      if (lang === currentLang && shown < maxPosts) {
-        item.style.display = 'list-item';
-        shown++;
-      } else {
-        item.style.display = 'none';
-      }
-    });
-
-    // 더보기 버튼 텍스트도 변경
-    const moreBtn = document.getElementById('more-button');
-    if (moreBtn) {
-      moreBtn.textContent = currentLang === 'en' ? 'See More Articles' : '더 많은 글 보기';
-    }
-  });
-</script>
-
-
-  </div>
-
-<!-- News Section -->
-<div class="news-section">
-  <header class="post-header home">
-    <div class="post-title">News</div>
-  </header>
-
-  <div class="news-list" id="news-list">
-    
-    
-    <a href="/ko/news/SERESSA2025.html" class="news-item" data-lang="ko">
-      <div class="news-meta">
-        <span class="news-title">SERESSA 2025 개최</span>
-        <span class="news-date">2025-09-22</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="/assets/Articles/SERESSAlogo.webp" alt="SERESSA 2025 개최">
-      </div>
-    </a>
-    
-    <a href="/en/news/KRISSMOU.html" class="news-item" data-lang="en">
-      <div class="news-meta">
-        <span class="news-title">QRT Signs MOU with KRISS to C…</span>
-        <span class="news-date">2025-08-21</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="/assets/Articles/MOU.webp" alt="QRT Signs MOU with KRISS to Cooperate on Radiation-Hardness Testing, Analysis, and Certification">
-      </div>
-    </a>
-    
-    <a href="/ko/news/KRISSMOU.html" class="news-item" data-lang="ko">
-      <div class="news-meta">
-        <span class="news-title">큐알티, KRISS와 내방사선 시험·분석·인증 협력 …</span>
-        <span class="news-date">2025-08-21</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="/assets/Articles/MOU.webp" alt="큐알티, KRISS와 내방사선 시험·분석·인증 협력 MOU 체결">
-      </div>
-    </a>
-    
-    <a href="/en/news/ASSIC2025Review.html" class="news-item" data-lang="en">
-      <div class="news-meta">
-        <span class="news-title">ASSIC 2025 Review</span>
-        <span class="news-date">2025-05-21</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="/assets/Articles/큐알티.webp" alt="ASSIC 2025 Review">
-      </div>
-    </a>
-    
-    <a href="/ko/news/ASSIC2025Review.html" class="news-item" data-lang="ko">
-      <div class="news-meta">
-        <span class="news-title">ASSIC 2025 Review</span>
-        <span class="news-date">2025-05-21</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="/assets/Articles/큐알티.webp" alt="ASSIC 2025 Review">
-      </div>
-    </a>
-    
-    <a href="/ko/news/ASSIC2025.html" class="news-item" data-lang="ko">
-      <div class="news-meta">
-        <span class="news-title">ASSIC 2025 개최</span>
-        <span class="news-date">2025-05-14</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="assets\Articles\ASSIC2025.webp" alt="ASSIC 2025 개최">
-      </div>
-    </a>
-    
-    <a href="/en/news/ASSIC2025.html" class="news-item" data-lang="en">
-      <div class="news-meta">
-        <span class="news-title">ASSIC 2025 to Be Held</span>
-        <span class="news-date">2025-05-14</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="assets\Articles\ASSIC2025.webp" alt="ASSIC 2025 to Be Held">
-      </div>
-    </a>
-    
-    <a href="/en/news/%EC%9A%B0%EC%A3%BC%EB%B0%98%EB%8F%84%EC%B2%B4%ED%85%8C%EC%8A%A4%ED%8A%B8.html" class="news-item" data-lang="en">
-      <div class="news-meta">
-        <span class="news-title">[Video] Space Semiconductor T…</span>
-        <span class="news-date">2025-04-29</span>
-      </div>
-      <div class="news-thumbnail">
-        <img src="https://img.youtube.com/vi/_6l7bhIXtJw/maxresdefault.jpg" alt="[Video] Space Semiconductor Testing Without a Heavy Ion Accelerator?">
-      </div>
-    </a>
-    
-  </div>
-
-  <div class="qrt-button-wrapper" style="text-align: center; margin-top: 30px;">
-    <a id="news-more-button" href="/category/#news" class="qrt-button">더 많은 뉴스 보기</a>
-  </div>
-</div>
-
-
-</article>
-
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     new Typed('#typing-text', {
-      strings: ["Welcome to LASER2COTS<br>Explore what we do with the lasers😀"],
+      strings: ["Welcome to QRT ECSS Archive"],
       typeSpeed: 30,
       showCursor: true,
       cursorChar: '|',

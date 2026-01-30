@@ -21,11 +21,11 @@
 <meta property="og:url" content="http://localhost:4000/manuals_lite_kor/ch1/" />
 <meta property="og:site_name" content="LASER2COTS" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-01-23T16:09:09+09:00" />
+<meta property="article:published_time" content="2026-01-30T16:28:22+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="QRT-LITE (KOR) - Chapter 1" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-23T16:09:09+09:00","datePublished":"2026-01-23T16:09:09+09:00","headline":"QRT-LITE (KOR) - Chapter 1","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/manuals_lite_kor/ch1/"},"url":"http://localhost:4000/manuals_lite_kor/ch1/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-01-30T16:28:22+09:00","datePublished":"2026-01-30T16:28:22+09:00","headline":"QRT-LITE (KOR) - Chapter 1","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/manuals_lite_kor/ch1/"},"url":"http://localhost:4000/manuals_lite_kor/ch1/"}</script>
 <!-- End Jekyll SEO tag -->
 
 	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
@@ -71,17 +71,37 @@
     <div class="sidebar">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-
-<div class="sidebar-item sidebar-header">
-	<div class="sidebar-brand">
-	<a href="/" class="sidebar-logo">
-		<img src="/assets/laser_logo2.png" alt="Logo">
-		<span class="logo-by-qrt"><em>By QRT</em></span>
-		<!--span>LASER2COTS</span-->
-	</a>
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
+			ECSS Archive
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Connectors</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Fuses</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Intergrated Circuits</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+	</ul>
 </div>
 
-	<p class="lead"></p></div>
 
 <!-- 언어 선택 버튼 (데스크탑 전용) -->
 <div id="lang-switch" style="text-align: center; margin-top:10px ;">
@@ -89,129 +109,6 @@
 	<span class="lang-divider" style="margin: 0 6px;">|</span>
 	<span id="lang-en" class="lang-toggle" style="cursor: pointer; margin-left: 8px;">EN</span>
 </div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 👤 아이콘 추가된 About 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
-		</li>
-
-		<!-- Home 항목 먼저 -->
-		<li>
-			<a class="nav-item" href="/">Home</a>
-		</li>
-
-		<!-- About LASER2COTS만 먼저 표시 -->
-		<li>
-			<a id="about-laser2cots-link" class="nav-item" href="/about/">About LASER2COTS</a>
-		</li>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const currentLang = localStorage.getItem('lang') || 'ko';
-				const aboutLink = document.getElementById('about-laser2cots-link');
-				if (!aboutLink) return;
-
-				aboutLink.href = currentLang === 'en' ? '/en/about/' : '/ko/about/';
-			});
-		</script>
-
-
-
-
-		<!-- QRT homepage -->
-		<li>
-			<a id="qrt-home-link" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
-				QRT homepage
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i>
-			Services
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/upscreen.html">Up-Screening</a>
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/pulsedlaser.html">Pulsed Laser</a>
-		</li>
-		<li>
-			<a id="more-services-link" class="nav-item" href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php"
-				target="_blank">
-				More Services
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
-			QRT - LITE Manual
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="/manuals/#lite_kor">
-				<span class="name">KOR</span>
-				<!--span class="badge">76</span-->
-			</a>
-		</li>
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 🗂️ 아이콘 추가 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
-			contents
-		</li>
-
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#news">
-				<span class="name">news</span>
-				<span class="badge">5</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#publications">
-				<span class="name">publications</span>
-				<span class="badge">3</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#article">
-				<span class="name">article</span>
-				<span class="badge">30</span>
-			</a>
-		</li>
-		
-	</ul>
-</div>
-
 
 
 
@@ -480,9 +377,8 @@
 	<ul id="results-container" class="search-results" style="margin-top: 10px; list-style: none; padding-left: 0;"></ul>
 	<p id="no-results" style="margin-top: 10px; color: #000; display: none;">검색 결과가 없습니다</p>
 </div>
-
-
 <!-- 검색 패널 끝 -->
+
 
 <div class="sidebar-item sidebar-footer" style="font-size: 0.8em; text-align: center; margin-top: 20px;">
 	<p>
@@ -769,149 +665,17 @@
     </div>
 
     <ul class="toc-list" id="toc-list"><li class="toc-group">Chapter 1</li><li class="toc-item" style="padding-left: 0px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch1/#m1000">1. About QRT-LITE</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch1/#m1100">1.1. About QRT Laser Evaluation System</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch1/#m1110">1.1.1. QRT Femtosecond laser spec.</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch1/#m1200">1.2. 레이저 평가 방법</a>
+        <a class="toc-link" href="/manuals_lite_kor/ch1/#m1000">IC&#39;s Generic</a>
       </li><li class="toc-group">Chapter 2</li><li class="toc-item" style="padding-left: 0px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2000">2. Test Guide</a>
+        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2000">MMIC Generic and Sectional Basic Spec.</a>
       </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2100">2.1.	레이저 조사 준비하기</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2110">2.1.1.	DUT 준비</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2120">2.1.2.	에너지 측정하기</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2130">2.1.3.	DUT 수평 맞추기</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2140">2.1.4.	Chip Image 준비</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2141">2.1.4.1.	스크린 샷을 이용한 촬영</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2142">2.1.4.2.	Stitch를 이용한 촬영</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2143">2.1.4.3.	Chip Image Setting</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2150">2.1.5.	위치정보 Set-Up</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2151">2.1.5.1.	위치정보 수정</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2160">2.1.6. 초점(Focus) 잡기</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2161">2.1.6.1. 자동으로 Focus 잡기</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2162">2.1.6.2. 수동으로 Focus 잡기</a>
+        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2100">Internal Visual inspection of Monolithic Microwave Intergrated Circuits</a>
       </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2200">2.2.	테스트 수행하기</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2210">2.2.1.	스캔 영역을 지정하여 테스트하기</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2220">2.2.2.	수동으로 테스트하기</a>
+        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2200">Evaluation Test Programme for Monolithic Microwave Intergrated Circuits (MMICs)</a>
       </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2300">2.3.	QRT SEE Analysis System 장비로 평가하기</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2310">2.3.1. Intelligent SEU Manager(ISM) 설정하기</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2400">2.4.	오실로스코프를 사용해서 평가하기</a>
+        <a class="toc-link" href="/manuals_lite_kor/ch2/#m2300">Requirements for Capability Approval of Monolithic Microwave Intergrated Circuits (MMICs)</a>
       </li><li class="toc-group">Chapter 3</li><li class="toc-item" style="padding-left: 0px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3000">3.	프로그램</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3100">3.1.	메인 화면</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3110">3.1.1.	간단한 조작버튼</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3120">3.1.2.	Image View</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3121">3.1.2.1.	Chip Image</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3122">3.1.2.2.	IR Camera</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3123">3.1.2.3.	Visual Camera</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3124">3.1.2.4.	Laser</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3125">3.1.2.5.	Webcam</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3130">3.1.3.	이미지 좌표 입력</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3140">3.1.4.	패널 오픈</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3150">3.1.5.	창 크기</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3200">3.2.	Control 패널</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3210">3.2.1. Main 탭</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3220">3.2.2. Motion 탭</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3221">3.2.2.1.	XYZ</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3222">3.2.2.2.	Objective (대물렌즈)</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3223">3.2.2.3.	Goniometer(각도 제어 장치)</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3224">3.2.2.4.	Piezo</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3230">3.2.3. Control 탭</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3231">3.2.3.1.	Shutter 탭</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3232">3.2.3.2.	Pulse 탭</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3233">3.2.3.3.	PEM(Pulse Energy Meter)탭</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3234">3.2.3.4.	Energy탭</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3240">3.2.4.	Setting 탭</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3241">3.2.4.1.	Connection</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3242">3.2.4.2.	Settings</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3300">3.3.	Auto Focus 패널</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3310">3.3.1.	Focus 탭</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3320">3.3.2.	Corner Detection 탭</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3330">3.3.3.	Level 탭</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3400">3.4.	Scan 패널</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3410">3.4.1.	Create Scan Item</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3420">3.4.2.	Scan Setting</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3430">3.4.3.	Scan 시작</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3500">3.5.	Point 패널</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3600">3.6.	Stitch 패널</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3610">3.6.1.	Auto Image Scan</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3620">3.6.2.	Calibrate</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3630">3.6.3.	Visual, IR Stitch</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3700">3.7.	Keysight MSO 패널</a>
-      </li><li class="toc-item" style="padding-left: 20px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3710">3.7.1.	오실로스코프(MSO)를 이용한 트리거 측정</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3711">3.7.1.1.	측정 실행</a>
-      </li><li class="toc-item" style="padding-left: 30px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3712">3.7.1.2.	오실로스코프(MSO)를 이용한 민감 영역 분석(Sensitive Area) 이미지 생성</a>
-      </li><li class="toc-group">Chapter 4</li><li class="toc-item" style="padding-left: 0px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch4/#m4000">4.	그 밖의 주변 장치</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch4/#m4100">4.1.	Light Box</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch4/#m4200">4.2.	Laser &amp; Shutter Controller</a>
-      </li><li class="toc-item" style="padding-left: 10px;">
-        <a class="toc-link" href="/manuals_lite_kor/ch4/#m4300">4.3.	XY Stage Controller</a>
+        <a class="toc-link" href="/manuals_lite_kor/ch3/#m3000">High Speed CMOS 54HC Series</a>
       </li></ul>
   </nav>
 
@@ -1076,119 +840,9 @@
           
           
           margin-top: 8px;">
-        <h1 id="1-qrt-lite">1. QRT-LITE</h1>
+        <h1 id="test">Test</h1>
 
-<p>QRT-LITE(Laser Irradiation Tools for Evaluation)는 Pulsed Laser를 통해 우주 방사선이 반도체 소자에 미치는 영향을 모사하여 기존 방사선 시험을 대체하여 평가를 수행할 수 있도록 도와주는 프로그램입니다.</p>
-
-<p><br /></p>
-
-      </div><hr class="gray-hr"><!-- ✅ 앵커(목차에서 #mXXXX로 점프) -->
-      <div id="m1100" style="scroll-margin-top:90px;"></div>
-
-      <!-- ✅ 목차랑 “똑같은 스타일” 그대로 복붙 --><div style="font-size: 1.5em; font-weight: 600; padding-left: 20px; margin-top: 18px;"></div><!-- ✅ 본문 -->
-      <div style="
-          
-          
-          
-          
-          margin-top: 8px;">
-        <h1 id="11-qrt-laser-evaluation-system">1.1. QRT Laser Evaluation System</h1>
-
-<p>QRT Laser Evaluation System은 Pulsed Laser를 통해 우주 방사선이 반도체 소자에 미치는 영향을 모사하여 기존 방사선 시험을 대체하여 평가를 수행하는 장비입니다.</p>
-
-<p><img align="center" src="/assets/Articles/QRT-laser.webp" alt="Laser Evaluation system" /></p>
-
-<p><br /></p>
-
-      </div><hr class="gray-hr"><!-- ✅ 앵커(목차에서 #mXXXX로 점프) -->
-      <div id="m1110" style="scroll-margin-top:90px;"></div>
-
-      <!-- ✅ 목차랑 “똑같은 스타일” 그대로 복붙 --><div style="font-size: 1.2em; font-weight: 500; padding-left: 40px; margin-top: 14px;"></div><!-- ✅ 본문 -->
-      <div style="
-          
-          
-          
-          
-          margin-top: 8px;">
-        <h1 id="111-qrt-femtosecond-laser-spec">1.1.1.	QRT Femtosecond laser spec.</h1>
-
-<p>QRT는 현재 RADTEST의 SEREEL2 장비를 기반으로 최고 수준의 SEE 평가 서비스를 제공합니다.
-이 장비는 630nm~1700nm의 파장의 Femtosecond Pulsed Laser를 이용해 SPA 및 TPA를 모두 수행 가능합니다. S/W 자체 개발을 통해 사용자 편의성과 분석 정확도 및 효율성을 향상시켰고 고객의 요구사항에 맞춰 정밀한 SEE 평가 서비스를 제공하거나 연구기관 및 기업에 Pulsed Laser 시설 대여를 하고 있습니다.</p>
-
-<!-- 이미지 설명 -->
-<div align="center">
-  <h5>Table 1. Pulsed Laser Specifications</h5>
-</div>
-
-<div align="center">
-
-  <table>
-    <thead>
-      <tr>
-        <th style="text-align: center">Parameter</th>
-        <th style="text-align: center">Min</th>
-        <th style="text-align: center">Max</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="text-align: center">파장</td>
-        <td style="text-align: center">630 nm</td>
-        <td style="text-align: center">1700 nm</td>
-      </tr>
-      <tr>
-        <td style="text-align: center">펄스 폭</td>
-        <td style="text-align: center">200 fs</td>
-        <td style="text-align: center">-</td>
-      </tr>
-      <tr>
-        <td style="text-align: center">주파수</td>
-        <td style="text-align: center">1 Hz</td>
-        <td style="text-align: center">1 kHz</td>
-      </tr>
-      <tr>
-        <td style="text-align: center">에너지</td>
-        <td style="text-align: center">30 pJ</td>
-        <td style="text-align: center">30 nJ</td>
-      </tr>
-    </tbody>
-  </table>
-
-</div>
-
-<!-- 이전/다음 페이지 버튼 -->
-
-      </div><hr class="gray-hr"><!-- ✅ 앵커(목차에서 #mXXXX로 점프) -->
-      <div id="m1200" style="scroll-margin-top:90px;"></div>
-
-      <!-- ✅ 목차랑 “똑같은 스타일” 그대로 복붙 --><div style="font-size: 1.5em; font-weight: 600; padding-left: 20px; margin-top: 18px;"></div><!-- ✅ 본문 -->
-      <div style="
-          
-          
-          
-          
-          margin-top: 8px;">
-        <h1 id="12-레이저-평가-방법">1.2 레이저 평가 방법</h1>
-
-<p>SEE(Single Event Effect)란 방사선 입자(중이온, 양성자, 중성자, 감마선 등)에 의해 반도체 소자의 기능이 점진적, 일시적 혹은 순간적으로 변화되거나 기능 일부 혹은 전체가 상실되는 현상을 말합니다.</p>
-
-<p>일반적으로 SEE의 평가는 빔 가속 시설에서 이뤄집니다. 하지만 이는 고가의 시설 대여료, 공간의 제약, 정밀한 취약점 분석 불가 등의 단점이 존재합니다.</p>
-
-<p>펨토 초 펄스레이저를 이용한 레이저 평가인 Pulsed Laser SEE Test (PLSEE)는 Pulsed Laser를 통해 우주 방사선이 반도체 소자에 미치는 영향을 모사하여 기존 방사선 시험을 대체하여 평가를 수행하는 방법입니다.</p>
-
-<p><br /> <!-- 한줄 띄기 --></p>
-
-<!-- 중앙 정렬 이미지 -->
-<p align="center"> 
-  <img src="/assets/Chapter-1/fig_1_heavy-ion_vs_pulsed_laser.png" />
-</p>
-
-<!-- 이미지 설명 -->
-<div align="center">
-  <h5>Figure 1. 중이온과 Femtosecond pulsed Laser (이하 Pulsed Laser)</h5>
-</div>
-
-<p><br /></p>
+<p>Test</p>
 
       </div></div>
   </div>

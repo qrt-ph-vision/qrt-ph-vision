@@ -70,17 +70,37 @@
     <div class="sidebar">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-
-<div class="sidebar-item sidebar-header">
-	<div class="sidebar-brand">
-	<a href="/" class="sidebar-logo">
-		<img src="/assets/laser_logo2.png" alt="Logo">
-		<span class="logo-by-qrt"><em>By QRT</em></span>
-		<!--span>LASER2COTS</span-->
-	</a>
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
+			ECSS Archive
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Connectors</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Fuses</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">Intergrated Circuits</span>
+				<!--span class="badge">10</span-->
+			</a>
+		</li>
+	</ul>
 </div>
 
-	<p class="lead"></p></div>
 
 <!-- 언어 선택 버튼 (데스크탑 전용) -->
 <div id="lang-switch" style="text-align: center; margin-top:10px ;">
@@ -88,129 +108,6 @@
 	<span class="lang-divider" style="margin: 0 6px;">|</span>
 	<span id="lang-en" class="lang-toggle" style="cursor: pointer; margin-left: 8px;">EN</span>
 </div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 👤 아이콘 추가된 About 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
-		</li>
-
-		<!-- Home 항목 먼저 -->
-		<li>
-			<a class="nav-item" href="/">Home</a>
-		</li>
-
-		<!-- About LASER2COTS만 먼저 표시 -->
-		<li>
-			<a id="about-laser2cots-link" class="nav-item" href="/about/">About LASER2COTS</a>
-		</li>
-
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				const currentLang = localStorage.getItem('lang') || 'ko';
-				const aboutLink = document.getElementById('about-laser2cots-link');
-				if (!aboutLink) return;
-
-				aboutLink.href = currentLang === 'en' ? '/en/about/' : '/ko/about/';
-			});
-		</script>
-
-
-
-
-		<!-- QRT homepage -->
-		<li>
-			<a id="qrt-home-link" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
-				QRT homepage
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i>
-			Services
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/upscreen.html">Up-Screening</a>
-		</li>
-		<li>
-			<a class="nav-item" href="/ko/pulsedlaser.html">Pulsed Laser</a>
-		</li>
-		<li>
-			<a id="more-services-link" class="nav-item" href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php"
-				target="_blank">
-				More Services
-			</a>
-		</li>
-
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
-			QRT - LITE Manual
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="/manuals/#lite_kor">
-				<span class="name">KOR</span>
-				<!--span class="badge">76</span-->
-			</a>
-		</li>
-	</ul>
-</div>
-
-
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 🗂️ 아이콘 추가 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
-			contents
-		</li>
-
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#news">
-				<span class="name">news</span>
-				<span class="badge">5</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#publications">
-				<span class="name">publications</span>
-				<span class="badge">3</span>
-			</a>
-		</li>
-		
-		
-		
-		<li>
-			<a class="nav-item" href="/category/#article">
-				<span class="name">article</span>
-				<span class="badge">30</span>
-			</a>
-		</li>
-		
-	</ul>
-</div>
-
 
 
 
@@ -479,9 +376,8 @@
 	<ul id="results-container" class="search-results" style="margin-top: 10px; list-style: none; padding-left: 0;"></ul>
 	<p id="no-results" style="margin-top: 10px; color: #000; display: none;">검색 결과가 없습니다</p>
 </div>
-
-
 <!-- 검색 패널 끝 -->
+
 
 <div class="sidebar-item sidebar-footer" style="font-size: 0.8em; text-align: center; margin-top: 20px;">
 	<p>
