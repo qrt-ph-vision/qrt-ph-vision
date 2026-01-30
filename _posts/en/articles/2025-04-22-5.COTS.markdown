@@ -1,0 +1,78 @@
+---
+layout: post
+title: COTS (Commercial off-the-shelf)
+description: COTS (Commercial Off-The-Shelf) components offer cost and time savings in space systems, but require robust validation and protection strategies to ensure reliability in harsh environments.
+date: 2025-03-26 00:00:00 +0900
+category: article
+lang: en
+permalink: en/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3004
+---
+
+# What is COTS?
+
+With the increasing involvement of the private sector in the space industry, Commercial Off-The-Shelf (COTS) products are gaining traction as viable options for space system development.  
+Unlike space components-typically more costly and slower to procure-COTS components are mass-produced for commercial markets, offering advantages such as reduced costs, shorter development cycles, and faster integration of cutting-edge technologies. 
+These characteristics make COTS especially attractive to startups and small research institutions. 
+<br>
+In terms of cost, COTS components benefit from economies of scale, significantly lowering overall system expenses. 
+As for development time, leveraging pre-validated commercial products greatly reduces the duration required for design, manufacturing, and testing. 
+Another notable advantage is the ability to rapidly incorporate high-performance technologies that evolve quickly in the commercial sector into space systems. 
+However, despite these benefits, the use of COTS components presents key challenges in terms of reliability, quality assurance, and environmental robustness.  
+<br>
+COTS components are typically designed for terrestrial applications, and may degrade or fail under space conditions-high radiation, vacuum, and temperature extremes/thermal cycling. 
+Their lack of space-specific screening/qualification and limited long-term durability can pose serious risks to mission success. 
+<br/>
+To mitigate these risks, thorough testing and screening processes are essential. In addition, incorporate system-level strategies such as redundancy, fault-tolerant architectures, radiation shielding, and thermal control. 
+Ensuring reliability requires a holistic approach that extends beyond the component level to include system-level safeguards and verification/validation.
+<br/>
+In conclusion, while COTS components offer a promising path to faster, more cost-effective space development, their application must be supported by rigorous verification procedures and robust design strategies. 
+A balanced approach that carefully weighs their advantages against potential risks is critical for the success of space missions.
+
+<p align="center"> 
+  <img src="/assets/Articles/COTS2.webp" alt="COTS" style="width: 100%; max-width: 400px;">
+</p>
+
+QRT offers up-screening services to qualify COTS components for deployment in space environments.  
+For further information, please contact us via the [Inquiry](https://www.qrtkr.com/en/customer/inquiry.php) page.
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

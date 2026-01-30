@@ -1,0 +1,85 @@
+---
+layout: post
+title: How Was SEU Discovered? A Historical Insight into Radiation-Induced Failures in Electronic Circuits
+description: A technical archive tracing the origin of Single Event Upsets (SEUs) from 1950s nuclear tests to the satellite-driven era after 2000. This post outlines the formation of SEE concepts and their scientific validation with key published data.
+category: article
+lang: en
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2013
+---
+
+Single Event Effects (SEE) are temporary or permanent malfunctions in semiconductor devices caused by ionizing radiation such as cosmic rays, alpha particles, or heavy ions. Manifestations range from soft errors like Single Event Upsets (SEUs) to catastrophic failures. The SEE concept emerged gradually in the mid-20th century and was reinforced by decades of experiments and field observations. This post traces the historical development of SEE-particularly SEU-through key publications and technical milestones.
+
+### 1950s: First Anomalies Observed
+
+U.S. atmospheric nuclear tests in the 1950s produced unexplained electrical disturbances in nearby instrumentation, even when no mechanical damage was present. Reports from large-yield series such as Operation Castle (1954-1957) noted intermittent glitches in high-speed electronics. Although poorly understood at the time, these observations are now viewed as early hints of radiation-induced upsets.
+
+### 1960s: Unexplained Errors in Space Electronics
+
+With the acceleration of the space race, sporadic faults were recorded in satellite and spacecraft electronics. Organizations including NASA and industry partners documented repeat anomalies whose causes were unclear-often attributed to design limitations or unknown environmental factors. These incidents later became touchstones once SEU mechanisms were recognized.
+
+### 1970s to 2000: Conceptualization and Experimental Verification
+
+The 1970s marked the era when the term Single Event Upset (SEU) first emerged and was scientifically established. The anomaly of the Hughes satellite in 1972 brought attention to circuit failures caused by high-energy particles, and this was numerically proven in the first SEU paper in 1975. Subsequently, through ground-based errors in the Cray-1 supercomputer, alpha-particle induced SEUs, and heavy ion experiments, it was confirmed that SEEs also occur in terrestrial environments. This led to the widespread adoption of the term 'SEU' within academia and industry.
+
+### 2000s and Beyond: Large-Scale Systems and the Satellite Boom
+
+With the growth of large-scale data centers and the increase in memory density since the 2000s, the possibility of soft errors has risen even in terrestrial environments. Simultaneously, due to the rapid growth of space observation and commercial satellite industries, interest in SEE (Single Event Effects) in space environments has surged. Recently, thousands of satellites are launched annually, making the selection of SEE-hardened semiconductor devices and the evaluation of their reliability a critical issue.
+
+<p align="center">
+<img src="/assets/Articles/Satellite.webp" style="width: 100%; max-width: 500px;" alt="Satellite">
+</p>
+<div align="center"> 
+<h5>View of the damaged Solar Maximum Mission Satellite from the 41-C Challenger</h5>
+</div>
+
+### References
+
+> [1] D. Binder, E. C. Smith, and A. B. Holman, "Satellite anomalies from galactic cosmic rays," IEEE Transactions on Nuclear Science, vol. NS-22, no. 6, pp. 2675-2680, Dec. 1975. doi: 10.1109/TNS.1975.4328188  
+> [2] E. Normand et al., "First record of single-event upset on the ground, Cray-1 computer at Los Alamos in 1976," IEEE Transactions on Nuclear Science, vol. 57, no. 6, pp. 3114-3120, Dec. 2010.  
+> [3] T. C. May and M. H. Woods, "A new mechanism for soft errors in dynamic memories," in Proc. Int. Reliability Physics Symposium, 1978, pp. 33-40.  
+> [4] J. F. Ziegler and W. A. Lanford, "The effects of cosmic rays on computer memories," Science, vol. 206, no. 4420, pp. 776-788, Nov. 1979. doi: 10.1126/science.206.4420.776  
+> [5] LBNL, "First heavy ion SEE experiment conducted at 88-Inch Cyclotron," Lawrence Berkeley National Laboratory, Berkeley, CA, USA, 1979. [Online]. Available: https://en.wikipedia.org/wiki/Single-event_upset  
+> [6] M. Baze, “Single Event Effects (SEE) Tutorial,” Auburn University, presented at the Single Event Effects Conference, 2011. [Online]. Available: https://eng.auburn.edu  
+> [7] D. Alexander et al., “System-Level SEE Characterization and Modeling,” NASA Electronic Parts and Packaging (NEPP) Workshop, 2017. [Online]. Available: https://nepp.nasa.gov
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

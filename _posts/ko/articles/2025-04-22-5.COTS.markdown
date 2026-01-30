@@ -1,0 +1,67 @@
+---
+layout: post
+title: COTS (Commercial off-the-shelf)
+description: COTS는 상용 기성품으로 우주 시스템의 비용 절감과 개발 기간 단축에 기여하지만, 우주 환경에서의 신뢰성과 내성을 확보하기 위한 검증 및 보호 전략이 필수입니다.
+date: 2025-03-26 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3004
+---
+# COTS란?
+ 우주 산업의 민간 참여가 활발해지며, 상용 기성품(COTS, Commercial Off-The-Shelf)의 활용이 우주 시스템 개발의 대안으로 주목받고 있습니다. COTS 부품은 기존의 고비용·장기개발 중심의 우주 전용 부품과 달리, 상업 시장에서 대량 생산되는 제품을 활용함으로써 비용 절감, 개발 시간 단축, 최신 기술의 빠른 수용 등 다양한 이점을 제공합니다. 이러한 특성은 특히 스타트업이나 소규모 연구기관에게 매력적인 선택지를 제공합니다.<br>
+    비용 측면에서 COTS는 대량 생산으로 인한 낮은 단가 덕분에 전체 시스템 비용을 절감할 수 있으며, 개발 기간 단축 측면에서는 이미 검증된 제품을 사용함으로써 설계·제작·시험에 소요되는 시간을 크게 줄일 수 있습니다. 또한 상업 시장에서 빠르게 발전하는 고성능 기술을 우주 시스템에 신속히 적용할 수 있다는 점도 큰 장점입니다. 하지만 이러한 이점들에도 불구하고 COTS 부품의 활용에는 신뢰성, 품질, 환경 내성 확보라는 중요한 과제가 뒤따릅니다. 
+<br/> <!-- 한줄 띄기 -->
+    COTS는 지구 환경을 기준으로 설계되어 있어 극한 온도, 방사선, 진공 등의 우주 환경에서 성능 저하나 고장을 일으킬 수 있습니다. 품질 인증이나 장기 내구성 보장이 부족한 것도 우주 임무에 큰 위험 요소로 작용합니다.
+<br/> <!-- 한줄 띄기 -->
+    이러한 위험을 줄이기 위해서는 철저한 시험 및 선별, 시스템 수준의 이중화·결함 허용 설계, 그리고 방사선 차폐나 열 제어 같은 보호 기술이 필수적으로 도입되어야 합니다. 단순한 부품 차원을 넘어 시스템 전반에 걸친 통합적 접근이 필요합니다.
+<br/> <!-- 한줄 띄기 -->
+    결론적으로, COTS 부품은 우주 개발의 속도와 경제성을 높이는 데 핵심적인 역할을 할 수 있지만, 그 활용은 체계적인 검증과 보완 전략 없이는 성공적인 우주 임무로 이어지기 어렵습니다. 따라서 기회와 위험을 균형 있게 고려한 신중한 접근이 필요합니다.
+<p align="center"> 
+  <img src="/assets/Articles/COTS2.webp" alt= "COTS" style="width: 100%; max-width: 400px;">
+</p>
+ 
+
+QRT에서는 상용 부품(COTS)의 우주 환경 적용을 위한 Up-Screening 서비스를 제공하고 있습니다.
+서비스에 대한 자세한 문의는 [문의하기](https://www.qrtkr.com/kr/customer/inquiry.php) 페이지를 통해 접수해 주시기 바랍니다.
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

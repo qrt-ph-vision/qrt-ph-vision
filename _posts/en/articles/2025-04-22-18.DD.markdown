@@ -1,0 +1,83 @@
+---
+layout: post
+title: What is DD (Displacement Damage)?
+description: Displacement Damage (DD) refers to bulk degradation in semiconductors caused by high-energy particles disrupting atomic structures. This post explains its definition, key mechanisms like Coulomb and nuclear scattering, and its impact on device performance.
+date: 2025-03-24 00:01:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2005
+lang: en
+---
+
+# DD (Displacement Damage)
+
+Displacement damage (DD) is damage that occurs throughout the bulk of a semiconductor. Unlike total ionizing dose (TID), which primarily affects surface and interface regions, DD impacts the entire bulk. This damage can alter electrical, optical, and thermal properties, leading to performance degradation or even failure.
+<br>
+If DD occurs in active regions-such as the channel of a MOSFET or the base region of a BJT-it can increase recombination, reduce carrier mobility, and slow switching speeds. These effects degrade overall device performance and reliability.
+<br>
+Radiation that typically induces DD includes high-energy electrons, protons, and neutrons, as well as high-energy photons (e.g., gamma rays and X-rays) that generate secondary particles.
+<br><br>
+DD arises primarily from the following four mechanisms:
+
+1. Coulomb scattering: Charged particles (e.g., protons) interact electrostatically with lattice atoms, transferring kinetic energy that deflects atomic trajectories and creates localized disruptions. This is especially significant for proton energies below ~10 MeV.
+
+2. Nuclear elastic scattering: Incident particles such as protons or neutrons collide elastically with silicon nuclei, producing recoil silicon atoms. These recoils generate vacancy and interstitial defects within the crystal lattice.
+
+3. Nuclear inelastic scattering: Energy from the incoming particle excites the silicon nucleus, which subsequently decays by emitting secondary particles or recoils. These emissions further displace atoms and contribute to structural damage.
+
+4. Energy loss of secondary particles and phonon interactions: As energetic secondary particles slow and stop, they interact with phonons in the material. The resulting local lattice vibrations and heating promote additional atomic displacements and disorder.
+
+<p align="center">
+  <img src="/assets/Articles/DD.webp" style="width: 100%; max-width: 500px;" alt="Displacement Damage">
+</p>
+<p align="center">Displacement damage - nuclear elastic interaction</p>
+
+<p align="center">
+  <img src="/assets/Articles/전자산란.webp" style="width: 100%; max-width: 500px;" alt="Electron Scattering">
+</p>
+<p align="center">Electron scattering</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+Image source: [Electron-beam interaction and transmission with sample - Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electron-beam_interaction_and_transmission_with_sample.jpg)  
+Author: Zephyris / CC BY-SA 3.0
+</p>
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,130 @@
+---
+layout: post
+title: 반도체 방사선 영향 평가를 위한 주요 시뮬레이터 소개
+description: 반도체 방사선 영향 분석에 활용되는 주요 시뮬레이터(TCAD, FLUKA, Geant4, CHALICE, OMERE)를 비교 정리한 기술 가이드입니다. SEE, TID, LET, DD 평가를 위한 시뮬레이션 도구의 기능과 활용 사례를 함께 소개합니다.
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2014
+---
+
+# [TCAD](https://www.synopsys.com/manufacturing/tcad.html) - Synopsys
+Synopsys사의 TCAD는 유료 상용 소프트웨어로, 일반적으로 반도체 디바이스의 동작과 제조 공정을 시뮬레이션하는 데 사용됩니다. TCAD를 이용하여 고에너지 이온 충돌 시 생성되는 전자-정공 쌍, 전하 수송, 트랩 생성 등 다양한 방사선 효과를 물리 기반 모델로 구현할 수 있으며, 특히 LET 기반 SEU/SET 분석 및 TID 영향 평가에 널리 사용됩니다.
+Transient Simulation을 통해 시간에 따른 전류 밀도, 전압 이상 현상, 트랜지스터 파라미터 변화 등을 정밀하게 모델링할 수 있습니다. 실제 SEE 실험 전 사전 정량화를 위한 분석도구로 자리 잡고 있습니다.
+
+<p align= "center">
+<img src="/assets/Articles/synopsysTCAD.webp" style="width: 100%; max-width: 500px;" alt= "synopsysTCAD">
+</p>
+<div align="center"> 
+<h5>Synopsys - TCAD</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray; ">
+이미지 출처: © Synopsys Inc. / SIMDET 2021 School Presentation (2021)
+</div>
+
+# [FLUKA](https://fluka.cern/) - CERN, INFN
+FLUKA는 입자 수송 및 물질 상호작용을 정밀하게 시뮬레이션할 수 있는 Monte Carlo 기반의 범용 코드입니다. 비상업적 용도에 한해 무료로 사용 가능하며, 고에너지 물리, 의료물리, 우주방사선 환경 분석 등 다양한 분야에서 사용됩니다.
+방사선 보호, 선량 평가, 물질 내 에너지 침착, 입자 샤워 예측 등에서 정확도 높은 결과를 제공합니다. 특히 DICOM 의료 이미지 기반 3D 시뮬레이션 및 우주 입자에 의한 복잡한 상호작용 모델링이 가능한 것이 큰 장점입니다.
+
+<p align="center"> 
+  <img src="/assets/Articles/fluka.webp" alt= "FLUKA" style="width: 40%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>DICOM 3D voxel irradiation with 200 MeV proton beam</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray; ">
+  이미지 출처: CERN / flair.cern
+</div>
+
+# [Geant4](https://geant4.web.cern.ch/) - CERN
+Geant4는 CERN에서 개발된 오픈소스 C++ 기반 시뮬레이션 툴킷으로, 입자와 물질의 상호작용을 정밀하게 추적하고 분석할 수 있습니다. 물리 모델 설정의 자유도가 매우 높아, 다양한 에너지 범위에서의 복합 반응 분석이 가능합니다.
+의료 영상, 방사선 치료, 우주 방사선, 검출기 개발 등 폭넓게 사용되며, 사용자가 직접 시나리오를 정의하고 세부 물리 과정 선택이 가능한 구조를 가집니다. Geant4는 실험 검출기나 반도체 소자에서 발생하는 2차 입자의 궤적, 에너지 침착, 전하 생성 등을 시뮬레이션하는 데 특히 유리합니다.
+
+<p align="center"> 
+  <img src="/assets/Articles/geant4.webp" alt= "geant4" style="width: 40%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>A 20-GeV-positron-induced shower in a longitudinally unsegmented fiber calorimeter</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray; ">
+  이미지 출처: © CERN / EP News - https://ep-news.web.cern.ch
+</div>
+
+
+# [CHALICE](https://nanohub.org/resources/chalice) - US Naval Research Raboratory
+CHALICE는 미국 해군연구소(NRL)에서 개발한 펄스 레이저 시뮬레이터로 SEE 실험 시 생성되는 전하 밀도 분포를 2D/3D로 정밀하게 계산할 수 있도록 설계되었습니다.
+레이저의 파장, 펄스 폭, 흡수 계수 등을 입력하여 민감 영역(Sensitive Volume, SV)에 침착된 전하량, 전자-정공 분포, 에너지 침투 깊이 등을 시뮬레이션할 수 있으며, 레이저를 통해 실험적으로 모사되는 LET<sub>L</sub> (Laser-equivalent LET)를 산정하는 데 유용합니다.
+
+<p align="center"> 
+  <img src="/assets/Articles/chalice.webp" alt= "chalice" style="width: 40%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>2-D Carrier Density Distribution</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray; ">
+  이미지 출처: Chalice User Manual, Rev 1.0. nanoHUB.org, https://nanohub.org/resources/41038
+</div>
+
+
+# [OMERE](https://www.trad.fr/en/space/omere-software/) - TRAD
+OMERE는 프랑스 TRAD 사가 개발한 프리웨어로, 우주환경에 따른 반도체 부품의 방사선 영향 예측을 위한 전용 플랫폼입니다. 입자 플럭스 기반 SEE, TID, DD, 태양전지 열화 분석을 지원하며, 다양한 우주환경 모델 (AE8/AP8, CREME96, ISO 15390 등)을 포함합니다.
+LEO, MEO, GEO, 달 궤도 환경 설정이 가능하고, 태양주기, 자기권 구조, 쉴딩 효과까지 입력하여 실환경에 근접한 시뮬레이션이 가능합니다. OMERE는 SEE 분석 외에도 부품 등급화, 임무 기반 평가에 실제 적용되고 있습니다.
+
+<p align="center"> 
+  <img src="/assets/Articles/omere.webp" alt= "omere" style="width: 40%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>2-D Carrier Density Distribution</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray; ">
+  이미지 출처: Chalice User Manual, Rev 1.0. nanoHUB.org, https://nanohub.org/resources/41038
+</div>
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

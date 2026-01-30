@@ -1,0 +1,149 @@
+---
+layout: post
+title: 인공위성의 궤도(LEO, GEO)와 방사선 평가
+description: LEO, GEO, GTO 등 다양한 인공위성 궤도에 따른 방사선 환경과 방사선 내성 평가 항목(TID, SEE, GCR, SPE 등)을 비교 분석합니다. 궤도별 주요 방사선원과 차폐 필요성까지 상세히 설명합니다.
+date: 2025-03-11 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3006
+---
+
+# LEO (Low Earth Orbit) - 지구 저궤도
+LEO는 지표로부터 약 2,000km 이하의 고도에 형성된 궤도로, 지구 대기권과 밴 앨런대(Van Allen belts) 사이에 위치합니다.
+이 궤도는 태양 양성자(Solar Protons) 및 은하 우주선(Galactic Cosmic Rays, GCR)의 영향은 비교적 적지만, 밴 앨런대의 트랩된 방사선 영향을 크게 받습니다.
+LEO는 통신, 기상 관측, 과학 탐사 등 다양한 분야에서 폭넓게 활용되며, 현재 운용 중인 대부분의 위성이 이 궤도에 있습니다.
+지구와 가까운 거리 덕분에 고해상도 영상 촬영이 가능하고, 임무 기간은 보통 2~5년입니다. 대표적으로 국제우주정거장(ISS)도 LEO에 위치하며, 약 시속 27,744km의 속도로 하루 15.7회 지구를 공전합니다.
+COTS(Commercial Off-The-Shelf) 부품을 사용할 수 있을 정도로 방사선 환경이 비교적 안정적이기 때문에, 저비용 대량 발사를 통한 위성망 구축(Mega Constellation)에 적합한 궤도입니다.
+
+### VLEO (Very Low Earth Orbit) - 초저궤도
+VLEO는 고도 약 180~400km에 위치한 매우 낮은 지구 궤도입니다.
+지구에 매우 가까워 고정밀 영상 촬영 및 통신 지연 감소에 유리하지만, 대기 저항으로 인해 추진체 연료 소모가 크고 수명이 짧은 단점이 있습니다.
+트랩된 방사선은 거의 존재하지 않으며, 주요 방사선원은 태양 양성자(Solar Protons)입니다.
+
+# MEO (Middle Earth Orbit)
+MEO는 고도 약 2,000 km ~ 35,786 km에 위치한 궤도입니다.
+궤도 주기는 약 2~24시간으로 일반적으로 10~12시간 전후입니다.
+GEO 대비 통신 지연이 낮아 실시간 통신에 유리하고, LEO 대비 커버리지가 넓고 비교적 적은 수의 위성으로 운용이 가능합니다.
+하지만 Van Allen belt에 위치하고 있어 더 많은 방사선에 노출되므로 소자 설계 시 방사선 내성 설계가 필수적입니다.
+GPS등 항법 위성이 이 궤도를 사용하고 있습니다.
+
+
+
+
+# GEO (Geostationary orbit) - 정지궤도
+GEO는 지표면으로부터 약 35,786km 고도에 위치하며, 위성이 지구의 자전 주기와 동일한 속도로 공전하여 지상 기준으로는 항상 동일한 지점을 바라보는 특성을 갖습니다.
+정지궤도는 지구 적도 상공에 위치하며, 위성이 하루에 한 바퀴를 공전합니다.
+이 궤도는 통신, 방송, 기상 위성 등 지속적인 지상 관측이 필요한 용도에 이상적이며, 지상국 안테나를 고정된 방향으로 설정할 수 있어 운영이 안정적입니다.
+다만, 고도가 높기 때문에 통신 지연(latency)이 크고, 극지방 관측에는 한계가 있으며, 발사 비용이 높습니다.
+또한 GEO는 지구 자기장의 보호 효과가 약화되는 구간에 해당하여, LEO보다 고에너지 입자에 더 많이 노출됩니다.<br>
+위성이 GEO(정지궤도)에 진입하는 방법은 크게 두 가지로 나뉩니다.
+첫 번째는 화학 추진 방식으로, 위성을 GTO(정지 전이 궤도)에 올린 후 한 번의 고추력 엔진 점화로 GEO에 직접 진입하는 방식입니다.<br>
+두 번째는 전기 추진 방식으로, GTO에 진입한 후 저추력 전기 추진 엔진을 장시간에 걸쳐 지속적으로 분사하여 궤도를 점진적으로 상승시키는 방식입니다. 이 과정은 수개월에서 최대 반년까지 소요되며, 그동안 위성은 수백 차례 궤도를 순환하며 고도를 서서히 높이다가 GEO에 도달합니다.
+과거에는 빠른 궤도 진입이 가능한 화학 추진 방식이 주로 사용되었지만, 최근에는 발사 비용 절감과 연료 효율성을 이유로 전기 추진 방식의 채택이 증가하고 있습니다.
+
+<br>
+<p align="center"> 
+  <img src="/assets/Articles/leogeo.webp" alt= "Van Allen belt(보라색 영역)와 지구 궤도" style="width: 70%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>Van Allen belt(보라색 영역)와 지구 궤도</h5>
+</div>
+
+
+### GTO (Geostationary transfer orbit) - 정지 전이 궤도
+Geostationary Transfer Orbit(GTO)은 위성을 정지궤도(GEO: Geostationary Earth Orbit)로 진입시키기 위한 중간 타원 궤도입니다. 이 궤도는 근지점은 저지구 궤도(LEO) 수준으로 낮고, 원지점은 정지궤도 고도인 약 35,786km에 이르는 타원 형태로 구성됩니다. 위성 발사체는 위성을 이 GTO의 근지점까지 진입시킵니다.<br> 그 후, 위성이 관성에 의해 정지 전이 궤도를 따라 원지점에 도달하면 위성 자체의 추진 장치를 통해 정지궤도에 진입합니다. 이 궤도 전이 방식은 일반적으로 호만 전이(Hohmann Transfer)를 활용하며, 가장 연료 효율적인 방식 중 하나로 알려져 있습니다.
+아래 이미지에서 노란색 타원은 GTO이며, 노란색 실선은 인공위성의 경로입니다. 
+<br>
+<p align="center"> 
+  <img src="/assets/Articles/gto.webp" alt= "Geostationary transfer orbit" style="width: 50%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>Geostationary transfer orbit</h5>
+</div>
+
+
+# 궤도 별 방사선 내성(내방사선) 평가 항목
+
+LEO 궤도는 밴 앨런대의 차폐 효과에 크게 영향을 받습니다. 밴 앨런대는 태양 입자 이벤트(Solar Particle Events, SPE)의 영향을 현저히 줄이며, 은하우주선(Galactic Cosmic Rays, GCR)의 비율도 크게 낮춥니다.
+트랩된 입자(trapped particles)는 태양풍(solar wind)보다 더 높은 에너지를 가지게 되며, 이는 반도체에 문제를 일으킬 수 있는 수준입니다.<br>
+GEO 궤도는 특히 태양 플레어(solar flare) 발생 시 높은 방사선 위험에 노출됩니다. GEO는 밴 앨런대(Van Allen belts) 바깥에 위치하지만, 여전히 어느 정도의 자기권 차폐(shielding)의 영향을 받습니다.
+또한 GEO로 위성이 가기 위해선 GTO를 이용하여 진입하는데 이 때, 밴 앨런대를 통과하기 때문에
+비교적 많은 방사선을 받게 됩니다.
+자기권의 태양면은 지구로부터 약 65,000km까지이므로, GEO 궤도는 자기권의 영향 내에 있음을 의미합니다.
+밴 앨런 대는 GEO보다 낮은 고도기 때문에, GEO에서는 트랩된 입자(trapped particles)의 영향이 미미합니다.
+
+
+<br>
+
+<div align="center">
+
+| 항목                              | **LEO (Low Earth Orbit)**                                               | **GEO (Geosynchronous Orbit)**                           |
+| ------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------- |
+| **주요 방사선원**                     | - 트랩된 입자 (양성자/전자)<br>- 밴 앨런대                                     | - 태양 플레어(SPE)<br>- 은하 우주선(GCR)                   |
+| **트랩된 입자 영향**                   | 매우 큼 (특히 SAA 및 극지방 통과 시)<br>→ SEE 유발 가능                                 | 거의 없음 (Van Allen 벨트 바깥 위치)                               |
+| **태양 플레어(Solar Proton Events)** | 자기권 차폐로 영향 적음<br>(단, 극지방이나 SAA 영향 있음)                                   | 주요 방사선원 (특히 flare 시 10MeV 이상 고에너지 입자 도달)                 |
+| **GCR (은하 우주선)**                | 자기권 영향으로 매우 적음                                                          | LEO 대비 6배 이상 강한 GCR 플럭스                              |
+| **TID (총 흡수선량)**                | - LEO-Zero: \~136 Rad<br>- LEO-ISS: \~430 Rad<br>- LEO-Polar: \~333 Rad | - GEO: \~5,930 Rad<br>- GTO(전이 궤도): \~59,630 Rad (가장 높음) |
+| **SEE 발생 원인**                   | 트랩된 양성자, 전자 (특히 SAA 구역)                                                 | 태양 플레어, GCR → 높은 에너지의 순간입자 충돌                        |
+| **우주선 LET 영향**                  | - Proton LET: 0.1 \~ 50 MeV 범위<br>- TID 영향 많음                           | - Proton LET: 10 \~ 100 MeV 이상<br>- SEE 영향이 주요 이슈        |
+| **차폐 필요성**                      | 중간 수준 (기본 패키징 차폐도 효과 있음)                                                | 고수준 차폐 필요 (≥5mm Al 권장)                                   |
+| **응용 사례**                       | ISS, CubeSat, 지구 관측 위성                                                  | 통신 위성, 정지 기상 위성, 군용위성                                    |
+
+\* TID 는 1년, 5mm 알류미늄 실딩 기준. <br>
+</div>
+
+
+<br>
+<br>
+
+
+참고 문헌
+>Dalehite, K. A., & Xapsos, M. A. (2022). Mission Radiation Environment Modeling and Analysis (NASA STI/TP-20220016301). NASA Goddard Space Flight Center.
+
+
+<br>
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

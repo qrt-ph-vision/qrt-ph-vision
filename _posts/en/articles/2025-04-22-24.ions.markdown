@@ -1,0 +1,72 @@
+---
+layout: post
+title: Energy Transfer Mechanisms of Ions
+description: Explains how energetic ions interact with semiconductors to induce charge generation and cause single-event effects (SEE), such as data corruption, latchup, and permanent damage. Discusses ion behavior in space environments and their impact on circuit reliability.
+date: 2025-03-12 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2012
+lang: en
+---
+
+# Ion
+
+An ion is an atomic nucleus that has lost electrons and carries a positive charge. When ions strike a material, they interact via Coulomb forces and remove electrons from atoms, generating electron-hole pairs. Compared to other radiation types, ions deposit far more energy per unit path length and create a much higher charge density.<br>
+Even a small volume of silicon penetrated by a heavy ion can experience an intense, ultrafast burst of charge. A heavy ion can traverse a sensitive region in tens to hundreds of femtoseconds and typically comes to rest within ~picoseconds-far faster than the response time of most semiconductor circuits.<br>
+As an ion passes through, the generated charge forms a narrow cylindrical ion track along its path, with lengths of tens to hundreds of micrometers and radii on the nanometer scale. If this occurs in non-sensitive regions (e.g., deep substrate or metal interconnect), it may have no functional effect. However, when the track intersects sensitive circuitry, the deposited charge can disturb operation and trigger faults.
+
+<p align="center"> 
+  <img src="/assets/Articles/LET.webp" alt="Generation of electron-hole pairs by charged particle in semiconductor" style="width: 70%;">
+</p>
+
+<!-- Image Caption -->
+<div align="center"> 
+<h5>Generation of electron-hole pairs by heavy ions in semiconductors</h5>
+</div>
+<br>
+
+In low-voltage circuits, the liberated charge can perturb node voltages or currents, causing data errors in digital logic or spurious outputs in analog paths. In CMOS, if charge is deposited across closely spaced wells, parasitic structures can turn on and create a low-impedance path-latch-up-leading to excessive current.
+In high-voltage or power devices, heavy ions can damage junctions or gate oxides (e.g., SEB/SEGR), potentially causing permanent failure.<br>
+Heavy ions are most relevant in space, especially as constituents of galactic cosmic rays originating outside the solar system. Their high energies and high LET allow them to penetrate package materials and generate substantial charge, making them a principal cause of Single Event Effects (SEE) in orbit; consequently, SEE testing for space-grade components is often performed with heavy ions.<br>
+That said, even in space, heavy-ion fluxes are relatively low and usually contribute little to Total Ionizing Dose (TID) or Displacement Damage (DD). On Earth, heavy ions are effectively attenuated by the atmosphere and pose minimal risk to ground-based electronics.
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

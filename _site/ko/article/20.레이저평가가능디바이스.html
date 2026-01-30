@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="uOAGZ8r4Rv2slyGp0361ujPN_Sze9vSAMupskJ3U-mo" />
+	<meta name="naver-site-verification" content="f2e995324ce72373539cb3ef3862c3e4da015f1e" /><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-866KXKSPRQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-866KXKSPRQ');
+</script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="LASER2COTS" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>반도체 패키지 타입별 SEE 레이저 평가 가능성 분석 | LASER2COTS</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="반도체 패키지 타입별 SEE 레이저 평가 가능성 분석" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="패키지 구조에 따라 반도체 소자의 SEE 레이저 평가 가능 여부를 분석한 글입니다. BGA, TSSOP, SOIC 등 다양한 실제 사례를 통해 전처리 요건과 평가 한계, Flip-Chip 적용 가능성 등을 안내합니다." />
+<meta property="og:description" content="패키지 구조에 따라 반도체 소자의 SEE 레이저 평가 가능 여부를 분석한 글입니다. BGA, TSSOP, SOIC 등 다양한 실제 사례를 통해 전처리 요건과 평가 한계, Flip-Chip 적용 가능성 등을 안내합니다." />
+<link rel="canonical" href="http://localhost:4000/ko/article/20.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80%EA%B0%80%EB%8A%A5%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4.html" />
+<meta property="og:url" content="http://localhost:4000/ko/article/20.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80%EA%B0%80%EB%8A%A5%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4.html" />
+<meta property="og:site_name" content="LASER2COTS" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-12T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="반도체 패키지 타입별 SEE 레이저 평가 가능성 분석" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-12T00:00:00+09:00","datePublished":"2025-03-12T00:00:00+09:00","description":"패키지 구조에 따라 반도체 소자의 SEE 레이저 평가 가능 여부를 분석한 글입니다. BGA, TSSOP, SOIC 등 다양한 실제 사례를 통해 전처리 요건과 평가 한계, Flip-Chip 적용 가능성 등을 안내합니다.","headline":"반도체 패키지 타입별 SEE 레이저 평가 가능성 분석","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ko/article/20.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80%EA%B0%80%EB%8A%A5%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4.html"},"url":"http://localhost:4000/ko/article/20.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80%EA%B0%80%EB%8A%A5%EB%94%94%EB%B0%94%EC%9D%B4%EC%8A%A4.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+	<!-- 1) Google Fonts 서버와 미리 연결 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<!-- 2) Ubuntu + Gelasio + Kulim Park + Nanum Myeongjo + Nanum Gothic + Noto Sans + Noto Sans KR + Roboto -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&family=Gelasio&family=Kulim+Park&family=Nanum+Myeongjo&family=Nanum+Gothic&family=Noto+Sans&family=Noto+Sans+KR&family=Roboto&display=swap"
+		rel="stylesheet">
+
+
+</head><style>
+  @import url("/public/css/syntax/monokai.css");
+</style>
+<title>LASER2COTS</title>
+<!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<link href="/public/css/style.css" rel="stylesheet">
+
+
+<body>
+
+
+
+  <!-- 문의하기 버튼 -->
+  <div class="float-button-container" id="contactBtn" style="bottom: 15px;">
+    <a class="float-button" href="https://www.qrtkr.com/kr/customer/inquiry.php" target="_blank">
+      <span id="contact-text">문의하기</span>&nbsp;
+      <img class="float-button-image" src="/assets/right_btn_logo.png"
+        style="margin-left: auto; width: 34px; height: 34px;" />
+    </a>
+  </div>
+
+
+  <!-- 최상단 버튼 -->
+  <div id="scrollTopBtn" onclick="scrollToTop()">↑</div>
+
+
+  <!-- Floating Buttons End -->
+  <div class="container">
+    <div class="sidebar">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+
+<div class="sidebar-item sidebar-header">
+	<div class="sidebar-brand">
+	<a href="/" class="sidebar-logo">
+		<img src="/assets/laser_logo2.png" alt="Logo">
+		<span class="logo-by-qrt"><em>By QRT</em></span>
+		<!--span>LASER2COTS</span-->
+	</a>
+</div>
+
+	<p class="lead"></p></div>
+
+<!-- 언어 선택 버튼 (데스크탑 전용) -->
+<div id="lang-switch" style="text-align: center; margin-top:10px ;">
+	<span id="lang-kr" class="lang-toggle active-lang" style="cursor: pointer; margin-right: 8px;">KR</span>
+	<span class="lang-divider" style="margin: 0 6px;">|</span>
+	<span id="lang-en" class="lang-toggle" style="cursor: pointer; margin-left: 8px;">EN</span>
+</div>
+
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 👤 아이콘 추가된 About 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
+		</li>
+
+		<!-- Home 항목 먼저 -->
+		<li>
+			<a class="nav-item" href="/">Home</a>
+		</li>
+
+		<!-- About LASER2COTS만 먼저 표시 -->
+		<li>
+			<a id="about-laser2cots-link" class="nav-item" href="/about/">About LASER2COTS</a>
+		</li>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const currentLang = localStorage.getItem('lang') || 'ko';
+				const aboutLink = document.getElementById('about-laser2cots-link');
+				if (!aboutLink) return;
+
+				aboutLink.href = currentLang === 'en' ? '/en/about/' : '/ko/about/';
+			});
+		</script>
+
+
+
+
+		<!-- QRT homepage -->
+		<li>
+			<a id="qrt-home-link" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
+				QRT homepage
+			</a>
+		</li>
+
+	</ul>
+</div>
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i>
+			Services
+		</li>
+		<li>
+			<a class="nav-item" href="/ko/upscreen.html">Up-Screening</a>
+		</li>
+		<li>
+			<a class="nav-item" href="/ko/pulsedlaser.html">Pulsed Laser</a>
+		</li>
+		<li>
+			<a id="more-services-link" class="nav-item" href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php"
+				target="_blank">
+				More Services
+			</a>
+		</li>
+
+	</ul>
+</div>
+
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
+			QRT - LITE Manual
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">KOR</span>
+				<!--span class="badge">76</span-->
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 🗂️ 아이콘 추가 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
+			contents
+		</li>
+
+		
+		
+		
+		<li>
+			<a class="nav-item" href="/category/#news">
+				<span class="name">news</span>
+				<span class="badge">5</span>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="nav-item" href="/category/#publications">
+				<span class="name">publications</span>
+				<span class="badge">3</span>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="nav-item" href="/category/#article">
+				<span class="name">article</span>
+				<span class="badge">30</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+
+
+
+
+<script>
+	function updatePageLanguage(lang) {
+		// 푸터 텍스트 토글
+		document.querySelectorAll('.footer-text-ko').forEach(el => {
+			el.style.display = (lang === 'ko') ? 'block' : 'none';
+		});
+		document.querySelectorAll('.footer-text-en').forEach(el => {
+			el.style.display = (lang === 'en') ? 'block' : 'none';
+		});
+
+		const qrtHomeMobile = document.getElementById('qrt-home-link-mobile');
+		if (qrtHomeMobile) {
+			qrtHomeMobile.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/'
+				: 'https://www.qrtkr.com/kr/';
+		}
+
+		// 모바일 More Services 링크
+		const moreServicesMobile = document.getElementById('more-services-link-mobile');
+		if (moreServicesMobile) {
+			moreServicesMobile.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/equipment/see/equipment_see.php'
+				: 'https://www.qrtkr.com/kr/equipment/see/equipment_see.php';
+		}
+
+		const moreServicesLink = document.getElementById('more-services-link');
+		if (moreServicesLink) {
+			moreServicesLink.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/equipment/see/equipment_see.php'
+				: 'https://www.qrtkr.com/kr/equipment/see/equipment_see.php';
+		}
+
+		const qrtHomeLink = document.getElementById('qrt-home-link');
+		if (qrtHomeLink) {
+			qrtHomeLink.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/'
+				: 'https://www.qrtkr.com/kr/';
+		}
+
+		// manuals 배너: 영어에서만 보이게
+		const manualLangNote = document.getElementById('manual-lang-note');
+		if (manualLangNote) {
+			manualLangNote.style.display = (lang === 'en') ? 'block' : 'none';
+		}
+
+
+		// 기존 함수 안에 다음 코드 추가:
+		const newsItems = document.querySelectorAll('.news-item');
+		let visibleCount = 0;
+
+		newsItems.forEach(item => {
+			const itemLang = item.getAttribute('data-lang') || 'ko';
+			const shouldShow = itemLang === lang && visibleCount < 5;
+			item.style.display = shouldShow ? 'block' : 'none';
+			if (shouldShow) visibleCount++;
+		});
+
+		// 뉴스 더보기 버튼 텍스트 및 링크도 변경
+		const newsMoreBtn = document.getElementById('news-more-button');
+		if (newsMoreBtn) {
+			newsMoreBtn.href = '/category/#news';
+			newsMoreBtn.textContent = lang === 'en' ? 'See More News' : '더 많은 뉴스 보기';
+		}
+
+
+		// 문의하기 버튼 텍스트 변경
+		const contactText = document.getElementById('contact-text');
+		const contactLink = document.querySelector('#contactBtn a');
+		if (contactText) {
+			contactText.textContent = lang === 'en' ? 'Contact Us\u00A0' : '문의하기\u00A0';
+		}
+		if (contactLink) {
+			contactLink.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/customer/inquiry.php'
+				: 'https://www.qrtkr.com/kr/customer/inquiry.php';
+		}
+
+		const aboutLink = document.getElementById('about-laser2cots-link');
+		if (aboutLink) {
+			aboutLink.href = lang === 'en' ? '/en/about/' : '/ko/about/';
+		}
+
+		// 버튼 상태
+		document.getElementById('lang-kr').classList.toggle('active-lang', lang === 'ko');
+		document.getElementById('lang-en').classList.toggle('active-lang', lang === 'en');
+
+		// 현재 페이지 경로 확인
+		const path = window.location.pathname;
+
+		// Article 리스트 필터링: URL이 /ko/ 또는 /en/ 접두사를 가질 때만 실행
+		const hasLangPrefix = /^\/(ko|en)\//.test(path);
+		if (hasLangPrefix) {
+			document.querySelectorAll('.post-list-item').forEach(post => {
+				const postLang = post.getAttribute('data-lang') || 'ko';
+				post.style.display = postLang === lang ? '' : 'none';
+			});
+		}
+
+		// 더보기 버튼
+		const moreBtn = document.getElementById('more-button');
+		if (moreBtn) {
+
+			moreBtn.textContent = lang === 'en' ? 'See More Articles' : '더 많은 글 보기';
+		}
+
+		// About 섹션
+		const aboutKo = document.getElementById('about-ko');
+		const aboutEn = document.getElementById('about-en');
+		if (aboutKo && aboutEn) {
+			aboutKo.style.display = lang === 'ko' ? 'block' : 'none';
+			aboutEn.style.display = lang === 'en' ? 'block' : 'none';
+		}
+
+		// 갤러리 텍스트 및 버튼
+		document.querySelectorAll('.gallery-text-ko').forEach(el => {
+			el.style.display = lang === 'ko' ? 'block' : 'none';
+		});
+		document.querySelectorAll('.gallery-text-en').forEach(el => {
+			el.style.display = lang === 'en' ? 'block' : 'none';
+		});
+		document.querySelectorAll('.gallery-btn').forEach(btn => {
+			const koText = btn.getAttribute('data-ko') || '자세히 보기';
+			const enText = btn.getAttribute('data-en') || 'See Details';
+			btn.textContent = lang === 'ko' ? koText : enText;
+
+			const href = btn.getAttribute('href');
+			if (href) {
+				const updatedHref = href.replace(/^\/(ko|en)\//, `/${lang}/`);
+				btn.setAttribute('href', updatedHref);
+			}
+		});
+		document.querySelectorAll('.sidebar-item .nav .nav-item').forEach(a => {
+			const href = a.getAttribute('href') || '';
+			// 해당 두 페이지만 대상으로 제한
+			if (!/\/(upscreen|pulsedlaser)\.html$/.test(href)) return;
+
+			const url = new URL(href, window.location.origin);
+			const parts = url.pathname.split('/').filter(Boolean); // ['ko','upscreen.html'] 같은 형태
+
+			if (parts.length) {
+				if (parts[0] === 'ko' || parts[0] === 'en') {
+					parts[0] = lang;              // 접두어만 교체
+				} else {
+					parts.unshift(lang);          // 없으면 접두어 추가
+				}
+				a.setAttribute('href', '/' + parts.join('/'));
+			}
+		});
+		// 모바일 햄버거 메뉴(Up-Screening / Pulsed Laser) 링크도 언어 접두어 교체
+		document.querySelectorAll('.mobile-nav a.nav-item').forEach(a => {
+			const href = a.getAttribute('href') || '';
+			if (!/\/(upscreen|pulsedlaser)\.html$/.test(href)) return; // 대상 두 페이지만
+
+			const url = new URL(href, window.location.origin);
+			const parts = url.pathname.split('/').filter(Boolean); // ex) ['ko','upscreen.html']
+
+			if (parts.length) {
+				if (parts[0] === 'ko' || parts[0] === 'en') {
+					parts[0] = lang;           // 기존 접두어 교체
+				} else {
+					parts.unshift(lang);       // 접두어 없으면 추가
+				}
+				a.setAttribute('href', '/' + parts.join('/'));
+			}
+		});
+
+	}
+
+
+	function setActiveLang(lang) {
+		localStorage.setItem('lang', lang);
+		updatePageLanguage(lang);
+
+		const path = window.location.pathname;
+
+		// 예외 처리: /manuals/ 페이지는 URL 변경 없이 내부 UI만 전환
+		if (path.startsWith('/manuals/')) return;
+
+		// 언어 접두어 교체 (예: /ko/... → /en/...)
+		if (/^\/(ko|en)\//.test(path)) {
+			const newPath = path.replace(/^\/(ko|en)\//, `/${lang}/`);
+			if (newPath !== path) {
+				window.location.pathname = newPath;
+				return;
+			}
+		}
+		location.reload();
+		removeCategory(); // 언어 변경 시 카테고리 리스트도 다시 필터링
+	}
+
+
+	// 페이지 로드 시 언어 변수 초기화
+	document.addEventListener('DOMContentLoaded', function () {
+		const path = window.location.pathname;
+
+		// URL에서 언어 감지 (/ko/... or /en/...)
+		let urlLang = null;
+		if (/\/ko(\/|$)/.test(path)) {
+			urlLang = 'ko';
+		} else if (/\/en(\/|$)/.test(path)) {
+			urlLang = 'en';
+		}
+
+		// ko/en 둘 다 없으면 건들지 않음
+		if (urlLang) {
+			const currentLang = localStorage.getItem('lang');
+
+			// URL에서 읽은 언어랑 localStorage 언어가 다르면 동기화
+			if (currentLang !== urlLang) {
+				localStorage.setItem('lang', urlLang);
+
+				// 무한 새로고침 방지: 이 탭에서 한 번만 새로고침
+				if (!sessionStorage.getItem('langSyncedFromUrl')) {
+					sessionStorage.setItem('langSyncedFromUrl', '1');
+					window.location.reload();
+					return;
+				}
+			}
+		}
+
+		// 한 번 새로고침 끝났으면 플래그 제거 (다음 페이지에서도 다시 체크는 하되, 언어 같으면 새로고침 없음)
+		sessionStorage.removeItem('langSyncedFromUrl');
+
+		// 최종 lang 결정 (URL → localStorage 반영된 값)
+		const storedLang = localStorage.getItem('lang') || 'ko';
+		updatePageLanguage(storedLang);
+
+		// 버튼 이벤트 그대로 유지
+		document.getElementById('lang-kr')?.addEventListener('click', () => setActiveLang('ko'));
+		document.getElementById('lang-en')?.addEventListener('click', () => setActiveLang('en'));
+	});
+
+</script>
+
+
+
+<!-- 검색 -->
+<!-- 🔹 검색창 외 영역 클릭용 오버레이 -->
+<div id="search-backdrop"
+	style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0); z-index: 9998;">
+</div>
+
+<!-- 검색 입력창 (floating label 적용) -->
+<div class="sidebar-item sidebar-search-input" style="padding: 0 10px 10px;">
+	<div class="floating-label-input">
+		<input type="text" id="search-input" required placeholder=" " title="여기에 검색어를 입력하세요" />
+		<label for="search-input">Search</label>
+	</div>
+</div>
+
+
+<!-- 오른쪽에 표시될 검색 결과 패널 -->
+<div id="search-panel" style="position: fixed; top: 0; left: 220px; width: 340px; height: 100%; background: #fff;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2); z-index: 9999; padding: 20px; overflow-y: auto;
+            display: none;">
+	<!-- X 닫기 버튼 -->
+	<button id="close-search-btn"
+		style="position: absolute; top: 10px; right: 10px; border: none; background: none; font-size: 22px; cursor: pointer;">&times;</button>
+
+	<!-- 검색 결과 제목 -->
+	<h3 id="search-title" style="color: #000; margin-top: 40px;"><span id="search-keyword"></span>에 대한 검색 결과</h3>
+
+	<ul id="results-container" class="search-results" style="margin-top: 10px; list-style: none; padding-left: 0;"></ul>
+	<p id="no-results" style="margin-top: 10px; color: #000; display: none;">검색 결과가 없습니다</p>
+</div>
+
+
+<!-- 검색 패널 끝 -->
+
+<div class="sidebar-item sidebar-footer" style="font-size: 0.8em; text-align: center; margin-top: 20px;">
+	<p>
+		<a href="https://www.qrtkr.com" target="_blank" rel="noopener noreferrer">
+			<img src="/assets/logo.png" alt="QRT Logo"
+				style="height: 60px; vertical-align: middle;">
+		</a>
+	</p>
+</div>
+
+<p class="visual-sub-txt">You Dream, <br><span class="m-none">&nbsp;&nbsp;&nbsp;</span> We Deliver!</p>
+<!--div class="sidebar-item sidebar-footer">
+	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
+</div-->
+
+
+
+<div class="sidebar-footer" style="text-align: center; font-size: 0.8em; margin-top: 20px; color: #888;">
+	<p>&copy; 2026 QRT Inc. All rights reserved.</p>
+</div>
+
+
+<div class="sidebar-footer" style="text-align: center; font-size: 0.8em; margin-top: 20px; color: #888;">
+	<!-- 한국어 -->
+	<p class="footer-text-ko" style="font-weight: 500;">
+		큐알티 주식회사&nbsp;|&nbsp;경기도 이천시 부발읍 경충대로 2091
+	</p>
+	<!-- 영어 (초기 비표시) -->
+	<p class="footer-text-en" style="display:none;">
+		QRT Inc.&nbsp;|&nbsp;2091, Gyeongchung-daero, Bubal-eup, Icheon-si, Gyeonggi-do, Republic of Korea
+	</p>
+</div>
+
+
+
+<!-- 검색 기능을 위한 스크립트 -->
+<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const input = document.getElementById('search-input');
+		const panel = document.getElementById('search-panel');
+		const results = document.getElementById('results-container');
+		const noResults = document.getElementById('no-results');
+		const keywordSpan = document.getElementById('search-keyword');
+		const closeBtn = document.getElementById('close-search-btn');
+		const backdrop = document.getElementById('search-backdrop');
+		const searchTitle = document.getElementById('search-title');
+
+		const storedLang = localStorage.getItem('lang') || 'ko';
+
+		// 검색 초기화
+		SimpleJekyllSearch({
+			searchInput: input,
+			resultsContainer: results,
+			json: '/search.json',
+			// lang 필드를 포함시켜야 아래 필터링에서 작동
+			searchResultTemplate: '<li data-lang="{lang}"><a href="{url}">{title}</a></li>',
+			noResultsText: '',
+			limit: 10,
+			fuzzy: false
+		});
+
+		// 검색 결과 UI 텍스트 업데이트
+		function updateSearchLabels(keyword) {
+			if (storedLang === 'en') {
+				searchTitle.innerHTML = `Search results for <span id="search-keyword">"${keyword}"</span>`;
+				noResults.textContent = 'No results found';
+			} else {
+				searchTitle.innerHTML = `<span id="search-keyword">"${keyword}"</span>에 대한 검색 결과`;
+				noResults.textContent = '검색 결과가 없습니다';
+			}
+		}
+
+		// 검색창 열기
+		input.addEventListener('input', function () {
+			const keyword = input.value.trim();
+
+			if (keyword.length > 0) {
+				panel.style.display = 'block';
+				backdrop.style.display = 'block';
+				updateSearchLabels(keyword);
+
+				setTimeout(() => {
+					const items = results.querySelectorAll('li');
+					let visibleCount = 0;
+
+					items.forEach(item => {
+						const lang = item.getAttribute('data-lang') || 'ko';
+						const show = (storedLang === 'en' && lang === 'en') || (storedLang === 'ko' && lang === 'ko');
+
+						item.style.display = show ? 'block' : 'none';
+						if (show) visibleCount++;
+					});
+
+					noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+				}, 150);
+			} else {
+				closeSearchPanel();
+			}
+		});
+
+		// 검색창 닫기 함수
+		function closeSearchPanel() {
+			panel.style.display = 'none';
+			backdrop.style.display = 'none';
+			keywordSpan.textContent = '';
+		}
+
+		closeBtn.addEventListener('click', closeSearchPanel);
+		backdrop.addEventListener('click', closeSearchPanel);
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape') closeSearchPanel();
+		});
+	});
+</script>
+
+
+<!-- 검색 기능 끝 -->
+
+<!-- 모바일 햄버거 버튼 -->
+<button id="hamburger-btn" class="hamburger" aria-label="메뉴 열기">
+	<i class="fas fa-bars"></i>
+</button>
+
+<!-- 모바일 오버레이 배경 -->
+<div id="mobile-sidebar-backdrop" class="mobile-sidebar-backdrop"></div>
+
+<!-- 모바일 사이드바 -->
+<div id="mobile-sidebar" class="mobile-sidebar">
+	<button class="close-mobile-sidebar" aria-label="닫기">&times;</button>
+
+	<!-- About 섹션 -->
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
+		</li>
+		<li><a class="nav-item" href="/">Home</a></li>
+
+		<li>
+			<a id="about-laser2cots-link-mobile" class="nav-item" href="/about/">
+				About LASER2COTS
+			</a>
+		</li>
+
+
+		<li>
+			<a id="qrt-home-link-mobile" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
+				QRT homepage
+			</a>
+		</li>
+
+	</ul>
+
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i> Services
+		</li>
+
+		<li>
+			<a id="about-laser2cots-link-mobile" class="nav-item" href="/ko/upscreen.html">
+				Up-Screening
+			</a>
+		</li>
+
+
+		<li>
+			<a id="about-laser2cots-link-mobile" class="nav-item" href="/ko/pulsedlaser.html">
+				Pulsed Laser
+			</a>
+		</li>
+		<li>
+			<a id="more-services-link-mobile" class="nav-item" target="_blank"
+				href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php">
+				More Services
+			</a>
+		</li>
+
+	</ul>
+
+	<!-- LITE 메뉴얼 섹션 -->
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i> QRT - LITE Manual
+		</li>
+		<li>
+			<a class="nav-item" href="/manuals/#lite_kor">KOR</a>
+		</li>
+	</ul>
+
+	<!-- 카테고리 섹션 -->
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i> Contents
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#news">
+				<span class="name">news</span>
+				<span class="badge">5</span>
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#publications">
+				<span class="name">publications</span>
+				<span class="badge">3</span>
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#article">
+				<span class="name">article</span>
+				<span class="badge">30</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const lang = localStorage.getItem('lang') || 'ko';
+		const aboutLink = document.getElementById('about-laser2cots-link-mobile');
+
+		if (aboutLink) {
+			aboutLink.href = lang === 'en' ? '/en/about/' : '/ko/about/';
+		}
+	});
+</script>
+
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const hamburgerBtn = document.getElementById('hamburger-btn');
+		const mobileSidebar = document.getElementById('mobile-sidebar');
+		const closeBtn = document.querySelector('.close-mobile-sidebar');
+		const backdrop = document.getElementById('mobile-sidebar-backdrop');
+
+		function openSidebar() {
+			mobileSidebar.classList.add('show');
+			backdrop.classList.add('show');
+		}
+
+		function closeSidebar() {
+			mobileSidebar.classList.remove('show');
+			backdrop.classList.remove('show');
+		}
+
+		hamburgerBtn.addEventListener('click', openSidebar);
+		closeBtn.addEventListener('click', closeSidebar);
+		backdrop.addEventListener('click', closeSidebar);
+	});
+</script>
+
+<script>
+	window.addEventListener("scroll", function () {
+		const sidebar = document.querySelector(".sidebar");
+		if (window.scrollY > 105) {
+			sidebar.classList.add("scrolled");
+		} else {
+			sidebar.classList.remove("scrolled");
+		}
+	});
+</script>
+    </div>
+    <div class="content">
+      <article class="post">
+	<header class="post-header" style="display: flex; align-items: center; justify-content: space-between;">
+		<span id='category-name'></span>
+		<!-- 원래 카테고리로 돌아가는 버튼 -->
+		<div style="margin-top: 20px; text-align: center;"><a href="/category/#article" class="btn btn-primary"
+				style="font-size: 15px; padding: 5px 10px; background-color: #888888; color: white; text-decoration: none; border-radius: 5px; margin-right: auto;"
+				onmouseover="this.style.backgroundColor='#555555'" onmouseout="this.style.backgroundColor='#888888'">
+				←List
+			</a>
+
+		</div>
+
+		<div class="post-title" style="margin-left: auto; margin-right: auto; padding-right: 10%;">
+			반도체 패키지 타입별 SEE 레이저 평가 가능성 분석
+
+		</div>
+		<!--time class="post-date dt-published" datetime="2025-03-12T00:00:00+09:00" itemprop="datePublished">2025/03/12
+		</time-->
+	</header>
+
+	<div class="post-content">
+		<div class="fade-in">
+			<p>QRT가 보유한 레이저 장비는 650nm에서 1650nm에 이르는 광범위한 파장 대역을 지원하며, 이를 통해 Si(Silicon), GaN(Gallium Nitride), SiC(Silicon Carbide) 등 주요 반도체 소재는 물론, 메모리, 프로세서, 아날로그 소자 등 다양한 디바이스에 대한 레이저 기반 평가가 가능합니다.
+<br />
+다만, HBM(High Bandwidth Memory)과 같은 3D 스택 구조를 가진 특수 패키지의 경우, 적층 구조가 레이저의 투과를 방해하므로 완전한 평가는 불가능합니다.
+<br />
+이러한 특수 사례를 제외하더라도, 일부 패키지 타입의 구조적 특성에 따라 평가 가능 여부는 제한될 수 있습니다. 레이저 평가를 위한 필수 전처리 과정으로는 소자의 Epoxy Mold Compound를 제거하는 De-capsulation 공정이 요구되며, 이 과정이 정확히 수행되어야 레이저 평가의 정밀도와 신뢰도를 확보할 수 있습니다.
+<br />
+단순 구조의 소자들(예: Amplifier, ADC, Digital Isolator 등)은 Front-Side 및 Back-Side 양측 모두에서 레이저 평가가 가능하지만, FPGA, MCU, SRAM, DRAM과 같은 고집적 복합 소자의 경우, 레이저의 Metal Layer투과 불가 등의 이유로 인해 Back-Side 평가만 가능합니다.
+<br />
+저희가 실제로 진행한 케이스들을 확인하며 어떤 경우 테스트가 가능한지 또는 불가능 할지 파악해보시면 좋을 것 같습니다.</p>
+
+<h1 id="평가-가능한-패키지-타입">평가 가능한 패키지 타입</h1>
+
+<p>하단의 이미지와 같은 방식의 패키지는 일반적으로 전/후면 모두 De-capsulation(패키징의 제거)이 용이하기에 평가를 위한 전처리에 수월합니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/평가가능소자.webp" style="width: 100%; max-width: 600px;" alt="lead-frame type package" />
+</p>
+<p align="center">평가 가능 한 패키지 타입의 예</p>
+
+<p>하지만 상위의 패키지 타입이라도 리드프레임의 여부 또는 형태에 따라서 평가가 제한될 수 있습니다. (아래 예시의 경우)</p>
+
+<p align="center">
+<img src="/assets/Articles/메모리1.webp" style="width: 100%; max-width: 300px;" alt="De-capsulation 된 TSSOP 소자" />
+</p>
+<p align="center">De-capsulation 된 TSSOP소자</p>
+
+<h1 id="평가-불가능한-패키지-타입">평가 불가능한 패키지 타입</h1>
+
+<p>BGA와 같이 칩 하부 전면이 솔더볼을 통해 PCB에 실장되는 패키지 구조에서는, 칩 상부를 통한 De-capsulation만이 가능하며, 하부를 통한 평가는 사실상 불가능합니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/평가불가능소자.webp" style="width: 100%; max-width: 400px;" alt="Sub-Strate type package" />
+</p>
+<p align="center">평가 불가능 한 패키지 타입의 예 (1)</p>
+
+<p>BGA처럼 칩 상부를 통한 De-capsulation만 가능한 경우에 소자의 Metal층이 3 layer 이상(메모리, 프로세서 등 복잡한 소자)이면 레이저로 평가가 불가능할 가능성이 높습니다. 하지만 이 경우에도 Flip-Chip 방식의 패키징일 경우 칩 하부를 통한 평가가 가능합니다.
+<br />하나의 소자가 단일 패키지 형태가 아닌 다양한 패키징 형태로 생산되는 경우가 많기 때문에, 특정 패키지 타입의 구조적 제약으로 인해 레이저 기반 평가가 어려울 경우에도, 동일한 칩이 적용된 보다 적합한 패키지 타입을 선택함으로써 효과적인 평가가 가능합니다.</p>
+<p align="center">
+<img src="/assets/Articles/평가불가능소자2.webp" style="width: 100%; max-width: 500px;" alt="Sub-Strate type package" />
+</p>
+<p align="center">평가 불가능 한 패키지 타입의 예 (2)</p>
+
+<h1 id="방사선-내성-레이저-평가를-위한-반도체-소자의-전처리">방사선 내성 레이저 평가를 위한 반도체 소자의 전처리</h1>
+<p>위의 설명만으로는 정확히 평가하려는 소자가 레이저로 평가가 가능할지 알기 어려우실 겁니다.
+대부분의 경우, X-ray(엑스레이) 촬영을 통해 내부 구조를 확인함으로써 해당 소자에 대한 평가 가능 여부를 사전에 판단할 수 있습니다.
+아래는 QRT에서 방사선 내성(내방사선) 평가를 진행한 몇 가지 사례입니다. 사례를 통해서 대략적으로 평가가 가능한 소자에 대한 아이디어를 얻어가시길 바랍니다.
+<br /></p>
+
+<h3 id="tssop-type-package-메모리-lead-frame-제거-불가능한-경우">TSSOP Type Package (메모리, Lead Frame 제거 불가능한 경우)</h3>
+<p>전면은 Metal Layer로 인해 평가가 제한되었고, 후면의 경우 완벽한 평가를 위해서는 Lead Frame을 제거해야 했지만, 엑스레이로 확인시 Lead Frame이 여러 핀들과 연결되어 있어 제거가 불가능 했습니다.<br />
+다만 Lead Frame 사이의 접착제가 제거된 부분으로 일부분 평가가 가능하였고, SEE(Single Event Effects) 발생 가능성을 예측하였습니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/메모리1.webp" style="width: 100%; max-width: 300px;" alt="메모리" />
+</p>
+<p align="center">Memory(TSSOP) 후면</p>
+
+<h3 id="bga--tssop-type-package-메모리">BGA &amp; TSSOP Type Package (메모리)</h3>
+<p>처음 들어온 소자는 BGA 타입의 메모리 소자였지만, 같은 소자의 TSSOP(Thin Shrink Small Outline Package) 타입을 확보하여 후면에 대해서만 De-capsulation이 가능하였으며, 이를 바탕으로 전면을 제외한 후면의 평가를 성공적으로 수행하였습니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/메모리2.webp" style="width: 100%; max-width: 300px;" alt="메모리" />
+</p>
+<p align="center">Memory(TSSOP) 후면</p>
+
+<h3 id="bga-type-package-메모리">BGA Type Package (메모리)</h3>
+<p>BGA(Ball Grid Array) 패키지는 일반적인 평가 접근이 어려운 구조이나, 해당 소자는 Metal Layer로 인해 전면은 평가가 제한되었지만, 후면은 Flip-Chip 공정이 적용되어 있어 손쉽게 평가 수행이 가능하였습니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/메모리3.webp" style="width: 100%; max-width: 300px;" alt="메모리" />
+</p>
+<p align="center">Memory(BGA) 후면</p>
+
+<h3 id="tssop-type-package-메모리">TSSOP Type Package (메모리)</h3>
+<p>Lead Frame이 칩 후면부 전체를 덮고 있는 형태라서 제거가 필요하였습니다. 칩 제작 업체와 정밀하게 촬영한 엑스레이를 통해서 제거 가능한 Lead Frame 영역을 확인하였고, Lead Frame과의 연결에 손상이 적게 정밀하게 제거함으로써 후면 기준 전체 칩 면적의 90% 이상에 대해 평가가 가능하였습니다. 전면은 Metal Layer로 인해 평가가 제한되었습니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/메모리4.webp" style="width: 100%; max-width: 300px;" alt="메모리" />
+</p>
+<p align="center">Memory(TSSOP) 후면</p>
+
+<h3 id="soic-8-type-package-op-amp-operational-amplifier">SOIC-8 Type Package (Op-Amp (Operational Amplifier))</h3>
+<p>Op-Amp는 일반적인 SOIC-8(Small Outline Integrated Circuit) 패키지로 구성된 단순한 구조의 소자이므로, 전/후면 모두 비교적 수월하게 De-capsulation 및 평가를 수행할 수 있었습니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/amp.webp" style="width: 100%; max-width: 300px;" alt="op-amp" />
+</p>
+<p align="center">Op-Amp (SOIC) 전면(좌),후면(우)</p>
+
+<h3 id="pdip-type-package-adc-analog---digital-convertor">PDIP Type Package (ADC (Analog - Digital Convertor))</h3>
+<p>ADC 또한 구조가 단순한 DIP(Dual In-line Package) 타입 소자로, 전/후면 모두 De-capsulation 및 평가 과정이 비교적 수월하게 진행되었습니다.</p>
+
+<p align="center">
+<img src="/assets/Articles/adc.webp" style="width: 100%; max-width: 300px;" alt="adc" />
+</p>
+<p align="center">ADC (PDIP) 전면(좌),후면(우)</p>
+
+<h3 id="soic-8-type-package-digital-isolator-lead-frame-제거-불가능한-경우">SOIC-8 Type Package (Digital Isolator, Lead Frame 제거 불가능한 경우)</h3>
+<p>Digital Isolator의 경우, 전면 De-capsulation 시 내부 코일 구조가 풀리는 문제가 있어, 코일을 제외한 영역에 대해 선택적으로 De-capsulation을 진행하였습니다. 후면은 Lead Frame이 다수의 핀들과 연결되어 있어 일반적인 방식으로는 제거가 어려웠으나, 소자의 정상 동작에 영향을 주지 않는 범위 내에서 Lead Frame을 국부적으로 제거함으로써 전/후면 모두 평가를 가능하게 하였습니다.”</p>
+
+<p align="center">
+<img src="/assets/Articles/isolator.webp" style="width: 100%; max-width: 300px;" alt="isolator" />
+</p>
+<p align="center">Digital Isolator (SOIC) 전면(좌),후면(우)</p>
+
+<hr />
+
+<p><br /></p>
+<h3>관련 글</h3>
+<ul>
+    
+      <li><a href="/ko/article/9.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80-%EC%84%B8%EA%B3%84%EB%8F%99%ED%96%A5.html">레이저 평가의 글로벌 동향</a></li>
+    
+      <li><a href="/ko/article/14.%EB%B0%98%EB%8F%84%EC%B2%B4%EC%86%8C%EC%9E%AC.html">반도체 기판의 밴드갭 및 광흡수 메커니즘 비교</a></li>
+    
+      <li><a href="/ko/article/30.QRTlaser.html">QRT Laser Testing(레이저 평가)의 강점</a></li>
+    
+      <li><a href="/ko/article/17.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80-%EC%A0%81%EC%9A%A9-%EA%B7%BC%EA%B1%B0.html">NASA 문건으로 본 레이저 평가</a></li>
+    
+      <li><a href="/ko/article/11.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0-(%EB%B9%84%EC%9A%A9%EC%A0%81-%EC%B8%A1%EB%A9%B4).html">레이저 평가가 필요한 이유 (비용적 측면)</a></li>
+    
+      <li><a href="/ko/article/2.SPA-%EC%99%80-TPA.html">SPA vs TPA</a></li>
+    
+      <li><a href="/ko/article/4.%EB%A0%88%EC%9D%B4%EC%A0%80%ED%8F%89%EA%B0%80.html">반도체 방사선 내성 (내방사선) 레이저 평가</a></li>
+    
+  </ul>
+
+
+		</div>
+	</div>
+
+</article>
+    </div>
+  </div>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    const contactBtn = document.getElementById('contactBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        scrollBtn.classList.add('show');
+        contactBtn.style.bottom = '70px';
+      } else {
+        scrollBtn.classList.remove('show');
+        contactBtn.style.bottom = '15px';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>

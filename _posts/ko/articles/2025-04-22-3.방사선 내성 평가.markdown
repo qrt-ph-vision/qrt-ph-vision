@@ -1,0 +1,103 @@
+---
+layout: post
+title: 방사선 내성 평가(Radiation Hardness Test); 내방사선 평가
+description: 방사선 내성 평가는 우주, 군사, 항공, 원자력 환경에서 반도체의 오동작을 방지하기 위한 필수 시험입니다. SEU, SEL, TID 등 주요 이슈 설명.
+date: 2025-03-28 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2001
+---
+# 방사선 내성 평가(Radiation Hardness Test); 내방사선 평가
+일반적으로 방사선 내성 평가는 빔 가속 시설에서 이뤄집니다.
+고방사선 환경에서 운용되는 우주, 항공, 군사, 원자력 분야의 전자장비 신뢰성을 확보하기 위해 수행합니다.<br>
+우주나 고고도 환경에는 지구 대기권이 차단하지 못하는 _고에너지 입자 및 방사선(양성자, 전자, 중성자, 감마선 등)_ 이 존재합니다. 이러한 입자들이 반도체 칩과 충돌하면 다음과 같은 심각한 문제들이 발생할 수 있습니다:
+
+- [SEU](/ko/article/1.-SEE.html) (Single Event Upset)
+단일 입자로 인해 메모리 셀이나 레지스터의 비트값이 일시적으로 반전되는 현상입니다. 쉽게 말해, 0이 1로, 혹은 1이 0으로 바뀌는 오류가 발생할 수 있으며, 이는 시스템의 오작동이나 데이터 오류로 이어질 수 있습니다.
+
+- [SEL](/ko/article/30.latchup.html) (Single Event Latch-up)
+단일 입자로 인해 회로 내에 과도한 전류가 흐르면서, 회로 전체가 손상되거나 시스템이 완전히 멈추는 현상입니다. 이는 복구가 불가능한 치명적인 오류로 이어질 수 있기 때문에 특히 주의가 필요합니다.
+
+- [TID](/ko/article/7.TID.html) (Total Ionizing Dose)
+장시간 동안 방사선에 노출되면, ionized trap이 누적되며 회로의 전기적 특성과 성능이 점차 저하됩니다. 이는 소자의 특성, 수명, 다른 에러(SEU, SEL) 발생 증가 등 부정적인 영향을 줍니다.
+
+- [DD](/ko/article/18.DD.html) (Displacement Damage)
+방사선이 장기간 노출에 의한 누적된 현상이란 점은 TID와 유사하나 반도체 특성의 변화가 생기는 원리로 TID와 구분 됩니다. 고에너지 입자가 반도체 내부 원자 구조를 물리적으로 변화시키는 현상입니다. 일반적으로 소자의 성능이 열화됩니다.
+
+<div style="overflow: hidden;">
+  <!-- 이미지 -->
+  <img src="/assets/Articles/space2.jpg" style="float: right; margin: 10px 0 20px 20px; width: 100%; max-width: 400px;" alt= "방사선 내성 평가(Radiation hardness)">
+
+  <!-- 텍스트 -->
+  <p>
+  방사선은 어디에나 존재합니다. 넓은 의미로 저희가 항상 쬐는 햇볕도 방사선 입니다만 이런 넓은 의미의 방사선이 아니더라도 공기 중에도 매시간 cm²
+  당 20개 정도의 중성자가 지나갑니다. 일반적인 생활을 하면서도 매 시간 수천개의 중성자가 저희의 몸을 통과하고 있다는 겁니다. <br>
+
+  우주에는 지구의 밴앨런대(Van Allen Belt) 같은 자연적으로 차단해주는 보호막이 없습니다. 인공위성이나 우주탐사선, 통신위성 등은 강력한 방사선에 거의 무방비로 노출되기 때문에, 단 한 번의 우주 입자 충돌로 시스템이 오작동하거나 저장된 데이터가 날아가는 사태가 발생할 수 있습니다. 특히 단일사건현상(SEU)처럼 눈에 띄지 않게 일어나는 작은 오류 하나가 전체 임무에 치명적인 영향을 미칠 수 있기에, 우주 장비에 들어가는 반도체는 수많은 테스트를 거쳐 엄격하게 선별된 것만을 사용합니다.<br>
+
+  우주뿐만 아니라, 항공 및 군사용 장비에서도 방사선 내성은 중요한 요소입니다. 고고도에서 운항하는 항공기나 정찰 드론, 심지어는 지상에 있는 군사용 전자장비조차도, 핵폭발이나 EMP(전자기 펄스)와 같은 극단적인 상황을 상정하고 설계되어야 하기 때문입니다. 이러한 환경에서는 예상치 못한 전자파나 방사선이 회로에 영향을 줄 수 있으므로, 전자 부품들이 이와 같은 충격에도 안정적으로 작동해야만 합니다.<br>
+
+  또 하나 간과해서는 안 되는 곳이 바로 의료 기기와 원자력 발전소입니다. 방사선 치료기기(X-ray 등)나 원자로 주변의 제어 시스템은, 말 그대로 방사선이 늘 존재하는 환경 속에서 작동합니다. 기기 자체가 방사선에 영향을 받아 오작동을 일으키면, 환자의 생명에 위협이 될 수 있고, 발전소라면 대형 사고로 이어질 수 있습니다. 그래서 이 분야에서도 방사선 내성을 갖춘 부품은 선택이 아닌 필수입니다.<br>
+
+  이처럼 중요한 환경에서 사용되는 반도체들은 방사선에 얼마나 강한지를 테스트해야 합니다. 이 테스트는 단순한 기술적 요구가 아니라, 제품의 안정성과 신뢰성을 확보하는 첫걸음입니다. 수백억 수천억씩 비용이 소모되는 우주에서 어떤 미션을 수행하다가 장비가 오류를 일으킨다면 큰 손실이 발생하게 됩니다.
+  </p>
+</div>
+
+# QRT 방사선 내성 평가 서비스
+
+QRT에서는 다음과 같은 방사선 평가 대행 서비스를 진행하고 있습니다.
+<ul class="qrt-list">
+  <li>Total Ionizing Dose (TID), Displacement Damage (DD), Single Event Effects (SEE) 의 평가 대행</li>
+  <li>Pulsed Laser SEE Test & SEL Screening</li>
+  <li>고객 요구에 최적화된 평가용 보드 제작</li>
+</ul>
+<div class="qrt-button-wrapper">
+  <a class="qrt-button" href="https://www.qrtkr.com/kr/customer/inquiry.php">
+    QRT에 방사선 평가 문의하기
+  </a>
+</div>
+
+
+
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

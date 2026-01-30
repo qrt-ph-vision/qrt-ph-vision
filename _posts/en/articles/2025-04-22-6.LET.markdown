@@ -1,0 +1,70 @@
+---
+layout: post
+title: What is LET (Linear Energy Transfer)?
+description: LET represents the energy loss per unit path length as a particle travels through matter. It is a key metric in evaluating how radiation affects semiconductor devices.
+date: 2025-03-25 00:00:00 +0900
+category: article
+lang: en
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2003
+---
+
+# LET (Linear Energy Transfer)
+
+Linear Energy Transfer (LET) refers to the amount of energy a particle loses per unit distance as it travels through a material. The standard reporting unit in radiation-effects literature is MeV·cm²/mg (mass stopping power), i.e., linear energy loss (MeV/cm) normalized by density, which enables cross-material comparison.
+Ionization is the dominant mechanism for SEE in semiconductors; LET quantifies the energy deposited per unit path length as the particle interacts with atomic electrons.
+<br>
+Although LET can also be expressed in units like MeV·cm<sup>-1</sup>, eV·nm<sup>-1</sup>, or keV·nm<sup>-1</sup>, normalizing by density-yielding units of MeV·cm<sup>2</sup>/mg-is generally more practical. This allows LET values to be compared across different materials and environments. In fact, several JEDEC standards define LET in this normalized form to ensure consistency and cross-material comparability.
+<br>
+The graph below shows the depth-dependent LET distribution of a 5.49 MeV alpha particle traveling through air. As the particle progresses, its energy deposition gradually increases, reaching a sharp peak near the end of its path before dropping to zero. This characteristic behavior is known as the **Bragg Peak**, which represents the point of maximum energy transfer.
+
+<!-- Centered image -->
+<p align="center"> 
+  <img src="/assets/Articles/Bragg curve.webp" alt="Bragg curve of 5.49 MeV alpha particles in air." style="width: 70%;">
+</p>
+
+<!-- Image caption -->
+<div align="center"> 
+<h5>Bragg curve of 5.49 MeV alpha particles in air.</h5>
+</div>
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,88 @@
+---
+layout: post
+title: Energy Transfer Mechanisms of Photons
+description: This article explains photon energy transfer mechanisms-photoelectric effect, Compton scattering, and pair production-and their physical impact on semiconductors. It also discusses high-energy photon interactions and the electromagnetic spectrum.
+date: 2025-03-12 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2009
+lang: en
+---
+
+# Photon
+
+A photon is the basic quantum of electromagnetic energy, spanning the entire electromagnetic spectrum-from low to high energies and from long to short wavelengths. This includes radio waves, microwaves, visible light, ultraviolet radiation, X-rays, and gamma rays.
+Most electronic devices are enclosed in opaque packaging (e.g., plastic, ceramic, or metal), so photons (light) in the visible range generally pose no concern. However, high-energy photons such as X-rays and gamma rays can penetrate these materials and affect device operation.
+For space electronics, charged particles (protons, heavy ions, electrons) and neutrons are usually the dominant concern; nevertheless, in industrial and medical settings X-rays and gamma rays are primary radiation sources, typically spanning ~10 keV to 1,000 keV. 
+In this range, the photoelectric effect tends to dominate at lower energies and in high-Z materials, while Compton scattering becomes increasingly important at intermediate energies; above ~1.022 MeV, pair production can dominate.
+Because photons are electrically neutral, their interactions with matter differ from those of charged particles. The three principal photon-matter interaction mechanisms are summarized below.
+
+<p align="center"> 
+  <img src="/assets/Articles/선스펙트럼.webp" alt="Diagram illustrating the electromagnetic spectrum" style="width: 40%;">
+</p>
+
+<div align="center">
+<h5>Diagram illustrating the electromagnetic spectrum</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray;">
+  Image source: EM Spectrum Properties edit.svg, created by Inductiveload & NASA (adapted from NASA's File:EM Spectrum3-new.jpg).<br>
+  Licensed under CC BY-SA 3.0 and GNU Free Documentation License 1.2+.<br>
+  You are free to use and modify this image with attribution and ShareAlike terms.
+</div>
+
+### 1. Photoelectric Effect
+
+When a photon with sufficient energy interacts with a semiconductor, it can liberate an electron from the valence band (or from a bound atomic state), producing a photoelectron and leaving behind a positively charged hole.
+In the X-ray regime (tens to hundreds of keV), inner-shell electrons can be ejected; subsequent relaxation of outer-shell electrons may emit characteristic X-rays that are element-specific. <br>
+In the visible/UV range, photons primarily excite valence-band electrons into the conduction band, generating electron-hole pairs.
+The photoelectric effect is an inelastic interaction in which the photon's energy is absorbed. If the photon energy is too low to generate an electron-hole pair, the material is effectively transparent at that wavelength.
+
+### 2. Compton Scattering
+
+In Compton scattering, a photon transfers part of its energy to an electron, producing a lower-energy scattered photon and a recoil electron. Depending on the transferred energy, the electron may be excited to a higher state or fully freed, after which it can further interact and generate additional ionization.
+
+### 3. Pair Production
+
+Pair production is a main high-energy gamma-ray loss mechanism. A photon interacting in the field of an atomic nucleus can transform into an electron-positron pair, provided the photon energy exceeds the combined rest-mass energy of the pair (> 1.022 MeV). Any excess energy appears as kinetic energy shared by the particles.
+The probability of pair production increases with photon energy and with the atomic number (Z) of the material; below the threshold, the process cannot occur.
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

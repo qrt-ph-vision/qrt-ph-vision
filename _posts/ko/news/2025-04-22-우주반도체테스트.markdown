@@ -1,0 +1,85 @@
+---
+layout: post
+title: "[영상] 우주 반도체 테스트, 중이온 가속기 없이도 가능하다?"
+description: 중이온 가속기 없이도 우주 반도체의 방사선 내성 평가가 가능할까? QRT 이혁재 박사가 레이저 대체 기술을 포함한 첨단 평가 방법을 소개합니다. 2025년 5월 20일 ASSIC 2025 콘퍼런스 정보도 함께 확인하세요.
+date: 2025-04-29 00:01:00 +0900
+category: news
+permalink: ko/news/:title.html
+lang: ko
+image: https://img.youtube.com/vi/_6l7bhIXtJw/maxresdefault.jpg
+---
+
+# 우주 반도체 테스트, 중이온 가속기 없이도 가능하다?
+<p style="color: #666666">2025년 4월 29일</p>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//_6l7bhIXtJw' frameborder='0' allowfullscreen></iframe></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "우주 반도체 테스트, 중이온 가속기 없이도 가능하다?",
+  "description": "QRT 이혁재 박사가 우주 반도체 평가 기술을 소개합니다.",
+  "thumbnailUrl": "https://img.youtube.com/vi/_6l7bhIXtJw/maxresdefault.jpg",
+  "uploadDate": "2025-04-29",
+  "contentUrl": "https://www.youtube.com/watch?v=_6l7bhIXtJw",
+  "embedUrl": "https://www.youtube.com/embed/_6l7bhIXtJw"
+}
+</script>
+
+<br>
+
+<p style="font-size:23px"> <b>QRT 이혁재 박사가 말하는 '첨단 우주 반도체 신뢰성 평가 기술'</b></p>
+
+
+<p>QRT 이혁재 박사와 함께 우주 반도체의 신뢰성 평가 방법론, 특히 중이온 내성 평가 및 레이저 기반 평가에 대한 심도 있는 인터뷰를 담고 있습니다</p>
+<p>또한, 2025년 5월 20일에 개최되는 첨단 우주 반도체 혁신 콘퍼런스에 대한 소개도 포함되어 있습니다.</p>
+<p>ASSIC 2025는 단순한 기술 세미나를 넘어, 미래 우주산업과 방위 산업의 핵심 인프라를 논의하는 자리입니다.</p>
+<p>우주 반도체에 관심 있는 기업, 연구자, 공공기관에게 기술적 인사이트와 실제 적용 가능성을 확인하세요.</p>
+
+[무료로 참가 가능한 이 행사를 놓치지 마세요!](https://yelec.kr/product/assic2025/)
+
+QRT 이혁재 박사의 발표는 오전 11:50에 예정되어 있습니다.
+
+
+
+{% comment %}
+뉴스 카테고리에서 현재 언어(page.lang) 기준으로 최신 5개 노출
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: 'ko' %}
+
+{% assign news_candidates = site.posts
+  | where_exp: "p", "p.categories contains 'news'"
+  | where: "lang", current_lang
+  | where_exp: "p", "p.url != page.url"
+  | sort: "date"
+  | reverse
+%}
+
+{% assign news_list = news_candidates | slice: 0, 5 %}
+
+{% if news_list.size > 0 %}
+  <hr>
+  <br>
+  <h3>
+    {% if current_lang == 'en' %}
+      Related News
+    {% else %}
+      관련 뉴스
+    {% endif %}
+  </h3>
+
+  <ul class="related-news">
+    {% for post in news_list %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+          <span class="news-date" style="margin-left:8px; color:#888;">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

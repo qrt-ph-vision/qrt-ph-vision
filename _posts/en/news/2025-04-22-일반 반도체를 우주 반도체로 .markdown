@@ -1,0 +1,81 @@
+---
+layout: post
+title: "[Video] 'Up-Screen': Transforming Commercial Semiconductors into Space-Grade Devices"
+description: Introducing the 'Up-Screen' technique that enables commercial semiconductors to be used in space. Dr. Hyukjae Lee from QRT explains how femtosecond laser-based testing enhances reliability and supports localization.
+date: 2024-04-17 00:01:00 +0900
+category: news
+permalink: en/news/:title.html
+lang: en
+image: https://img.youtube.com/vi/0eppDZ0qxQU/maxresdefault.jpg
+---
+
+# 'Up-Screen': Transforming Commercial Semiconductors into Space-Grade Devices
+
+<p style="color: #666666">April 17, 2024</p>
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/0eppDZ0qxQU' frameborder='0' allowfullscreen></iframe></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "'Up-Screen': Transforming Commercial Semiconductors into Space-Grade Devices",
+  "description": "Dr. Hyukjae Lee from QRT explains how Up-Screen technology enables commercial semiconductors to be used in space through reliability testing and femtosecond laser-based simulation.",
+  "thumbnailUrl": "https://img.youtube.com/vi/0eppDZ0qxQU/maxresdefault.jpg",
+  "uploadDate": "2024-04-17",
+  "contentUrl": "https://www.youtube.com/watch?v=0eppDZ0qxQU",
+  "embedUrl": "https://www.youtube.com/embed/0eppDZ0qxQU"
+}
+</script>
+
+
+<br>
+
+<p style="font-size:23px"><b>Dr. Hyukjae Lee of QRT Discusses 'Up-Screen Technology and QRT's Challenge'</b></p>
+
+<p>This video explains “Up-Screen” technology, which allows commercial semiconductors to be tested and selected for use in space environments through rigorous reliability testing-offering a cost-effective and practical alternative to expensive space-grade semiconductors.</p>
+<p>It also highlights the capabilities of the Korean company QRT, which utilizes femtosecond laser-based radiation simulation technology to perform precise reliability evaluations while reducing time and cost. The video emphasizes the potential for commercialization and localization of space semiconductor evaluation in Korea.</p>
+
+
+
+
+{% comment %}
+뉴스 카테고리에서 현재 언어(page.lang) 기준으로 최신 5개 노출
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: 'ko' %}
+
+{% assign news_candidates = site.posts
+  | where_exp: "p", "p.categories contains 'news'"
+  | where: "lang", current_lang
+  | where_exp: "p", "p.url != page.url"
+  | sort: "date"
+  | reverse
+%}
+
+{% assign news_list = news_candidates | slice: 0, 5 %}
+
+{% if news_list.size > 0 %}
+  <hr>
+  <br>
+  <h3>
+    {% if current_lang == 'en' %}
+      Related News
+    {% else %}
+      관련 뉴스
+    {% endif %}
+  </h3>
+
+  <ul class="related-news">
+    {% for post in news_list %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+          <span class="news-date" style="margin-left:8px; color:#888;">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

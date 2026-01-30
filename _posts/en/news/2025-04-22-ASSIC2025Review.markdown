@@ -1,0 +1,119 @@
+---
+layout: post
+title: ASSIC 2025 Review
+description: On May 20, 2025, the ASSIC 2025 conference gathered around 300 attendees to explore topics such as space semiconductor reliability, heavy ion alternative technologies, and COTS component evaluation across 10 expert sessions.
+date: 2025-05-21 00:00:00 +0900
+category: news
+permalink: en/news/:title.html
+lang: en
+image: /assets/Articles/큐알티.webp
+---
+
+# ASSIC 2025 Review
+<p style="color: #666666">May 21, 2025</p>
+
+On May 20, **ASSIC 2025** was successfully held at the Gyeonggi Institute of Economic Science Promotion. The conference, themed around "Space Semiconductors," brought together industry experts and stakeholders to share technical insights.
+
+Approximately 300 participants attended ASSIC 2025, where 10 speakers shared their knowledge and perspectives.
+
+Topics covered included the establishment of defense space certification systems, radiation tolerance of semiconductors, development of alternative heavy ion source technologies, and trends in COTS electronic component reliability.
+
+The presentations by Mr. Deok-Hong Min of KAI and Dr. Hyuk-Jae Lee of QRT were particularly impressive.
+
+---
+
+**Mr. Deok-Hong Min, Team Lead at Korea Aerospace Industries (KAI) - Trends in Reliability Development of COTS (Commercial Off-The-Shelf) Electronic Components**
+
+> Mr. Min began by clearly defining the concepts of COTS and reliability, and explained the background behind the adoption of commercial electronic components in aerospace systems. He emphasized that the transition from traditional high-cost, high-spec space components to COTS allows for reduced costs and accelerated development.
+> 
+> He also detailed the benefits of COTS components in space applications, such as cost savings compared to space-grade parts, shorter procurement lead times, and the potential to utilize cutting-edge technologies. Furthermore, he systematically outlined the necessary reliability assurance strategies and evaluation standards for implementing COTS.
+
+---
+
+**Dr. Hyuk-Jae Lee of QRT - Current Status of Alternative Heavy Ion Source Technology Development**
+
+> Dr. Lee emphasized that QRT is the only company in Korea conducting radiation tolerance evaluations using laser sources. He noted that international test institutions also employ lasers, and stated that not only correlation with heavy ions but also predictive modeling is now possible.
+> 
+> He pointed out that current heavy ion facilities are severely limited compared to demand, making alternatives essential. In this context, he emphasized that laser-based testing enables domestic measurement and evaluation without the need for radioactive sources, providing a simple and accessible method for identifying semiconductor vulnerabilities.
+
+<p align="center">
+<img src="/assets/Articles/큐알티.webp" style="width: 100%; max-width: 700px;" alt="Dr. Hyuk-Jae Lee presents on QRT's heavy ion alternative laser test technology">
+</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  Dr. Hyuk-Jae Lee presenting on QRT's alternative heavy ion source development
+</p> 
+
+<br>
+
+<p align="center">
+<img src="/assets/Articles/우주항공청.webp" style="width: 100%; max-width: 700px;" alt="Director Hoon Park presents Aerospace Agency R&D Strategy">
+</p>
+
+<p style="font-size: 10px; color: gray; text-align: center;">
+  Director Hoon Park of the Aerospace Agency presents on R&D Strategy
+</p> 
+
+In addition, institutions such as the Defense Agency for Technology and Quality, Korea Electrotechnology Research Institute, Korea Aerospace Research Institute, and Korea Atomic Energy Research Institute contributed insightful presentations.
+
+Below is a summary table of the sessions, showcasing meaningful discussions on radiation tolerance and space semiconductor technologies.
+
+# Session Overview
+<br>
+<div align="center">
+
+| Session | Topic                                                                                         | Speaker                                          |
+|---------|-----------------------------------------------------------------------------------------------|--------------------------------------------------|
+| 1       | R&D Strategy of the Korea Aerospace Administration                                            | Hoon Park / Korea Aerospace Administration       |
+| 2       | Building the Defense Space Certification System                                               | Jang-Heon Kim / Defense Agency for Technology & Quality |
+| 3       | Next-Generation Power Semiconductor Technologies for Aerospace and Defense                    | Dr. Jae-Hwa Seo / Korea Electrotechnology Research Institute |
+| 4       | Development of Alternative Heavy Ion Source Technologies                                      | Dr. Hyuk-Jae Lee / QRT Inc.                      |
+| 5       | Trends in COTS Electronic Component Reliability                                                | Deok-Hong Min / KAI (Korea Aerospace Industries) |
+| 6       | Semiconductor Research on Variable Temperature & Radiation Environments in Space              | Prof. Jung-Sik Kim / Gyeongsang National University |
+| 7       | Localization Trends of Space-Grade Component Development                                       | Dr. Young-Jun Cho / Korea Aerospace Research Institute |
+| 8       | EEE Parts Selection Guidelines Based on TID Analysis of LEO Small Satellites                  | Sang-Seop Park / Hanwha Systems                  |
+| 9       | Status and Case Studies of Space Radiation Evaluation Facilities                              | Dr. Dong-Seok Kim / Korea Atomic Energy Research Institute |
+| 10      | 1Gb-Class MRAM Technology for Radiation-Hardened and High-Reliability Space Applications       | CEO Young-Ok Kim / NETSOL Inc.                   |
+
+</div>
+
+
+{% comment %}
+뉴스 카테고리에서 현재 언어(page.lang) 기준으로 최신 5개 노출
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: 'ko' %}
+
+{% assign news_candidates = site.posts
+  | where_exp: "p", "p.categories contains 'news'"
+  | where: "lang", current_lang
+  | where_exp: "p", "p.url != page.url"
+  | sort: "date"
+  | reverse
+%}
+
+{% assign news_list = news_candidates | slice: 0, 5 %}
+
+{% if news_list.size > 0 %}
+  <hr>
+  <br>
+  <h3>
+    {% if current_lang == 'en' %}
+      Related News
+    {% else %}
+      관련 뉴스
+    {% endif %}
+  </h3>
+
+  <ul class="related-news">
+    {% for post in news_list %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+          <span class="news-date" style="margin-left:8px; color:#888;">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

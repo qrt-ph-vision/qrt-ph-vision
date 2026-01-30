@@ -1,0 +1,96 @@
+<article class="post">
+	<header class="post-header home">
+		<div class="post-title">
+			<span id="category-name"></span>
+		</div>
+	</header>
+
+	<div class="post-content">
+		{%- if site.posts.size > 0 -%}
+		{%- assign sorted_posts = site.posts | sort: "order" -%}
+
+		<!-- sub_category별 그룹핑용 map -->
+		{%- assign article_posts = sorted_posts | where: "categories", "article" -%}
+		{%- assign other_posts = sorted_posts | reject: "categories", "article" -%}
+
+		<!-- article 전용: sub_category 묶음 출력 -->
+		<div id="article-grouped" style="display:none;">
+			{%- assign subcats = article_posts | map: "sub_category" | uniq | sort -%}
+			{%- for subcat in subcats -%}
+			<h2 class="subcat-title">{{ subcat }}</h2>
+			<ul class="post-list">
+				{%- for post in article_posts -%}
+				{%- if post.sub_category == subcat -%}
+				<li class="post-list-item post-category-article post-subcategory-{{ post.sub_category | slugify }}" data-lang="{{ post.lang }}">
+					<a class="post-link" href="{{ post.url | relative_url }}">
+						{{ post.title | escape }}
+					</a>
+					{%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
+				</li>
+				{%- endif -%}
+				{%- endfor -%}
+			</ul>
+			<hr class="subcat-divider">
+			{%- endfor -%}
+		</div>
+
+		<!-- 기타 카테고리용 -->
+		<ul class="post-list" id="default-list">
+			{%- for post in other_posts -%}
+			<li class="post-list-item post-category-{{ post.categories }}" data-lang="{{ post.lang }}">
+				<a class="post-link" href="{{ post.url | relative_url }}">
+					{{ post.title | escape }}
+				</a>
+				{%- if site.show_excerpts -%}{{ post.excerpt }}{%- endif -%}
+			</li>
+			{%- endfor -%}
+		</ul>
+		{%- endif -%}
+	</div>
+</article>
+<script src="/public/js/jquery-3.4.1.slim.min.js"></script>
+<script>
+	function removeCategory() {
+	const hash = window.location.hash.substring(1);
+	if (!hash) return;
+
+	$('#category-name').text(hash.charAt(0).toUpperCase() + hash.slice(1));
+
+	const currentLang = localStorage.getItem('lang') || 'ko';
+
+	if (hash === 'article') {
+		$('#article-grouped').show();
+		$('#default-list').hide();
+
+		$('.post-category-article').each((i, el) => {
+			const $el = $(el);
+			const lang = $el.data('lang') || 'ko';
+
+			if (lang === currentLang) {
+				$el.show().addClass('fade-in');
+			} else {
+				$el.hide().removeClass('fade-in');
+			}
+		});
+	} else {
+		$('#article-grouped').hide();
+		$('#default-list').show();
+
+		$('.post-list-item').each((i, e) => {
+			const $el = $(e);
+			const lang = $el.data('lang') || 'ko';
+
+			if ($el.hasClass('post-category-' + hash) && lang === currentLang) {
+				$el.show().addClass('fade-in');
+			} else {
+				$el.hide().removeClass('fade-in');
+			}
+		});
+	}
+}
+
+
+
+	$(window).on('hashchange', removeCategory);
+	$(document).ready(removeCategory);
+</script>

@@ -1,0 +1,89 @@
+---
+layout: post
+title: SEU는 어떻게 밝혀졌는가? 방사선이 전자 회로에 끼친 영향의 역사
+description: 단일 이벤트 업셋(SEU)의 역사적 기원을 1950년대 핵실험부터 2000년대 위성 시대까지 연대순으로 정리한 기술 아카이브입니다. SEE 개념의 형성과 과학적 입증 과정, 핵심 논문 기반 수치를 함께 소개합니다.
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2013
+---
+
+**Single Event Effects(SEE)**는 우주선, 알파 입자, 또는 고에너지 이온과 같은 방사선이 소자에 충돌할 때 발생하는 일시적 또는 영구적 이상 현상을 말합니다. SEE는 단일 이벤트 업셋(Single Event Upset, SEU)부터 장치 파괴에 이르는 다양한 형태로 나타날 수 있으며, 그 개념은 20세기 중반부터 점진적으로 형성되어 왔습니다. 이 글에서는 SEE의 형성과 발전 과정, 특히 SEU에 대한 최초의 실험적 증거와 수치를 기반으로 한 역사적 흐름을 기술하였습니다.
+
+
+### 1950년대: 최초의 이상 현상 보고
+SEE 개념의 기원은 1950년대 미국의 지상 핵실험에까지 거슬러 올라갑니다. 1954년부터 1957년까지 진행된 고출력 핵실험(예: Operation Castle)에서, 폭발과 직접 관련 없는 여러 전자 장비에서 이상 신호가 다수 관찰되었습니다. 이때의 이상 현상들은 방사선에 의한 영향으로 의심되었지만, 당시에는 이들을 체계적으로 분석할 수 있는 도구나 개념이 부족했습니다.
+이러한 초기 관찰은 이후 SEE 개념의 정립에 중요한 배경이 되었습니다. 특히 핵실험 당시의 고속 계측 장비들이 soft error를 자주 겪었다는 기록은, 후대 연구에서 SEU 현상의 초기 징후로 해석됩니다.
+
+### 1960년대: 우주 전자장비에서의 오류 증가
+우주 탐사가 본격화되던 1960년대에는, 지구 궤도를 도는 위성과 우주선에 탑재된 전자장비에서 설명되지 않는 오류가 빈번히 발생했습니다. NASA와 Hughes 등 주요 항공우주 기관들은 이러한 오류가 내부 설계 결함인지 외부 입자 영향인지에 대해 분석을 시도했지만, 명확한 원인 분석에는 실패했습니다.
+이 시기의 보고된 오류들은 SEU 개념의 등장으로 비로소 과학적으로 설명 가능해졌으며, 후대 연구의 실험적 토대가 되었습니다.
+
+### 1970년대 ~ 2000년: SEE 개념의 정립과 실험적 기반 확립
+1970년대는 단일 이벤트 업셋(SEU)이라는 용어가 처음 등장하고 과학적으로 정립된 시기였습니다. 1972년 휴즈 위성 이상 현상을 계기로 고에너지 입자에 의한 회로 오류가 주목받았고, 1975년 첫 SEU 논문에서 수치적으로 입증되었습니다. 이후 Cray‑1의 지상 오류, α-입자 기인 SEU, 중이온 실험 등을 통해 SEE가 지상에서도 발생함이 확인되었고, 'SEU'라는 용어가 본격적으로 학계와 산업계에 확산되었습니다.
+
+### 2000년대 ~: 대규모 시스템과 위성 시대의 SEE 대응 전략
+2000년대 이후 대규모 데이터센터의 확산과 메모리 집적도의 증가로 인해 지상 환경에서도 소프트 에러 발생 가능성이 높아졌습니다. 동시에 우주 관측 및 민간 위성 사업의 급증으로, 우주 환경에서의 SEE(단일 이벤트 효과)에 대한 관심이 크게 증가하였습니다. 최근에는 연간 수천 기 이상의 인공위성이 발사되고 있으며, 이에 따라 SEE에 강인한 반도체 소자의 선별과 신뢰성 평가가 핵심 이슈로 부상하고 있습니다 .
+
+
+<p align= "center">
+<img src="/assets/Articles/Satellite.webp" style="width: 100%; max-width: 500px;" alt= "Satellite ">
+</p>
+<div align="center"> 
+<h5>View of the damaged Solar Maximum Mission Satellite from the 41-C Challenger</h5>
+</div>
+
+참고문헌
+>[1] D. Binder, E. C. Smith, and A. B. Holman, "Satellite anomalies from galactic cosmic rays," IEEE Transactions on Nuclear Science, vol. NS-22, no. 6, pp. 2675-2680, Dec. 1975. doi: 10.1109/TNS.1975.4328188
+
+>[2] E. Normand et al., "First record of single-event upset on ground, Cray-1 computer at Los Alamos in 1976," IEEE Transactions on Nuclear Science, vol. 57, no. 6, pp. 3114-3120, Dec. 2010.
+
+>[3] T. C. May and M. H. Woods, "A new mechanism for soft errors in dynamic memories," in Proc. Int. Reliability Physics Symposium, 1978, pp. 33-40.
+
+>[4] J. F. Ziegler and W. A. Lanford, "The effects of cosmic rays on computer memories," Science, vol. 206, no. 4420, pp. 776-788, Nov. 1979. doi: 10.1126/science.206.4420.776
+
+>[5] LBNL, "First heavy ion SEE experiment conducted at 88-Inch Cyclotron," Lawrence Berkeley National Laboratory, Berkeley, CA, USA, 1979. [Online]. Available: https://en.wikipedia.org/wiki/Single-event_upset
+
+>[6] M. Baze, “Single Event Effects (SEE) Tutorial,” Auburn University, presented at the Single Event Effects Conference, 2011. [Online]. Available: https://eng.auburn.edu
+
+>[7] D. Alexander et al., “System-Level SEE Characterization and Modeling,” NASA Electronic Parts and Packaging (NEPP) Workshop, 2017. [Online]. Available: https://nepp.nasa.gov
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

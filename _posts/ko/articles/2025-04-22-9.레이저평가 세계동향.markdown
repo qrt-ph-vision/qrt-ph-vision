@@ -1,0 +1,79 @@
+---
+layout: post
+title: 레이저 평가의 글로벌 동향
+description: 중국과 러시아 등 주요 국가에서 COTS 평가를 위한 레이저 시험이 증가 추세에 있으며, 비용 효율성과 평가 속도를 높이기 위한 글로벌 전략으로 자리잡고 있습니다.
+date: 2025-03-22 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1005
+---
+
+이 그래프는 중국의 한 기관이 2020년부터 2022년까지 상용 기성품(COTS Devices)에 대해 수행한 레이저 테스트 건수를 보여줍니다.
+COTS Devices에 대한 레이저 시험 건수는 3년간 급격한 증가 추세를 보였으며, 특히 2021년에서 2022년 사이에 눈에 띄는 상승폭을  기록했습니다. 레이저는 이미 세계적으로 COTS를 평가하기 위해 대체 선원으로 사용되고 있습니다. 이는 레이저 평가가 저렴한 비용으로 가능하기 때문일 것입니다.
+
+<p align="center"> 
+  <img src="/assets/Articles/COTS NSSC.webp" style="width: 80%; max-width: 450px;" alt="2020-2022 COTS Devices for Laser test in Chinese Institute">
+</p>
+<p align="center"> 2020-2022 COTS Devices for Laser test in Chinese Institute </p>
+
+러시아의 한 기관에서는 중이온 시험이 여전히 중심이지만, Laser + Heavy Ion 방식과 Laser 단독 방식도 점차 중요해지고 있습니다. 이는 다양한 전자기기의 SEE 내성 평가를 보다 유연하고 경제적으로 수행하기 위한 전략입니다.
+SEE 시험 전체 수가 꾸준히 늘어나는 가운데, 레이저를 활용한 시험의 비율도 함께 증가하고 있습니다.
+이러한 러시아의 레이저 평가 기술을 더욱 적극 활용 하는 방식은, 효율성과 평가 속도를 고려한 전략적인 접근입니다.
+러시아에서는 SEE 시험에서 중이온을 이용한 방식뿐만 아니라, 레이저를 활용한 시험도 점점 더 많이 도입하고 있습니다.
+특히 Laser + Heavy Ion의 비율이 크다는 것은, 레이저를 통해 사전 평가를 진행하고 중이온으로 재 검증하는 프로세스를 통해 경제성을 추구하고 있는 것으로 보여집니다.
+
+<table align="center" style="border: none; border-collapse: collapse; width: 100%;">
+  <tr>
+    <td align="center" style="border: none; width: 50%;">
+      <img src="/assets/Articles/NRNU MEPhI SPELS.webp" style="height: auto; max-height: 350px; width: 100%; max-width: 450px;" alt= "Actual rate of conducted test in NRNU(2015)">
+      <div style="margin-top: 10px;">Actual rate of conducted test in NRNU(2015)</div>
+    </td>
+    <td align="center" style="border: none; width: 50%;">
+      <img src="/assets/Articles/NRNU MEPhI SPELS 2.webp" style="height: auto; max-height: 350px; width: 100%; max-width: 450px;" alt= "Laser tests fraction during last three years">
+      <div style="margin-top: 10px;">Laser tests fraction for the past three years at NRNU</div>
+    </td>
+  </tr>
+</table>
+
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

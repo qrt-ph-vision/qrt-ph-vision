@@ -1,0 +1,14 @@
+---
+layout: post
+title: Reports
+date: 2025-01-29 00:01:00 +0900
+category: publications
+permalink: ko/publications/:title.html
+lang: ko
+---
+
+<div style="display:flex; justify-content:center; align-items:center; height:100vh; text-align:center;">
+  <p style="font-size:2rem; font-weight:bold; color:#333;">
+    보고서는 준비 중입니다. 곧 업데이트됩니다.
+  </p>
+</div>

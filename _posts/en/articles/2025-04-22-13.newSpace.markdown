@@ -1,0 +1,85 @@
+---
+layout: post
+title: What is New Space?
+description: New Space refers to a new wave of space development led by private companies like SpaceX and Planet Labs. It emphasizes low cost, fast development, and COTS-based systems, marking a shift from traditional government-led space programs.
+date: 2025-03-18 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3001
+lang: en
+---
+
+<img src="/assets/Articles/newSpace.webp" style="float: right; margin: 0 0 20px 20px; width: 100%; max-width: 300px;">
+
+There was a time when space exploration was the exclusive domain of nation-states.
+During the Cold War, intense competition between the U.S. and the Soviet Union made space development a government-driven endeavor-characterized by large budgets, long development timelines, and rigid certification processes.
+In the 21st century, however, the landscape has shifted dramatically.
+<br>
+The driving force behind this transformation is known as **“New Space.”**
+
+<div align="center">
+
+|                 | Old Space                                 | New Space                                                |
+|-----------------|--------------------------------------------|-----------------------------------------------------------|
+| Leading Entity  | Government agencies (NASA, ESA, DoD)       | Commercial Entities (SpaceX, Blue Origin, Planet Labs)      |
+| Development Style | Conservative, verification-first          | Agile, risk-tolerant, iterative                            |
+| Development Timeline | Years to decades                      | Months to ~2 years                                        |
+| Cost Structure   | Hundreds of billions                      | Tens to hundreds of millions                              |
+| Technology Approach | Fully space-qualified components        | COTS and commercial tech adapted for space use            |
+| Launch Strategy  | One-time-use rockets                      | Reusable launch vehicles, mass deployment of smallsats    |
+
+</div>
+
+Unlike the traditional Old Space model led by national space agencies, New Space reflects a shift toward private-sector innovation and market-driven growth.
+Hallmarks include lower cost, shorter development cycles, adoption of commercial technology, vertical integration, and service-oriented business models.
+This shift is transforming space from a government-only scientific and defense domain into a competitive commercial industry.
+<br>
+Commercial entities such as SpaceX, Planet Labs, Blue Origin, OneWeb, and Rocket Lab now handle end-to-end space operations-from satellite manufacturing and launch to ground-segment operations and service delivery.
+They are democratizing access to space through reusable launch vehicles and large-scale deployment of satellites in Low Earth Orbit (LEO), achievements once thought unimaginable.
+<br>
+Traditionally, space systems relied on expensive space-grade components, but New Space companies increasingly design systems using commercial off-the-shelf (COTS) technologies.
+This pragmatic approach rests on the premise that commercial-grade hardware can operate reliably in space when its radiation tolerance is validated and appropriate protections (e.g., shielding, redundancy) are applied.
+<br>
+For example, SpaceX has reduced launch costs to a fraction of historical levels through Falcon 9 reusability.
+Meanwhile, small-launch providers like Rocket Lab are pioneering dedicated services for small satellites, opening new opportunities for startups and small-to-medium enterprises (SMEs) to enter the space industry.
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

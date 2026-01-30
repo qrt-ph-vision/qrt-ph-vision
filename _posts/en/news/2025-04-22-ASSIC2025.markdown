@@ -1,0 +1,71 @@
+---
+layout: post
+title: ASSIC 2025 to Be Held
+description: ASSIC 2025, hosted by QRT, explores reliability evaluation technologies for space semiconductors, market trends, and policy updates. Key players from the aerospace and defense sectors will participate.
+date: 2025-05-14 00:00:00 +0900
+category: news
+permalink: en/news/:title.html
+lang: en
+image: assets\Articles\ASSIC2025.webp
+---
+
+<a href="https://yelec.kr/product/assic2025/" target="_blank" rel="noopener"
+   style="display:block; text-align:center;">
+  <img src="/assets/Articles/ASSIC2025.webp"
+       alt="ASSIC 2025 Image"
+       style="max-width:800px; width:100%; height:auto;">
+</a>
+<p align="right" style="color: #666666; font-size:10px;">※ Click the image to open the link.</p>
+
+# ASSIC2025 Advanced Space Semiconductor Innovation Conference
+<br>
+
+<p>&nbsp;Date: Tuesday, May 20, 2025, 09:30 ~ 17:00 </p>
+<p>&nbsp;Venue: Gyeonggi Institute of Economic Science Promotion, 1st Floor Gwanggyo Hall (in Gwanggyo Technovalley)</p>
+<p>&nbsp;Hosted by QRT, the ASSIC2025 Conference will present methodologies for reliability evaluation of space-grade semiconductors along with market and technological development trends.</p>
+<p>&nbsp;Following the announcement of the “Space R&D Strategy” by the Korea Aerospace Administration, numerous domestic and international research institutions, as well as aerospace and defense companies, will participate.</p> 
+<p>&nbsp;Don't miss this opportunity to gain insights into next-generation semiconductor technologies and reliability testing aligned with the space era.</p>
+
+<p>&nbsp;[Click here for more details](https://yelec.kr/product/assic2025/)</p>
+
+
+{% comment %}
+뉴스 카테고리에서 현재 언어(page.lang) 기준으로 최신 5개 노출
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: 'ko' %}
+
+{% assign news_candidates = site.posts
+  | where_exp: "p", "p.categories contains 'news'"
+  | where: "lang", current_lang
+  | where_exp: "p", "p.url != page.url"
+  | sort: "date"
+  | reverse
+%}
+
+{% assign news_list = news_candidates | slice: 0, 5 %}
+
+{% if news_list.size > 0 %}
+  <hr>
+  <br>
+  <h3>
+    {% if current_lang == 'en' %}
+      Related News
+    {% else %}
+      관련 뉴스
+    {% endif %}
+  </h3>
+
+  <ul class="related-news">
+    {% for post in news_list %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+          <span class="news-date" style="margin-left:8px; color:#888;">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,76 @@
+---
+layout: post
+title: Magnetic Field and Radiation Belts
+description: An overview of Earth's magnetic field and the Van Allen radiation belts, explaining how charged particles are trapped and how this affects satellites and space missions. Includes discussion of the South Atlantic Anomaly (SAA).
+date: 2025-03-15 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3005
+lang: en
+---
+
+When charged particles from space are trapped in Earth's magnetosphere-in the Van Allen radiation belts-they spiral along magnetic field lines and bounce (mirror) between the poles. Positively and negatively charged particles drift sideways (azimuthally) in opposite directions, slowly moving forward or backward (longitudinally).
+This drift, together with the offset and tilt of Earth's magnetic dipole, produces an asymmetric field that is comparatively weak over the South Atlantic, creating the South Atlantic Anomaly (SAA)-a region particularly problematic for satellites and missions in Low Earth Orbit (LEO).
+<br>
+The Van Allen belts consist mainly of electrons in the outer belt, and protons with electrons in the inner belt.
+Space-weather conditions, orbital altitude, and shielding design strongly influence the radiation environment encountered by spacecraft. Dose can also vary across components depending on their location within the satellite and the surrounding materials.
+
+---
+
+# Van Allen Radiation Belt
+
+The Van Allen radiation belts are donut-shaped (toroidal) regions of high-energy charged particles trapped by Earth's magnetic field, extending to roughly 10 Earth radii.
+They were first identified in 1958 with the launch of the United States' first satellite, Explorer 1. Subsequent missions-culminating in the Van Allen Probes (launched in 2012)-have even observed a third, temporary belt forming under certain conditions.
+
+<p align="center">
+  <img src="/assets/Articles/밴앨런이온대.webp" style="width: 100%; max-width: 400px;" alt="Van Allen Belt">
+</p>
+<p align="center">Van Allen Radiation Belts</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  Source: Doopedia
+</p>
+
+The belts are named after Dr. James Van Allen of the University of Iowa. His radiation-detection package-featuring a Geiger counter and tape recorder-flew on Explorer 1, launched on January 31, 1958. Follow-on missions such as Explorer 3, Explorer 4, and Pioneer 3 confirmed the belts and helped characterize their structure.
+<br>
+Although the term “Van Allen belts” refers specifically to Earth, analogous radiation belts have been observed around other magnetized planets such as Jupiter and Saturn.
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

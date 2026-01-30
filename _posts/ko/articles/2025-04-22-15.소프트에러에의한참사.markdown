@@ -1,0 +1,84 @@
+---
+layout: post
+title: Soft Error로 인해 발생한 사고
+description: 소프트 에러(Soft Error)가 실제 사고로 이어진 사례로, 에어버스 A330 콴타스 72편의 비상 강하와 'T'사 차량의 급발진 사건을 분석합니다. 방사선에 의한 단일 이벤트 업셋이 시스템 신뢰성에 끼치는 영향을 소개합니다.
+date: 2025-03-16 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2006
+---
+
+# 에어버스 A330-303(콴타스 72편) 사고
+2008년 10월, 에어버스 A330-303(콴타스 72편)이 싱가포르에서 서호주 퍼스(Perth)로 향하던 중 고도 37,000피트에서 자동 조종 장치로 순항하고 있었습니다. 그런데 갑자기 관성 기준 장치(항공기의 피치, 롤, 뱅크 등 모니터링)가 잘못된 값을 출력하기 시작했습니다. 이로 인해 항공기가 실속(Stall)에 진입하려 했다고 잘못 판단해서 틀린 "공격 각도" 데이터에 대한 응답으로 이어졌고 항공기 컴퓨터는 자동으로 기수를 아래로 내리라고 명령했습니다. 
+<br>이 극적이고 갑작스러운 피치 변화로 승객의 3분의 1과 승무원의 4분의 3 이상이 부상을 입었습니다.
+이러한 고장 모드는 1억 2,800만 시간 이상의 단위 작동에서 3번만 관찰되었으며 단위는 신뢰성 및 감지되지 않은 고장율에 대한 항공기 제조업체의 사양을 충족했습니다(항공기 제조업체는 이후 동일한 유형의 사고를 방지하기 위해 알고리즘을 재설계).<br>
+사고의 원인이 되는 장비의 소프트 오류율은 3/0.128 = 23.44 FIT로 오류 수정의 기능이 없는 메모리의 경우 운항 고도인 37,000피트에서 소프트 오류율이 수천 배 더 높기 때문에 잘못 예측된 값입니다. 따라서 실 환경에서 일어나는 "글리치(Glitch, 작은 문제)" 비율은 일반적으로 훨씬 더 높습니다. 이 소프트 오류율을 바탕으로 한 여러 복합적인 처방이 사고를 방지할 수 있었으나 부정확한 소프트 오류율로 인해 사고를 피하지 못하였습니다.
+  <!-- 이미지 -->
+<p align= "center">
+<img src="/assets/Articles/콴타스72편의피해모습.webp" style="width: 100%; max-width: 400px;" alt= "콴타스 72편의 피해 모습">
+</p>
+<p align= "center">콴타스 72편의 피해 모습</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  문서 출처[Bureau, Australian Transport Safety. "In-Flight Upset--154km West of Learmonth, WA, 7 October 2008, VH-QPA, Airbus A330-303; 2011."313] Page 169
+</p> 
+<br>
+
+------------------------------
+
+# 자동차 급 발진
+
+  <p>'T'사의 자동차에서 일어난 급발진은 많은 사상자와 재산 피해를 가져왔습니다. 미국 나사의 연구기관중 가장 선진 기술을 보유한 미국 JPL(Jet Propulsion Laboratory)에서 원인 규명을 위한 조사를 시작하였습니다. 아래 그림은 그 당시 일반 국민들의 궁금증과 두려움을 잠재우기 위한 목적으로 JPL에서 발간한 내용으로 소프트에러가 우리의 안전과 재산에 영향을 미칠 수 있다는 내용을 담고 있습니다.</p>
+<p align= "center">
+<img src="/assets/Articles/급발진.webp" style= "width: 100%; max-width: 400px;" alt= "T사 자동차의 급발진">
+</p>
+<p align= "center">'T'사 자동차의 급발진</p>
+   <p style="font-size: 10px; color: gray; text-align: center;">
+  이미지 활용[미국 나사 제공]</p>
+
+
+  <p>
+    2010-2011 동안 JPL에서 소프트 오류가 급발진에 미치는 영향을 조사하면서 던진 의문인 “우주선이 급발진을 일으키나요?”라는 것이었는데 JPL이 아닌 카네기 멜론 대학에서 “단일 비트의 업셋”이 급발진을 일으킨 원인이며 이를 뒷받침하는 분석과 실험 자료를 제공함으로써 종결이 되었습니다. “단일 비트의 업셋”으로 인해 급발진에 이를 수 있다는 결론을 뒷받침하는 내용으로 업셋이 일어나는 메모리 소자에 에러 수정 코드(ECC)가 적용되었다고 하였지만 실제로는 보호를 받고 있지 않았다는 내용도 함께 소개되었습니다.
+  </p>
+
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

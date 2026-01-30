@@ -1,0 +1,116 @@
+---
+layout: post
+title: 반도체 방사선 내성 (내방사선) 레이저 평가
+description: QRT의 레이저 기반 방사선 내성 평가 기술은 펨토초 레이저를 활용하여 SEE를 모사하고 민감 영역을 정밀 분석할 수 있는 효율적 대체 시험 방법입니다.
+date: 2025-03-27 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1001
+---
+# 반도체 방사선 내성 (내방사선) 레이저 평가
+  펨토초 펄스 레이저(femto-second pulsed laser)를 이용한 반도체 내방사선 레이저 평가인 Pulsed Laser SEE Test (PLSEE)는 Pulsed Laser를 통해 우주 방사선이 반도체 소자에 미치는 영향을 모사하여 기존 방사선 시험을 대체하여 평가를 수행하는 방법입니다.<br>
+
+<p align="center"> 
+  <img src="/assets/Articles/laser.webp" alt= "laser test" style="width: 100%; max-width: 400px;">
+</p>
+  레이저는 짧은 시간 동안 매우 높은 에너지를 국소적으로 부여할 수 있기 때문에, 실제 입자 충돌에 준하는 전자기적 반응을 유도할 수 있습니다. 일반적으로 SEE의 평가는 [중이온 빔](/ko/article/10.중이온.html) 가속 시설에서 이뤄집니다. 하지만 이는 고가의 시설 대여료, 공간의 제약, 정밀한 취약점 분석 불가 등의 단점이 존재합니다. <br>레이저 평가의 가장 큰 장점은 실험 비용과 시간의 절감입니다. 입자 가속기를 활용하는 기존의 방사선 테스트는 장비 이용이 제한적이고 비용이 매우 높아 테스트 기회를 확보하는 데 어려움이 따릅니다. <br>반면, 레이저 기반 장비는 상대적으로 저렴하고, 실험실 내 설치 및 운용이 가능하여 빠른 반복 실험이 가능합니다. 또한 레이저는 매우 높은 위치 정확도를 제공하여, 전자 소자 내부의 특정 영역을 정밀하게 타격하고, 취약 부위를 분석할 수 있습니다. 이를 통해 디자인 초기 단계부터 방사선 취약성을 식별하고 보완할 수 있는 장점이 있습니다.
+
+-------------------------------------
+
+# QRT 레이저 평가 서비스
+
+<table align="center" style="border: none; border-collapse: collapse;">
+  <tr>
+    <td align="center" style="border: none;">
+      <img src="/assets/Articles/QRT-laser.webp" style="max-width: 500px;" alt= "QRT-Laser Evaluation System">
+      <div style="margin-top: 10px;">QRT-Laser Evaluation System
+      </div>
+    </td>
+    <td align="center" style="border: none;">
+      <img src="/assets/Chapter-3/S-Map.png" style="max-width: 400px;" alt= "반도체 민감 영역 분석">
+      <div style="margin-top: 10px;">반도체 민감 영역 분석</div>
+    </td>
+  </tr>
+</table>
+
+## QRT의 레이저 평가 대행 서비스
+QRT는 다년간의 레이저 내방사선 평가 수행 경험을 보유하고 있는 국내 유일 회사입니다.
+펨토초(femto-second) 펄스 레이저 시스템을 활용해, 단일 광자 흡수(SPA, Single Photon Absorption)는 물론 두 광자 흡수(TPA, Two Photon Absorption) 방식까지 모두 구현 가능한 다목적 레이저 평가 기술을 보유하고 있습니다.
+QRT에서는 레이저를 이용한 반도체의 내방사선 대체평가와 내방사선 반도체의 설계 검증을 진행하실 수 있습니다.
+
+### SEL Screening & Error Rate
+SEE (Single Event Effect) 평가는 디바이스의 에러 발생 민감도와 내방사선 성능을 정량적으로 확인할 수 있는 핵심 시험입니다. 레이저 조사를 통해 발생하는 Single Event Upset (SEU)현상을 관측하거나 SEL Screening을 통하여 Cross-Section (단면적) 값을 도출합니다. 이 Cross-Section은 LETL (Linear Energy Transfer Threshold) 산출에 사용되며, 이를 통해 실제 우주 환경 또는 방사선 환경에서의 오류율(Error Rate)을 예측하여 제공합니다.
+
+### 회로 민감 영역 분석
+QRT의 평가 장비는 나노미터 단위로 제어 가능한 고정밀 XYZ 스테이지를 통해, 칩의 특정 좌표에 레이저를 정밀하게 조사할 수 있습니다.
+이를 통해, SEE (Single Event Effect) 발생 위치 및 패턴을 정밀하게 분석하고, 회로 내 **민감 영역 (Sensitive Area)**을 효과적으로 식별할 수 있습니다.
+
+
+## QRT Laser Lab. Access Service
+QRT의 레이저 평가 시설을 대여할 수 있습니다.
+사용자 친화적인 소프트웨어를 통해 보다 쉽고 빠른 테스트를 진행할 수 있으며,
+레이저 시스템의 자세한 매뉴얼은 [QRT-LITE Manual](/manuals/#lite_kor)에서 확인하실 수 있습니다.
+
+<div align="center">
+
+| Parameter |   Min   |   Max   |
+|:---------:|:-------:|:-------:|
+| 파장      | 630 nm  | 1700 nm |
+| 펄스 폭    | 200 fs  |    -    |
+| 주파수    |  1 Hz   |  1 kHz  |
+| 에너지    | 30 pJ   | 30 nJ   |
+
+</div>
+
+<div align="center"> 
+<h5>QRT Laser Spec.</h5>
+</div>
+
+<div class="qrt-button-wrapper">
+  <a class="qrt-button" href="https://www.qrtkr.com/kr/customer/inquiry.php">
+    QRT에 레이저 평가 및 시설 대여 문의하기
+  </a>
+</div>
+
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

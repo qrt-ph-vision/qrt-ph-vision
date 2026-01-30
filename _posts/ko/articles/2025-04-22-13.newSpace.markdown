@@ -1,0 +1,79 @@
+---
+layout: post
+title: New Space란?
+description: New Space는 민간 기업 중심의 우주 개발 방식으로, 저비용·고속 개발·COTS 기술 활용이 특징입니다. Old Space와의 차이점과 주요 기업 사례를 소개합니다.
+date: 2025-03-18 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3001
+---
+<img src="/assets/Articles/newSpace.webp" style="float: right; margin: 0 0 20px 20px; width: 100%; max-width: 300px;">
+
+한때 우주는 오직 국가들만의 배타적 영역으로 여겨졌습니다. 냉전 시대 미국과 소련의 치열한 우주 경쟁을 거치며, 우주 개발은 천문학적인 예산과 긴 개발 기간, 엄격한 인증 절차를 요구하는 정부 주도 프로젝트로 인식되어 왔습니다. 그러나 21세기에 들어서면서 우주 산업의 지형이 급격히 변화하기 시작했습니다.
+<br/> <!-- 한줄 띄기 -->
+이러한 변화를 이끌고 있는 것이 바로 **'New Space'**입니다.
+<div align="center">
+
+|     | Old Space            | New Space                             |
+| ----- | -------------------- | ------------------------------------- |
+| 주도 주체 | NASA, ESA, 국방기관 등 정부 | SpaceX, Blue Origin, Planet Labs 등 민간 |
+| 추진 방식 | 보수적, 기술 검증 우선        | 실용 중심, 위험 감수                          |
+| 개발 주기 | 수년\~수십 년             | 수개월\~2년 내외                            |
+| 비용    | 수백\~수천억 단위           | 수억\~수십억 단위로 절감                        |
+| 기술 전략 | 우주 인증 부품 위주          | COTS, 민간기술 전환 활용                      |
+| 발사 전략 | 1회용 발사체              | 재사용, 소형 다수 발사                         |
+
+</div>
+
+<br/> <!-- 한줄 띄기 -->
+New Space는 정부 주도(Old Space) 우주 개발 방식과는 달리, 민간 기업이 중심이 되어 기술을 혁신하고 우주 시장을 개척하는 새로운 접근 방식을 의미합니다. 저비용, 신속한 개발 속도, 민간 기술의 적극적 활용, 수직 통합, 대중 지향적 서비스 모델이 이 흐름의 주요 특징이며, 이는 우주를 과학과 국방의 영역에서 산업과 소비자 서비스의 영역으로 확장시키고 있습니다.
+<br/> <!-- 한줄 띄기 -->
+과거 NASA와 ESA가 모든 기술을 독점적으로 개발하던 시대에서 벗어나, 이제는 SpaceX, Planet Labs, Blue Origin, OneWeb, Rocket Lab 등 민간 기업들이 위성 제작, 발사, 지상국 운영, 서비스 제공까지 직접 수행하고 있습니다. 이들은 발사체를 재사용하거나 수십에서 수백 기의 위성을 저궤도(LEO)에 동시에 배치하며, 과거에는 상상조차 할 수 없었던 속도로 우주를 일상에 가깝게 만들어가고 있습니다.
+<br/> <!-- 한줄 띄기 -->
+기존 우주 시스템은 고가의 우주 인증 부품(Space-Grade Parts)에 의존했으나, New Space 기업들은 **상용 부품(COTS)**을 기반으로 한 시스템을 설계하고 있습니다. 이는 방사선 내성(Radiation Tolerance)만 확보되면 상용 기술도 충분히 우주 환경에서 활용할 수 있다는 실용적인 접근 방식에 기반한 전략입니다.
+<br/> <!-- 한줄 띄기 -->
+SpaceX는 Falcon 9 로켓의 재사용을 통해 발사 비용을 종전의 1/10 수준으로 크게 낮추었으며, Rocket Lab과 같은 소형 발사체 기업들은 소형 위성 전용 시장을 성공적으로 개척하고 있습니다. 이러한 혁신적인 변화는 스타트업과 중소기업에게도 우주 사업 진입의 새로운 기회를 제공하고 있습니다.
+
+<br/> <!-- 한줄 띄기 -->
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

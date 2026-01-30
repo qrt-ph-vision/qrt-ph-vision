@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="uOAGZ8r4Rv2slyGp0361ujPN_Sze9vSAMupskJ3U-mo" />
+	<meta name="naver-site-verification" content="f2e995324ce72373539cb3ef3862c3e4da015f1e" /><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-866KXKSPRQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-866KXKSPRQ');
+</script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="LASER2COTS" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>인공위성의 궤도(LEO, GEO)와 방사선 평가 | LASER2COTS</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="인공위성의 궤도(LEO, GEO)와 방사선 평가" />
+<meta property="og:locale" content="ko" />
+<meta name="description" content="LEO, GEO, GTO 등 다양한 인공위성 궤도에 따른 방사선 환경과 방사선 내성 평가 항목(TID, SEE, GCR, SPE 등)을 비교 분석합니다. 궤도별 주요 방사선원과 차폐 필요성까지 상세히 설명합니다." />
+<meta property="og:description" content="LEO, GEO, GTO 등 다양한 인공위성 궤도에 따른 방사선 환경과 방사선 내성 평가 항목(TID, SEE, GCR, SPE 등)을 비교 분석합니다. 궤도별 주요 방사선원과 차폐 필요성까지 상세히 설명합니다." />
+<link rel="canonical" href="http://localhost:4000/ko/article/25.orbit.html" />
+<meta property="og:url" content="http://localhost:4000/ko/article/25.orbit.html" />
+<meta property="og:site_name" content="LASER2COTS" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-03-11T00:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="인공위성의 궤도(LEO, GEO)와 방사선 평가" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-03-11T00:00:00+09:00","datePublished":"2025-03-11T00:00:00+09:00","description":"LEO, GEO, GTO 등 다양한 인공위성 궤도에 따른 방사선 환경과 방사선 내성 평가 항목(TID, SEE, GCR, SPE 등)을 비교 분석합니다. 궤도별 주요 방사선원과 차폐 필요성까지 상세히 설명합니다.","headline":"인공위성의 궤도(LEO, GEO)와 방사선 평가","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ko/article/25.orbit.html"},"url":"http://localhost:4000/ko/article/25.orbit.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+	<!-- 1) Google Fonts 서버와 미리 연결 -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<!-- 2) Ubuntu + Gelasio + Kulim Park + Nanum Myeongjo + Nanum Gothic + Noto Sans + Noto Sans KR + Roboto -->
+	<link
+		href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&family=Gelasio&family=Kulim+Park&family=Nanum+Myeongjo&family=Nanum+Gothic&family=Noto+Sans&family=Noto+Sans+KR&family=Roboto&display=swap"
+		rel="stylesheet">
+
+
+</head><style>
+  @import url("/public/css/syntax/monokai.css");
+</style>
+<title>LASER2COTS</title>
+<!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<link href="/public/css/style.css" rel="stylesheet">
+
+
+<body>
+
+
+
+  <!-- 문의하기 버튼 -->
+  <div class="float-button-container" id="contactBtn" style="bottom: 15px;">
+    <a class="float-button" href="https://www.qrtkr.com/kr/customer/inquiry.php" target="_blank">
+      <span id="contact-text">문의하기</span>&nbsp;
+      <img class="float-button-image" src="/assets/right_btn_logo.png"
+        style="margin-left: auto; width: 34px; height: 34px;" />
+    </a>
+  </div>
+
+
+  <!-- 최상단 버튼 -->
+  <div id="scrollTopBtn" onclick="scrollToTop()">↑</div>
+
+
+  <!-- Floating Buttons End -->
+  <div class="container">
+    <div class="sidebar">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+
+<div class="sidebar-item sidebar-header">
+	<div class="sidebar-brand">
+	<a href="/" class="sidebar-logo">
+		<img src="/assets/laser_logo2.png" alt="Logo">
+		<span class="logo-by-qrt"><em>By QRT</em></span>
+		<!--span>LASER2COTS</span-->
+	</a>
+</div>
+
+	<p class="lead"></p></div>
+
+<!-- 언어 선택 버튼 (데스크탑 전용) -->
+<div id="lang-switch" style="text-align: center; margin-top:10px ;">
+	<span id="lang-kr" class="lang-toggle active-lang" style="cursor: pointer; margin-right: 8px;">KR</span>
+	<span class="lang-divider" style="margin: 0 6px;">|</span>
+	<span id="lang-en" class="lang-toggle" style="cursor: pointer; margin-left: 8px;">EN</span>
+</div>
+
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 👤 아이콘 추가된 About 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
+		</li>
+
+		<!-- Home 항목 먼저 -->
+		<li>
+			<a class="nav-item" href="/">Home</a>
+		</li>
+
+		<!-- About LASER2COTS만 먼저 표시 -->
+		<li>
+			<a id="about-laser2cots-link" class="nav-item" href="/about/">About LASER2COTS</a>
+		</li>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const currentLang = localStorage.getItem('lang') || 'ko';
+				const aboutLink = document.getElementById('about-laser2cots-link');
+				if (!aboutLink) return;
+
+				aboutLink.href = currentLang === 'en' ? '/en/about/' : '/ko/about/';
+			});
+		</script>
+
+
+
+
+		<!-- QRT homepage -->
+		<li>
+			<a id="qrt-home-link" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
+				QRT homepage
+			</a>
+		</li>
+
+	</ul>
+</div>
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i>
+			Services
+		</li>
+		<li>
+			<a class="nav-item" href="/ko/upscreen.html">Up-Screening</a>
+		</li>
+		<li>
+			<a class="nav-item" href="/ko/pulsedlaser.html">Pulsed Laser</a>
+		</li>
+		<li>
+			<a id="more-services-link" class="nav-item" href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php"
+				target="_blank">
+				More Services
+			</a>
+		</li>
+
+	</ul>
+</div>
+
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 📘 아이콘 추가된 제목 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
+			QRT - LITE Manual
+		</li>
+		<li>
+			<!-- _includes/manual.html -->
+			<a class="nav-item" href="/manuals/#lite_kor">
+				<span class="name">KOR</span>
+				<!--span class="badge">76</span-->
+			</a>
+		</li>
+	</ul>
+</div>
+
+
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+		<!-- 🗂️ 아이콘 추가 -->
+		<li class="nav-title">
+			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
+			contents
+		</li>
+
+		
+		
+		
+		<li>
+			<a class="nav-item" href="/category/#news">
+				<span class="name">news</span>
+				<span class="badge">5</span>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="nav-item" href="/category/#publications">
+				<span class="name">publications</span>
+				<span class="badge">3</span>
+			</a>
+		</li>
+		
+		
+		
+		<li>
+			<a class="nav-item" href="/category/#article">
+				<span class="name">article</span>
+				<span class="badge">30</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+
+
+
+
+<script>
+	function updatePageLanguage(lang) {
+		// 푸터 텍스트 토글
+		document.querySelectorAll('.footer-text-ko').forEach(el => {
+			el.style.display = (lang === 'ko') ? 'block' : 'none';
+		});
+		document.querySelectorAll('.footer-text-en').forEach(el => {
+			el.style.display = (lang === 'en') ? 'block' : 'none';
+		});
+
+		const qrtHomeMobile = document.getElementById('qrt-home-link-mobile');
+		if (qrtHomeMobile) {
+			qrtHomeMobile.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/'
+				: 'https://www.qrtkr.com/kr/';
+		}
+
+		// 모바일 More Services 링크
+		const moreServicesMobile = document.getElementById('more-services-link-mobile');
+		if (moreServicesMobile) {
+			moreServicesMobile.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/equipment/see/equipment_see.php'
+				: 'https://www.qrtkr.com/kr/equipment/see/equipment_see.php';
+		}
+
+		const moreServicesLink = document.getElementById('more-services-link');
+		if (moreServicesLink) {
+			moreServicesLink.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/equipment/see/equipment_see.php'
+				: 'https://www.qrtkr.com/kr/equipment/see/equipment_see.php';
+		}
+
+		const qrtHomeLink = document.getElementById('qrt-home-link');
+		if (qrtHomeLink) {
+			qrtHomeLink.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/'
+				: 'https://www.qrtkr.com/kr/';
+		}
+
+		// manuals 배너: 영어에서만 보이게
+		const manualLangNote = document.getElementById('manual-lang-note');
+		if (manualLangNote) {
+			manualLangNote.style.display = (lang === 'en') ? 'block' : 'none';
+		}
+
+
+		// 기존 함수 안에 다음 코드 추가:
+		const newsItems = document.querySelectorAll('.news-item');
+		let visibleCount = 0;
+
+		newsItems.forEach(item => {
+			const itemLang = item.getAttribute('data-lang') || 'ko';
+			const shouldShow = itemLang === lang && visibleCount < 5;
+			item.style.display = shouldShow ? 'block' : 'none';
+			if (shouldShow) visibleCount++;
+		});
+
+		// 뉴스 더보기 버튼 텍스트 및 링크도 변경
+		const newsMoreBtn = document.getElementById('news-more-button');
+		if (newsMoreBtn) {
+			newsMoreBtn.href = '/category/#news';
+			newsMoreBtn.textContent = lang === 'en' ? 'See More News' : '더 많은 뉴스 보기';
+		}
+
+
+		// 문의하기 버튼 텍스트 변경
+		const contactText = document.getElementById('contact-text');
+		const contactLink = document.querySelector('#contactBtn a');
+		if (contactText) {
+			contactText.textContent = lang === 'en' ? 'Contact Us\u00A0' : '문의하기\u00A0';
+		}
+		if (contactLink) {
+			contactLink.href = lang === 'en'
+				? 'https://www.qrtkr.com/en/customer/inquiry.php'
+				: 'https://www.qrtkr.com/kr/customer/inquiry.php';
+		}
+
+		const aboutLink = document.getElementById('about-laser2cots-link');
+		if (aboutLink) {
+			aboutLink.href = lang === 'en' ? '/en/about/' : '/ko/about/';
+		}
+
+		// 버튼 상태
+		document.getElementById('lang-kr').classList.toggle('active-lang', lang === 'ko');
+		document.getElementById('lang-en').classList.toggle('active-lang', lang === 'en');
+
+		// 현재 페이지 경로 확인
+		const path = window.location.pathname;
+
+		// Article 리스트 필터링: URL이 /ko/ 또는 /en/ 접두사를 가질 때만 실행
+		const hasLangPrefix = /^\/(ko|en)\//.test(path);
+		if (hasLangPrefix) {
+			document.querySelectorAll('.post-list-item').forEach(post => {
+				const postLang = post.getAttribute('data-lang') || 'ko';
+				post.style.display = postLang === lang ? '' : 'none';
+			});
+		}
+
+		// 더보기 버튼
+		const moreBtn = document.getElementById('more-button');
+		if (moreBtn) {
+
+			moreBtn.textContent = lang === 'en' ? 'See More Articles' : '더 많은 글 보기';
+		}
+
+		// About 섹션
+		const aboutKo = document.getElementById('about-ko');
+		const aboutEn = document.getElementById('about-en');
+		if (aboutKo && aboutEn) {
+			aboutKo.style.display = lang === 'ko' ? 'block' : 'none';
+			aboutEn.style.display = lang === 'en' ? 'block' : 'none';
+		}
+
+		// 갤러리 텍스트 및 버튼
+		document.querySelectorAll('.gallery-text-ko').forEach(el => {
+			el.style.display = lang === 'ko' ? 'block' : 'none';
+		});
+		document.querySelectorAll('.gallery-text-en').forEach(el => {
+			el.style.display = lang === 'en' ? 'block' : 'none';
+		});
+		document.querySelectorAll('.gallery-btn').forEach(btn => {
+			const koText = btn.getAttribute('data-ko') || '자세히 보기';
+			const enText = btn.getAttribute('data-en') || 'See Details';
+			btn.textContent = lang === 'ko' ? koText : enText;
+
+			const href = btn.getAttribute('href');
+			if (href) {
+				const updatedHref = href.replace(/^\/(ko|en)\//, `/${lang}/`);
+				btn.setAttribute('href', updatedHref);
+			}
+		});
+		document.querySelectorAll('.sidebar-item .nav .nav-item').forEach(a => {
+			const href = a.getAttribute('href') || '';
+			// 해당 두 페이지만 대상으로 제한
+			if (!/\/(upscreen|pulsedlaser)\.html$/.test(href)) return;
+
+			const url = new URL(href, window.location.origin);
+			const parts = url.pathname.split('/').filter(Boolean); // ['ko','upscreen.html'] 같은 형태
+
+			if (parts.length) {
+				if (parts[0] === 'ko' || parts[0] === 'en') {
+					parts[0] = lang;              // 접두어만 교체
+				} else {
+					parts.unshift(lang);          // 없으면 접두어 추가
+				}
+				a.setAttribute('href', '/' + parts.join('/'));
+			}
+		});
+		// 모바일 햄버거 메뉴(Up-Screening / Pulsed Laser) 링크도 언어 접두어 교체
+		document.querySelectorAll('.mobile-nav a.nav-item').forEach(a => {
+			const href = a.getAttribute('href') || '';
+			if (!/\/(upscreen|pulsedlaser)\.html$/.test(href)) return; // 대상 두 페이지만
+
+			const url = new URL(href, window.location.origin);
+			const parts = url.pathname.split('/').filter(Boolean); // ex) ['ko','upscreen.html']
+
+			if (parts.length) {
+				if (parts[0] === 'ko' || parts[0] === 'en') {
+					parts[0] = lang;           // 기존 접두어 교체
+				} else {
+					parts.unshift(lang);       // 접두어 없으면 추가
+				}
+				a.setAttribute('href', '/' + parts.join('/'));
+			}
+		});
+
+	}
+
+
+	function setActiveLang(lang) {
+		localStorage.setItem('lang', lang);
+		updatePageLanguage(lang);
+
+		const path = window.location.pathname;
+
+		// 예외 처리: /manuals/ 페이지는 URL 변경 없이 내부 UI만 전환
+		if (path.startsWith('/manuals/')) return;
+
+		// 언어 접두어 교체 (예: /ko/... → /en/...)
+		if (/^\/(ko|en)\//.test(path)) {
+			const newPath = path.replace(/^\/(ko|en)\//, `/${lang}/`);
+			if (newPath !== path) {
+				window.location.pathname = newPath;
+				return;
+			}
+		}
+		location.reload();
+		removeCategory(); // 언어 변경 시 카테고리 리스트도 다시 필터링
+	}
+
+
+	// 페이지 로드 시 언어 변수 초기화
+	document.addEventListener('DOMContentLoaded', function () {
+		const path = window.location.pathname;
+
+		// URL에서 언어 감지 (/ko/... or /en/...)
+		let urlLang = null;
+		if (/\/ko(\/|$)/.test(path)) {
+			urlLang = 'ko';
+		} else if (/\/en(\/|$)/.test(path)) {
+			urlLang = 'en';
+		}
+
+		// ko/en 둘 다 없으면 건들지 않음
+		if (urlLang) {
+			const currentLang = localStorage.getItem('lang');
+
+			// URL에서 읽은 언어랑 localStorage 언어가 다르면 동기화
+			if (currentLang !== urlLang) {
+				localStorage.setItem('lang', urlLang);
+
+				// 무한 새로고침 방지: 이 탭에서 한 번만 새로고침
+				if (!sessionStorage.getItem('langSyncedFromUrl')) {
+					sessionStorage.setItem('langSyncedFromUrl', '1');
+					window.location.reload();
+					return;
+				}
+			}
+		}
+
+		// 한 번 새로고침 끝났으면 플래그 제거 (다음 페이지에서도 다시 체크는 하되, 언어 같으면 새로고침 없음)
+		sessionStorage.removeItem('langSyncedFromUrl');
+
+		// 최종 lang 결정 (URL → localStorage 반영된 값)
+		const storedLang = localStorage.getItem('lang') || 'ko';
+		updatePageLanguage(storedLang);
+
+		// 버튼 이벤트 그대로 유지
+		document.getElementById('lang-kr')?.addEventListener('click', () => setActiveLang('ko'));
+		document.getElementById('lang-en')?.addEventListener('click', () => setActiveLang('en'));
+	});
+
+</script>
+
+
+
+<!-- 검색 -->
+<!-- 🔹 검색창 외 영역 클릭용 오버레이 -->
+<div id="search-backdrop"
+	style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0); z-index: 9998;">
+</div>
+
+<!-- 검색 입력창 (floating label 적용) -->
+<div class="sidebar-item sidebar-search-input" style="padding: 0 10px 10px;">
+	<div class="floating-label-input">
+		<input type="text" id="search-input" required placeholder=" " title="여기에 검색어를 입력하세요" />
+		<label for="search-input">Search</label>
+	</div>
+</div>
+
+
+<!-- 오른쪽에 표시될 검색 결과 패널 -->
+<div id="search-panel" style="position: fixed; top: 0; left: 220px; width: 340px; height: 100%; background: #fff;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2); z-index: 9999; padding: 20px; overflow-y: auto;
+            display: none;">
+	<!-- X 닫기 버튼 -->
+	<button id="close-search-btn"
+		style="position: absolute; top: 10px; right: 10px; border: none; background: none; font-size: 22px; cursor: pointer;">&times;</button>
+
+	<!-- 검색 결과 제목 -->
+	<h3 id="search-title" style="color: #000; margin-top: 40px;"><span id="search-keyword"></span>에 대한 검색 결과</h3>
+
+	<ul id="results-container" class="search-results" style="margin-top: 10px; list-style: none; padding-left: 0;"></ul>
+	<p id="no-results" style="margin-top: 10px; color: #000; display: none;">검색 결과가 없습니다</p>
+</div>
+
+
+<!-- 검색 패널 끝 -->
+
+<div class="sidebar-item sidebar-footer" style="font-size: 0.8em; text-align: center; margin-top: 20px;">
+	<p>
+		<a href="https://www.qrtkr.com" target="_blank" rel="noopener noreferrer">
+			<img src="/assets/logo.png" alt="QRT Logo"
+				style="height: 60px; vertical-align: middle;">
+		</a>
+	</p>
+</div>
+
+<p class="visual-sub-txt">You Dream, <br><span class="m-none">&nbsp;&nbsp;&nbsp;</span> We Deliver!</p>
+<!--div class="sidebar-item sidebar-footer">
+	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
+</div-->
+
+
+
+<div class="sidebar-footer" style="text-align: center; font-size: 0.8em; margin-top: 20px; color: #888;">
+	<p>&copy; 2026 QRT Inc. All rights reserved.</p>
+</div>
+
+
+<div class="sidebar-footer" style="text-align: center; font-size: 0.8em; margin-top: 20px; color: #888;">
+	<!-- 한국어 -->
+	<p class="footer-text-ko" style="font-weight: 500;">
+		큐알티 주식회사&nbsp;|&nbsp;경기도 이천시 부발읍 경충대로 2091
+	</p>
+	<!-- 영어 (초기 비표시) -->
+	<p class="footer-text-en" style="display:none;">
+		QRT Inc.&nbsp;|&nbsp;2091, Gyeongchung-daero, Bubal-eup, Icheon-si, Gyeonggi-do, Republic of Korea
+	</p>
+</div>
+
+
+
+<!-- 검색 기능을 위한 스크립트 -->
+<script src="https://unpkg.com/simple-jekyll-search/dest/simple-jekyll-search.min.js"></script>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const input = document.getElementById('search-input');
+		const panel = document.getElementById('search-panel');
+		const results = document.getElementById('results-container');
+		const noResults = document.getElementById('no-results');
+		const keywordSpan = document.getElementById('search-keyword');
+		const closeBtn = document.getElementById('close-search-btn');
+		const backdrop = document.getElementById('search-backdrop');
+		const searchTitle = document.getElementById('search-title');
+
+		const storedLang = localStorage.getItem('lang') || 'ko';
+
+		// 검색 초기화
+		SimpleJekyllSearch({
+			searchInput: input,
+			resultsContainer: results,
+			json: '/search.json',
+			// lang 필드를 포함시켜야 아래 필터링에서 작동
+			searchResultTemplate: '<li data-lang="{lang}"><a href="{url}">{title}</a></li>',
+			noResultsText: '',
+			limit: 10,
+			fuzzy: false
+		});
+
+		// 검색 결과 UI 텍스트 업데이트
+		function updateSearchLabels(keyword) {
+			if (storedLang === 'en') {
+				searchTitle.innerHTML = `Search results for <span id="search-keyword">"${keyword}"</span>`;
+				noResults.textContent = 'No results found';
+			} else {
+				searchTitle.innerHTML = `<span id="search-keyword">"${keyword}"</span>에 대한 검색 결과`;
+				noResults.textContent = '검색 결과가 없습니다';
+			}
+		}
+
+		// 검색창 열기
+		input.addEventListener('input', function () {
+			const keyword = input.value.trim();
+
+			if (keyword.length > 0) {
+				panel.style.display = 'block';
+				backdrop.style.display = 'block';
+				updateSearchLabels(keyword);
+
+				setTimeout(() => {
+					const items = results.querySelectorAll('li');
+					let visibleCount = 0;
+
+					items.forEach(item => {
+						const lang = item.getAttribute('data-lang') || 'ko';
+						const show = (storedLang === 'en' && lang === 'en') || (storedLang === 'ko' && lang === 'ko');
+
+						item.style.display = show ? 'block' : 'none';
+						if (show) visibleCount++;
+					});
+
+					noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+				}, 150);
+			} else {
+				closeSearchPanel();
+			}
+		});
+
+		// 검색창 닫기 함수
+		function closeSearchPanel() {
+			panel.style.display = 'none';
+			backdrop.style.display = 'none';
+			keywordSpan.textContent = '';
+		}
+
+		closeBtn.addEventListener('click', closeSearchPanel);
+		backdrop.addEventListener('click', closeSearchPanel);
+		document.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape') closeSearchPanel();
+		});
+	});
+</script>
+
+
+<!-- 검색 기능 끝 -->
+
+<!-- 모바일 햄버거 버튼 -->
+<button id="hamburger-btn" class="hamburger" aria-label="메뉴 열기">
+	<i class="fas fa-bars"></i>
+</button>
+
+<!-- 모바일 오버레이 배경 -->
+<div id="mobile-sidebar-backdrop" class="mobile-sidebar-backdrop"></div>
+
+<!-- 모바일 사이드바 -->
+<div id="mobile-sidebar" class="mobile-sidebar">
+	<button class="close-mobile-sidebar" aria-label="닫기">&times;</button>
+
+	<!-- About 섹션 -->
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-circle-user" style="margin-right: 6px;"></i> About
+		</li>
+		<li><a class="nav-item" href="/">Home</a></li>
+
+		<li>
+			<a id="about-laser2cots-link-mobile" class="nav-item" href="/about/">
+				About LASER2COTS
+			</a>
+		</li>
+
+
+		<li>
+			<a id="qrt-home-link-mobile" class="nav-item" target="_blank" href="https://www.qrtkr.com/kr/">
+				QRT homepage
+			</a>
+		</li>
+
+	</ul>
+
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-briefcase" style="margin-right: 6px;"></i> Services
+		</li>
+
+		<li>
+			<a id="about-laser2cots-link-mobile" class="nav-item" href="/ko/upscreen.html">
+				Up-Screening
+			</a>
+		</li>
+
+
+		<li>
+			<a id="about-laser2cots-link-mobile" class="nav-item" href="/ko/pulsedlaser.html">
+				Pulsed Laser
+			</a>
+		</li>
+		<li>
+			<a id="more-services-link-mobile" class="nav-item" target="_blank"
+				href="https://www.qrtkr.com/kr/equipment/see/equipment_see.php">
+				More Services
+			</a>
+		</li>
+
+	</ul>
+
+	<!-- LITE 메뉴얼 섹션 -->
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-book" style="margin-right: 6px;"></i> QRT - LITE Manual
+		</li>
+		<li>
+			<a class="nav-item" href="/manuals/#lite_kor">KOR</a>
+		</li>
+	</ul>
+
+	<!-- 카테고리 섹션 -->
+	<ul class="mobile-nav">
+		<li class="nav-title">
+			<i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i> Contents
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#news">
+				<span class="name">news</span>
+				<span class="badge">5</span>
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#publications">
+				<span class="name">publications</span>
+				<span class="badge">3</span>
+			</a>
+		</li>
+		
+		<li>
+			<a class="nav-item" href="/category/#article">
+				<span class="name">article</span>
+				<span class="badge">30</span>
+			</a>
+		</li>
+		
+	</ul>
+</div>
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const lang = localStorage.getItem('lang') || 'ko';
+		const aboutLink = document.getElementById('about-laser2cots-link-mobile');
+
+		if (aboutLink) {
+			aboutLink.href = lang === 'en' ? '/en/about/' : '/ko/about/';
+		}
+	});
+</script>
+
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const hamburgerBtn = document.getElementById('hamburger-btn');
+		const mobileSidebar = document.getElementById('mobile-sidebar');
+		const closeBtn = document.querySelector('.close-mobile-sidebar');
+		const backdrop = document.getElementById('mobile-sidebar-backdrop');
+
+		function openSidebar() {
+			mobileSidebar.classList.add('show');
+			backdrop.classList.add('show');
+		}
+
+		function closeSidebar() {
+			mobileSidebar.classList.remove('show');
+			backdrop.classList.remove('show');
+		}
+
+		hamburgerBtn.addEventListener('click', openSidebar);
+		closeBtn.addEventListener('click', closeSidebar);
+		backdrop.addEventListener('click', closeSidebar);
+	});
+</script>
+
+<script>
+	window.addEventListener("scroll", function () {
+		const sidebar = document.querySelector(".sidebar");
+		if (window.scrollY > 105) {
+			sidebar.classList.add("scrolled");
+		} else {
+			sidebar.classList.remove("scrolled");
+		}
+	});
+</script>
+    </div>
+    <div class="content">
+      <article class="post">
+	<header class="post-header" style="display: flex; align-items: center; justify-content: space-between;">
+		<span id='category-name'></span>
+		<!-- 원래 카테고리로 돌아가는 버튼 -->
+		<div style="margin-top: 20px; text-align: center;"><a href="/category/#article" class="btn btn-primary"
+				style="font-size: 15px; padding: 5px 10px; background-color: #888888; color: white; text-decoration: none; border-radius: 5px; margin-right: auto;"
+				onmouseover="this.style.backgroundColor='#555555'" onmouseout="this.style.backgroundColor='#888888'">
+				←List
+			</a>
+
+		</div>
+
+		<div class="post-title" style="margin-left: auto; margin-right: auto; padding-right: 10%;">
+			인공위성의 궤도(LEO, GEO)와 방사선 평가
+
+		</div>
+		<!--time class="post-date dt-published" datetime="2025-03-11T00:00:00+09:00" itemprop="datePublished">2025/03/11
+		</time-->
+	</header>
+
+	<div class="post-content">
+		<div class="fade-in">
+			<h1 id="leo-low-earth-orbit---지구-저궤도">LEO (Low Earth Orbit) - 지구 저궤도</h1>
+<p>LEO는 지표로부터 약 2,000km 이하의 고도에 형성된 궤도로, 지구 대기권과 밴 앨런대(Van Allen belts) 사이에 위치합니다.
+이 궤도는 태양 양성자(Solar Protons) 및 은하 우주선(Galactic Cosmic Rays, GCR)의 영향은 비교적 적지만, 밴 앨런대의 트랩된 방사선 영향을 크게 받습니다.
+LEO는 통신, 기상 관측, 과학 탐사 등 다양한 분야에서 폭넓게 활용되며, 현재 운용 중인 대부분의 위성이 이 궤도에 있습니다.
+지구와 가까운 거리 덕분에 고해상도 영상 촬영이 가능하고, 임무 기간은 보통 2~5년입니다. 대표적으로 국제우주정거장(ISS)도 LEO에 위치하며, 약 시속 27,744km의 속도로 하루 15.7회 지구를 공전합니다.
+COTS(Commercial Off-The-Shelf) 부품을 사용할 수 있을 정도로 방사선 환경이 비교적 안정적이기 때문에, 저비용 대량 발사를 통한 위성망 구축(Mega Constellation)에 적합한 궤도입니다.</p>
+
+<h3 id="vleo-very-low-earth-orbit---초저궤도">VLEO (Very Low Earth Orbit) - 초저궤도</h3>
+<p>VLEO는 고도 약 180~400km에 위치한 매우 낮은 지구 궤도입니다.
+지구에 매우 가까워 고정밀 영상 촬영 및 통신 지연 감소에 유리하지만, 대기 저항으로 인해 추진체 연료 소모가 크고 수명이 짧은 단점이 있습니다.
+트랩된 방사선은 거의 존재하지 않으며, 주요 방사선원은 태양 양성자(Solar Protons)입니다.</p>
+
+<h1 id="meo-middle-earth-orbit">MEO (Middle Earth Orbit)</h1>
+<p>MEO는 고도 약 2,000 km ~ 35,786 km에 위치한 궤도입니다.
+궤도 주기는 약 2~24시간으로 일반적으로 10~12시간 전후입니다.
+GEO 대비 통신 지연이 낮아 실시간 통신에 유리하고, LEO 대비 커버리지가 넓고 비교적 적은 수의 위성으로 운용이 가능합니다.
+하지만 Van Allen belt에 위치하고 있어 더 많은 방사선에 노출되므로 소자 설계 시 방사선 내성 설계가 필수적입니다.
+GPS등 항법 위성이 이 궤도를 사용하고 있습니다.</p>
+
+<h1 id="geo-geostationary-orbit---정지궤도">GEO (Geostationary orbit) - 정지궤도</h1>
+<p>GEO는 지표면으로부터 약 35,786km 고도에 위치하며, 위성이 지구의 자전 주기와 동일한 속도로 공전하여 지상 기준으로는 항상 동일한 지점을 바라보는 특성을 갖습니다.
+정지궤도는 지구 적도 상공에 위치하며, 위성이 하루에 한 바퀴를 공전합니다.
+이 궤도는 통신, 방송, 기상 위성 등 지속적인 지상 관측이 필요한 용도에 이상적이며, 지상국 안테나를 고정된 방향으로 설정할 수 있어 운영이 안정적입니다.
+다만, 고도가 높기 때문에 통신 지연(latency)이 크고, 극지방 관측에는 한계가 있으며, 발사 비용이 높습니다.
+또한 GEO는 지구 자기장의 보호 효과가 약화되는 구간에 해당하여, LEO보다 고에너지 입자에 더 많이 노출됩니다.<br />
+위성이 GEO(정지궤도)에 진입하는 방법은 크게 두 가지로 나뉩니다.
+첫 번째는 화학 추진 방식으로, 위성을 GTO(정지 전이 궤도)에 올린 후 한 번의 고추력 엔진 점화로 GEO에 직접 진입하는 방식입니다.<br />
+두 번째는 전기 추진 방식으로, GTO에 진입한 후 저추력 전기 추진 엔진을 장시간에 걸쳐 지속적으로 분사하여 궤도를 점진적으로 상승시키는 방식입니다. 이 과정은 수개월에서 최대 반년까지 소요되며, 그동안 위성은 수백 차례 궤도를 순환하며 고도를 서서히 높이다가 GEO에 도달합니다.
+과거에는 빠른 궤도 진입이 가능한 화학 추진 방식이 주로 사용되었지만, 최근에는 발사 비용 절감과 연료 효율성을 이유로 전기 추진 방식의 채택이 증가하고 있습니다.</p>
+
+<p><br /></p>
+<p align="center"> 
+  <img src="/assets/Articles/leogeo.webp" alt="Van Allen belt(보라색 영역)와 지구 궤도" style="width: 70%;" />
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center">
+  <h5>Van Allen belt(보라색 영역)와 지구 궤도</h5>
+</div>
+
+<h3 id="gto-geostationary-transfer-orbit---정지-전이-궤도">GTO (Geostationary transfer orbit) - 정지 전이 궤도</h3>
+<p>Geostationary Transfer Orbit(GTO)은 위성을 정지궤도(GEO: Geostationary Earth Orbit)로 진입시키기 위한 중간 타원 궤도입니다. 이 궤도는 근지점은 저지구 궤도(LEO) 수준으로 낮고, 원지점은 정지궤도 고도인 약 35,786km에 이르는 타원 형태로 구성됩니다. 위성 발사체는 위성을 이 GTO의 근지점까지 진입시킵니다.<br /> 그 후, 위성이 관성에 의해 정지 전이 궤도를 따라 원지점에 도달하면 위성 자체의 추진 장치를 통해 정지궤도에 진입합니다. 이 궤도 전이 방식은 일반적으로 호만 전이(Hohmann Transfer)를 활용하며, 가장 연료 효율적인 방식 중 하나로 알려져 있습니다.
+아래 이미지에서 노란색 타원은 GTO이며, 노란색 실선은 인공위성의 경로입니다. 
+<br /></p>
+<p align="center"> 
+  <img src="/assets/Articles/gto.webp" alt="Geostationary transfer orbit" style="width: 50%;" />
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center">
+  <h5>Geostationary transfer orbit</h5>
+</div>
+
+<h1 id="궤도-별-방사선-내성내방사선-평가-항목">궤도 별 방사선 내성(내방사선) 평가 항목</h1>
+
+<p>LEO 궤도는 밴 앨런대의 차폐 효과에 크게 영향을 받습니다. 밴 앨런대는 태양 입자 이벤트(Solar Particle Events, SPE)의 영향을 현저히 줄이며, 은하우주선(Galactic Cosmic Rays, GCR)의 비율도 크게 낮춥니다.
+트랩된 입자(trapped particles)는 태양풍(solar wind)보다 더 높은 에너지를 가지게 되며, 이는 반도체에 문제를 일으킬 수 있는 수준입니다.<br />
+GEO 궤도는 특히 태양 플레어(solar flare) 발생 시 높은 방사선 위험에 노출됩니다. GEO는 밴 앨런대(Van Allen belts) 바깥에 위치하지만, 여전히 어느 정도의 자기권 차폐(shielding)의 영향을 받습니다.
+또한 GEO로 위성이 가기 위해선 GTO를 이용하여 진입하는데 이 때, 밴 앨런대를 통과하기 때문에
+비교적 많은 방사선을 받게 됩니다.
+자기권의 태양면은 지구로부터 약 65,000km까지이므로, GEO 궤도는 자기권의 영향 내에 있음을 의미합니다.
+밴 앨런 대는 GEO보다 낮은 고도기 때문에, GEO에서는 트랩된 입자(trapped particles)의 영향이 미미합니다.</p>
+
+<p><br /></p>
+
+<div align="center">
+
+  <table>
+    <thead>
+      <tr>
+        <th>항목</th>
+        <th><strong>LEO (Low Earth Orbit)</strong></th>
+        <th><strong>GEO (Geosynchronous Orbit)</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>주요 방사선원</strong></td>
+        <td>- 트랩된 입자 (양성자/전자)<br />- 밴 앨런대</td>
+        <td>- 태양 플레어(SPE)<br />- 은하 우주선(GCR)</td>
+      </tr>
+      <tr>
+        <td><strong>트랩된 입자 영향</strong></td>
+        <td>매우 큼 (특히 SAA 및 극지방 통과 시)<br />→ SEE 유발 가능</td>
+        <td>거의 없음 (Van Allen 벨트 바깥 위치)</td>
+      </tr>
+      <tr>
+        <td><strong>태양 플레어(Solar Proton Events)</strong></td>
+        <td>자기권 차폐로 영향 적음<br />(단, 극지방이나 SAA 영향 있음)</td>
+        <td>주요 방사선원 (특히 flare 시 10MeV 이상 고에너지 입자 도달)</td>
+      </tr>
+      <tr>
+        <td><strong>GCR (은하 우주선)</strong></td>
+        <td>자기권 영향으로 매우 적음</td>
+        <td>LEO 대비 6배 이상 강한 GCR 플럭스</td>
+      </tr>
+      <tr>
+        <td><strong>TID (총 흡수선량)</strong></td>
+        <td>- LEO-Zero: ~136 Rad<br />- LEO-ISS: ~430 Rad<br />- LEO-Polar: ~333 Rad</td>
+        <td>- GEO: ~5,930 Rad<br />- GTO(전이 궤도): ~59,630 Rad (가장 높음)</td>
+      </tr>
+      <tr>
+        <td><strong>SEE 발생 원인</strong></td>
+        <td>트랩된 양성자, 전자 (특히 SAA 구역)</td>
+        <td>태양 플레어, GCR → 높은 에너지의 순간입자 충돌</td>
+      </tr>
+      <tr>
+        <td><strong>우주선 LET 영향</strong></td>
+        <td>- Proton LET: 0.1 ~ 50 MeV 범위<br />- TID 영향 많음</td>
+        <td>- Proton LET: 10 ~ 100 MeV 이상<br />- SEE 영향이 주요 이슈</td>
+      </tr>
+      <tr>
+        <td><strong>차폐 필요성</strong></td>
+        <td>중간 수준 (기본 패키징 차폐도 효과 있음)</td>
+        <td>고수준 차폐 필요 (≥5mm Al 권장)</td>
+      </tr>
+      <tr>
+        <td><strong>응용 사례</strong></td>
+        <td>ISS, CubeSat, 지구 관측 위성</td>
+        <td>통신 위성, 정지 기상 위성, 군용위성</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>* TID 는 1년, 5mm 알류미늄 실딩 기준. <br /></p>
+</div>
+
+<p><br />
+<br /></p>
+
+<p>참고 문헌</p>
+<blockquote>
+  <p>Dalehite, K. A., &amp; Xapsos, M. A. (2022). Mission Radiation Environment Modeling and Analysis (NASA STI/TP-20220016301). NASA Goddard Space Flight Center.</p>
+</blockquote>
+
+<p><br /></p>
+
+<hr />
+
+<p><br /></p>
+<h3>관련 글</h3>
+<ul>
+    
+      <li><a href="/ko/article/29.radtolerant.html">Rad‑hard와 Rad‑tolerant의 차이</a></li>
+    
+      <li><a href="/ko/article/16.%EC%A7%80%EA%B5%AC%EC%9D%98-%EC%9E%90%EA%B8%B0%EC%9E%A5%EA%B3%BC-%EB%B0%A9%EC%82%AC%EC%84%A0%EB%8C%80%EC%9D%98-%EA%B4%80%EA%B3%84.html">지구의 자기장과 방사선대의 관계</a></li>
+    
+      <li><a href="/ko/article/5.COTS.html">COTS (Commercial off-the-shelf)</a></li>
+    
+      <li><a href="/ko/article/8.-EEE.html">Space Product Assurance(우주 제품 보증)란?</a></li>
+    
+      <li><a href="/ko/article/12.upScreening.html">Up-Screening (Up-Screen, 업 스크리닝, 업스크린)</a></li>
+    
+      <li><a href="/ko/article/13.newSpace.html">New Space란?</a></li>
+    
+  </ul>
+
+
+		</div>
+	</div>
+
+</article>
+    </div>
+  </div>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    const contactBtn = document.getElementById('contactBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        scrollBtn.classList.add('show');
+        contactBtn.style.bottom = '70px';
+      } else {
+        scrollBtn.classList.remove('show');
+        contactBtn.style.bottom = '15px';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>

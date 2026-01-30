@@ -1,0 +1,84 @@
+---
+layout: post
+title: Energy Transfer Mechanisms of Protons and Neutrons
+description: This article explores how neutrons and protons transfer energy in semiconductors through elastic and inelastic nuclear reactions, including spallation. It also examines their roles in causing SEE, TID, and DD in radiation environments such as space.
+date: 2025-03-12 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2011
+lang: en
+---
+
+# Neutron
+
+Neutrons carry no electric charge and therefore do not interact via the Coulomb force. As a result, they do not directly ionize matter when passing through a material. Instead, they lose energy primarily through elastic and inelastic nuclear reactions, or very occasionally through magnetic interactions with unpaired electrons.
+In simple terms, neutrons transfer energy through collisions, which makes them highly penetrating.<br>
+At terrestrial altitudes, thermal neutrons can induce SEE (Single Event Effects) through the secondary charged particles. But their direct contribution to TID (Total Ionizing Dose) and DD (Displacement Damage) is generally negligible.
+
+# Proton
+
+Protons have nearly the same mass as neutrons but carry a positive charge, so they both ionize matter and initiate nuclear reactions.
+As they traverse a material, protons lose energy mainly by Coulomb interactions with electrons (ionization/excitation). At higher energies-on the order of tens of MeV and above-nonelastic nuclear reactions become increasingly likely, similar to neutrons.
+In space, protons are a major source of radiation and can induce SEE, TID, and DD.
+
+### Elastic Reaction
+
+An elastic reaction occurs when a neutron (or proton) collides with a target nucleus, transferring part of its kinetic energy and scattering at reduced speed. The target nucleus recoils, and energy and momentum are conserved.
+If the incoming particle's energy is sufficiently high (typically ≥100 keV for neutrons), recoil nuclei can be produced with enough energy to displace atoms from their lattice sites, contributing to cumulative Displacement Damage.
+These recoil nuclei behave like short-range heavy ions and generate dense ionization along their tracks, so each recoil can also precipitate a Single Event Effect (SEE).
+
+### Inelastic Nuclear Reaction
+
+In an inelastic reaction, the incident neutron is absorbed (or a proton overcomes the Coulomb barrier), leaving the nucleus in an excited state. The excess energy is then released via emission of light particles (e.g., neutrons, protons, light ions), gamma rays, and a heavier recoil nucleus.<br>
+These secondaries typically carry MeV-scale energies, produce ionization, and are a main source of neutron-induced SEE.
+In some cases the nucleus can split into two near-equal fragments with additional neutrons-nuclear fission. However, because heavy elements exist only in trace amounts in most semiconductor stacks, fission is a negligible contributor to SEE or TID in typical devices. For thermal neutrons (below tens of keV), neutron capture commonly results in gamma emission.
+
+### Spallation
+
+When neutron energy exceeds ~100 MeV, its de Broglie wavelength becomes short enough to interact with individual nucleons inside the nucleus rather than the nucleus as a whole. This spallation process transfers energy to one or more nucleons, which are then ejected. The excited residual nucleus and the ejected particles can trigger additional reactions as they slow in the material.
+
+<p align= "center">
+<img src="/assets/Articles/중성자에의한현상.webp" style="width: 100%; max-width: 500px;" alt= "Neutron-induced phenomena">
+</p>
+<p align= "center">Four phenomena observed in an excited nucleus after an inelastic nuclear reaction</p>
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

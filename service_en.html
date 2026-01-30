@@ -1,0 +1,518 @@
+---
+layout: page
+title: Up-Screening
+permalink: /en/upscreen.html
+---
+
+<section class="upscreen">
+  <h1>Customer-centric Up-Screening,</h1>
+  <h1>&nbsp;&nbsp;&nbsp;QRT is with you from start to finish.</h1>
+  <hr class="white-hr">
+  <p>
+    QRT goes beyond simple test outsourcing.<br>
+    We perform the entire flow<br>
+    <span class="highlight">Consulting → Board Design → Testing and reporting</span><br>
+    fully <em>In-House</em> for speed and quality.<br>
+    Based on ESCC, MIL, JEDEC and other standards,<br>
+    we offer the optimized process to your environment and requirements<br>
+    to secure both reliability and efficiency for customer satisfaction.<br>
+
+  </p>
+  <hr class="white-hr">
+</section>
+<br><br>
+<hr class="gray-hr" data-content="?">
+<br>
+<section class="what_is_upscreen">
+  <h1>What Is Up-Screening?</h1>
+  <br>
+  <p>
+    Up-Screening is the process of selecting and characterizing commercial off-the-shelf (COTS) components to a
+    high-reliability level that meets your mission needs. Through evaluations representative of real use-high/low
+    temperature, vibration, electrical stress, and radiation-we verify performance and stability in advance.
+    This enables you to confidently deploy cost-effective industrial-grade parts instead of expensive military/space parts,
+    reducing cost and lead time without compromising reliability.
+  </p>
+  <div class="qrt-button-wrapper">
+  <a class="qrt-button" href="/en/article/12.upScreening.html">
+    Learn more about Up-Screening
+  </a>
+  </div>
+  <br id="upscreen-first-paragraph">
+</section>
+<br><br>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // 상단/하단 버튼과 컨텐츠 수집
+    const topButtons = document.querySelectorAll(".tab-section .tab-buttons:not(.tab-buttons-bottom) .tab-btn");
+    const bottomButtons = document.querySelectorAll(".tab-buttons-bottom .tab-btn");
+    const allButtons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content");
+    const scrollTarget  = document.getElementById("upscreen-first-paragraph");
+
+    // 탭 활성화 함수 (상/하단 동기화)
+    function setActiveTab(tabId) {
+      contents.forEach(c => c.classList.toggle("active", c.id === tabId));
+      allButtons.forEach(b => b.classList.toggle("active", b.dataset.tab === tabId));
+    }
+
+    // 클릭 핸들러 (하단이면 스크롤)
+    function handleClick(e) {
+      const btn = e.currentTarget;
+      const tabId = btn.dataset.tab;
+      setActiveTab(tabId);
+
+      // 하단 버튼에서 클릭한 경우 본문 첫 문단으로 스크롤
+      if (btn.closest(".tab-buttons-bottom") && scrollTarget) {
+        scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // 이벤트 바인딩
+    allButtons.forEach(btn => btn.addEventListener("click", handleClick));
+
+    // 초기 상태 동기화 (페이지 로드시 active인 컨텐츠/버튼 통일)
+    const initiallyActive = document.querySelector(".tab-content.active")?.id || "tab1";
+    setActiveTab(initiallyActive);
+  });
+</script>
+
+
+<section class="upscreen_process">
+  <hr class="gray-hr">
+  <br>
+
+  <div class="tab-section">
+    <div class="tab-buttons">
+      <button class="tab-btn active" data-tab="tab1">CA / DPA</button>
+      <button class="tab-btn" data-tab="tab2">Mechanical Test</button>
+      <button class="tab-btn" data-tab="tab3">Reliability Test</button>
+      <button class="tab-btn" data-tab="tab4">Radiation Test</button>
+    </div>
+
+    <!-- Construction Analysis Tab -->
+
+    <div class="tab-content-container">
+      <div id="tab1" class="tab-content active">
+        <h3 class="tab-subtitle">External Visual Inspection</h3>
+        <div class="content-row">
+          <div class="text-section">
+            External Visual Inspection is a basic check for external defects on the body, markings, and leads.
+            Following ESCC 2055000 and 2059000, 10 samples are inspected for any defects.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/External Visual Inspection.webp" alt="External Visual Inspection at QRT">
+            <a href="https://www.qrtkr.com/en/analysis/non/microscope.php" target="_blank" class="image-link">
+              <span>Microscope at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">X-ray</h3>
+        <div class="content-row">
+          <div class="text-section">
+            X-ray provides non-destructive inspection of internal structures and is performed on 100% of parts.
+            Tests follow MIL-STD-750 and MIL-STD-883, and exposure is controlled to avoid any reliability impact.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/CA.webp" alt="X-ray system at QRT">
+            <a href="https://www.qrtkr.com/en/analysis/non/inspection.php" target="_blank" class="image-link">
+              <span>X-ray Inspection at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Solderability</h3>
+        <div class="content-row">
+          <div class="text-section">
+            This test evaluates how well solder forms reliable joints with a component's leads and terminals.
+            Surface degradation on leads/terminals can reduce overall soldering quality during assembly and,
+            in turn, become a root cause of failures in the field.<br>
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Solderability.webp" alt="Solderability at QRT">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/solderability.php" target="_blank" class="image-link">
+              <span>Solderability at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">C-SAM</h3>
+        <div class="content-row">
+          <div class="text-section">
+            C-SAM is a non-destructive scan using ultra-sound to detect delamination and voids in plastic packages. In line with
+            JEDEC J-STD-020, it is performed between electrical tests and preconditioning.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/c-sam.webp" alt="QRT C-SAM">
+            <a href="https://www.qrtkr.com/en/analysis/non/sat.php" target="_blank" class="image-link">
+              <span>SAM (Scanning Acoustic Tomography) at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Electrical Test</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Electrical testing verifies that parameters are within specification before and after
+            reliability stress. In this test all parts are evaluated at 25&nbsp;°C, recording key quantitative values for comparison with
+            post-stress results.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Initial-Electrical-Test.webp" alt="Initial Electrical Test at QRT">
+            <a href="https://www.qrtkr.com/en/analysis/electrical/iv.php" target="_blank" class="image-link">
+              <span>Parameter Analyzer at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Internal Visual Inspection</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Internal Visual Inspection is a destructive analysis step to directly assess internal structures (die,
+            bonding, leadframe, etc.) for build quality and defects. It is a crucial stage of DPA (Destructive
+            Physical Analysis) used for reliability assurance and counterfeit screening. Specimens require careful
+            decapsulation to expose the die without damaging wires or pads. QRT service decapsulation not only for EMC
+            but also glass and metal-encapsulated devices.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/decapsulation.webp" alt="QRT De-capsulation">
+            <a href="https://www.qrtkr.com/en/analysis/sample/decapsulation.php" target="_blank" class="image-link">
+              <span>De-capsulation at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Die &amp; Bond Shear Test</h3>
+        <div class="content-row">
+          <div class="text-section">
+            These tests evaluate the durability of joints against shear stresses that may occur during manufacturing,
+            handling, testing, transport, and use. Wire bond shear and pull are performed after decapsulation. Solder
+            ball shear applies to all SMT packages except flip-chip and is conducted prior to PCB assembly.
+            Each ball should be sheared individually and shear stress and failure modes are captured and analyzed.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/bond.webp" alt="QRT Bonding system">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/bonding.php" target="_blank" class="image-link">
+              <span>Bonding Test System at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">SEM Inspection</h3>
+        <div class="content-row">
+          <div class="text-section">
+            SEM (Scanning Electron Microscopy) provides high-resolution imaging for DPA and quality analyses. Typical
+            checks include wire-to-lead connections (cracks, lifts, contamination), the integrity of the surface
+            passivation (glassivation) layer, and interconnect condition (cracks, deformation, porosity).
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/sem.webp" alt="SEM/EDS at QRT">
+            <a href="https://www.qrtkr.com/en/analysis/structural/sem.php" target="_blank" class="image-link">
+              <span>SEM/EDS Analysis at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Glassivation Integrity</h3>
+        <div class="content-row">
+          <div class="text-section">
+            This test verifies the quality of the dielectric protective layer over metal lines. Through controlled
+            chemical etch, we confirm clean exposure of metal without damage-assessing both glassivation condition and
+            etch process suitability.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/tem.webp" alt="TEM/EDS/EELS Analysis at QRT">
+            <a href="https://www.qrtkr.com/en/analysis/structural/tem.php" target="_blank" class="image-link">
+              <span>TEM/EDS/EELS Analysis at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Lead Finish Analysis &amp; Pure-Tin Identification</h3>
+        <div class="content-row">
+          <div class="text-section">
+            This test identifies the metallization of leads (e.g., Sn, Pb, Ni, Au, Cu combinations) and assesses RoHS compliance.
+            Pure tin finishes can grow conductive whiskers over time, risking shorts; therefore, detecting pure-Sn is
+            crucial for high-reliability applications in space/aviation/defense.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/whisker.webp" alt="Tin Whisker Acceptance at QRT">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/whisker.php" target="_blank" class="image-link">
+              <span>Tin Whisker Acceptance at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">PIND (Particle Impact Noise Detection) Test</h3>
+        <div class="content-row">
+          <div class="text-section">
+            PIND detects loose particles (metal/ceramic debris) inside hermetic cavity packages (metal cans, ceramic
+            DIP/CLCC, hermetic BGA, etc.). The device is subjected to vibration/impact pulses, and an acoustic/velocity
+            transducer captures signals generated as particles strike the case walls. We currently offer this via
+            partner labs, with in-house capability planned for 2026.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/PIND.webp" alt="PIND Test">
+            <span>PIND Test</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mechanical Tests Tab -->
+
+      <div id="tab2" class="tab-content">
+        <h3 class="tab-subtitle">Mechanical Shocks</h3>
+        <div class="content-row">
+          <div class="text-section">
+            This test evaluates a component's ability to withstand mechanical shocks from drops, handling, and
+            transportation without physical damage. The specimen does not impact directly; instead, we apply rapid
+            acceleration changes to induce stress (e.g., the transient acceleration transmitted to door-mounted
+            components when a door slams).
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Mechanical Shocks.webp" alt="QRT Mechanical Shocks">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/mechanical.php" target="_blank" class="image-link">
+              <span>Mechanical Shock Test at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Vibrations</h3>
+        <div class="content-row">
+          <div class="text-section">
+            This test confirms structural and functional robustness under vibrations encountered during transport and normal
+            equipment operation. An electrodynamic shaker generates the required amplitude, frequency, and acceleration.
+            Sine vibration is used to identify resonances; random vibration reproduces real-world profiles.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Vibrations.webp" alt="QRT Vibrations">
+            <a href="https://www.qrtkr.com/en/reliability/application/blrt_vibration.php" target="_blank" class="image-link">
+              <span>BLR Vibration at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Constant Acceleration</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Constant Acceleration test evaluates how cavity-type semiconductor packages tolerate centrifugal stress. It helps
+            reveal structural and mechanical weaknesses that may not surface in shock or vibration. Depending on stress
+            level, it can be used as a destructive limit test to determine mechanical margins, or as a screen to remove
+            units with below-normal mechanical strength.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Constant Acceleration.webp" alt="QRT Constant Acceleration">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/acceleration.php" target="_blank" class="image-link">
+              <span>Constant Acceleration at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Thermal Shock</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Thermal Shock evaluates 1) whether parts tolerate extreme hot/cold conditions and 2) how repeated exposure
+            to hot/cold conditions affects them. Failures driven by repetitive thermo-mechanical is called fatigue failure,
+            and thermal cycling accelerates such mechanisms. The difference between TC(temperature cycling) and TS is that TC uses air as the medium,
+            TS(thermal shock) uses liquid as a medium.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Thermal Shock.webp" alt="QRT Thermal Shock">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/thermal.php" target="_blank" class="image-link">
+              <span>Thermal Shock at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Seal Test</h3>
+        <div class="content-row">
+          <div class="text-section">
+            For Aerospace and defense applications, long-term stability requires robust hermeticity to keep moisture
+            and contaminants out. Seal Test quantifies hermetic quality. We first screen out large leaks (Gross Leak)
+            using immersion/heating/pressurization, then measure down to very small leak rates (Fine Leak) with helium
+            mass spectrometry against the specified acceptance limit (L<sub>R</sub>). Conditions are calculated from
+            internal volume and mission reliability needs. We currently offer this via
+            partner labs, with in-house capability planned for 2026.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/seal.webp" alt="Seal Test">
+            <span>Seal Test</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Reliability Tests Tab -->
+
+      <div id="tab3" class="tab-content">
+        <h3 class="tab-subtitle">Preconditioning</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Preconditioning reproduces handling, storage, and reflow steps prior to PCB assembly to ensure devices
+            remain fully functional after soldering. In short, it screens for issues that may arise during board-level
+            manufacturing before shipment of the final product.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Preconditioning.webp" alt="QRT Preconditioning">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/moisture.php" target="_blank" class="image-link">
+              <span>Moisture Sensitivity Level Classification at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Highly Accelerated Stress Test</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Electronics frequently operate in hot and humid conditions. When hermeticity is insufficient, internal
+            metals can corrode or suffer ionic migration. HAST/THB evaluate a device's robustness to these mechanisms.
+            After preconditioning, we perform either 96&nbsp;hours HAST or 1000&nbsp;hours THB, and verify no functional
+            failures before/after stress.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/HAST.webp" alt="QRT Highly Accelerated Stress Test">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/stress.php" target="_blank" class="image-link">
+              <span>Highly Accelerated Stress Test at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Thermal Cycling</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Thermal Cycling validates survivability under repeated extreme thermal cycling (-55&nbsp;°C to +125&nbsp;°C). It is used to
+            uncover defects caused by differential expansion and contraction in real applications. Preconditioning is
+            required before this test. We check for physical/functional defects with electrical tests at a room temperature after 500 or more cycles.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/Thermal.webp" alt="QRT Thermal Cycling">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/cycling.php" target="_blank" class="image-link">
+              <span>Temperature Cycling at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Life Test, Burn-in</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Life Test operates devices at elevated temperature for 2000+ hours to ensure long-term functionality and
+            performance stability. It is essential for lifetime prediction and is accompanied by MIL-standard electrical
+            characterization.<br>
+            Burn-in applies thermal and electrical stress to precipitate and remove infant-mortality failures. Typical
+            conditions are 125&nbsp;°C/240&nbsp;h, 105&nbsp;°C/445&nbsp;h, or 85&nbsp;°C/885&nbsp;h in accordance with MIL-STD-750/883.
+            Test temperature and number of device samples must be considered with device specifications.
+            Anti-oxidation handling is also required after the burn-in process.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/HTOL.webp" alt="QRT Life Test, Burn-in (HTOL)">
+            <a href="https://www.qrtkr.com/en/reliability/experiment/htol_ltol.php" target="_blank" class="image-link">
+              <span>Life Test, Burn-in (HTOL) at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+      </div>
+
+      <!-- Radiation Tests Tab -->
+
+      <div id="tab4" class="tab-content">
+        <h3 class="tab-subtitle">Total Ionizing Dose</h3>
+        <div class="content-row">
+          <div class="text-section">
+            TID is the total energy absorbed when a device is exposed to radiation (gamma, X-ray, electron, etc.) over
+            time. Accumulation can gradually shift parameters or impair function. QRT performs TID testing using
+            domestic (Korean) gamma-ray facilities.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/TID.webp" alt="Total Ionizing Dose at QRT">
+            <a href="/en/article/7.TID.html" target="_blank" class="image-link">
+              <span>Total Ionizing Dose</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Displacement Damage Dose</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Displacement Damage (DD) occurs in the bulk of a semiconductor, unlike Total Ionizing Dose (TID), 
+            which is confined to the interface. This damage, which affects the entire bulk, can alter the electrical, 
+            optical, and thermal properties of the semiconductor, leading to degraded device performance or even 
+            functional failure. QRT performs Displacement Damage testing using domestic (Korean) proton facilities.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/DD.webp" alt="Displacement Damage">
+            <a href="/en/article/18.DD.html" target="_blank" class="image-link">
+              <span>Displacement Damage Dose</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Single Event Effects - Pulsed Laser</h3>
+        <div class="content-row">
+          <div class="text-section">
+            Pulsed-laser SEE testing (PLSEE) uses a femtosecond pulsed laser to emulate how space radiation affects
+            semiconductor devices, providing a rapid, high-resolution alternative/complement to conventional beam tests.
+            With years of hands-on experience, QRT supports both SPA (single-photon absorption) and TPA (two-photon
+            absorption) modes. With Pulsed-laser, SEE analysis and design verification are available at QRT.
+          </div>
+          <div class="image-section">
+            <img src="/assets/Articles/QRT-laser.webp" alt="QRT laser evaluation system">
+            <a href="/en/article/4.레이저평가.html" target="_blank" class="image-link">
+              <span>Laser evaluation system at QRT</span>
+            </a>
+          </div>
+        </div>
+        <br>
+        <h3 class="tab-subtitle">Single Event Effects - Heavy Ion</h3>
+        <div class="content-row">
+          <div class="text-section">
+            SEEs occur when radiation (protons, neutrons, heavy ions, gamma, etc.) ionizes the medium as it passes
+            through a device. If the generated charge reaches a sensitive region with sufficient magnitude to change
+            state, an error occurs. Most SEEs are non-destructive and temporary; normal operation resumes after a
+            reset or power cycle.
+          </div>
+          <div class="image-section">
+            <img src="/assets/service/QRT SEE Analysis System.webp" alt="QRT SEE Analysis System">
+            <a href="https://www.qrtkr.com/en/equipment/see/equipment_see_analysis.php" target="_blank" class="image-link">
+              <span>SEE Analysis System at QRT</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br>
+<!-- ▼ 하단 탭 버튼: 상단과 동기화됩니다 ▼ -->
+<div class="tab-buttons tab-buttons-bottom" style="margin-top: 24px;">
+  <button class="tab-btn active" data-tab="tab1">CA / DPA</button>
+  <button class="tab-btn" data-tab="tab2">Mechanical Test</button>
+  <button class="tab-btn" data-tab="tab3">Reliability Test</button>
+  <button class="tab-btn" data-tab="tab4">Radiation Test</button>
+</div>
+<!-- ▲ 하단 탭 버튼 끝 ▲ -->
+
+<br><br>
+  <hr class="gray-hr">
+  <br><br>
+<p>
+  <strong>Discover more test systems and solutions-<br>
+  see them firsthand at QRT.</strong>
+</p>
+
+<div class="qrt-button-wrapper">
+  <a href="https://www.qrtkr.com/en/" target="_blank" class="qrt-button">
+    Visit QRT
+  </a>
+</div>
+
+  <br>
+</section>
+
+
+<!--
+<section class="upscreen_process">
+  <h1>Up-Screening Cost</h1>
+  <p>
+    ????
+  </p>
+</section>
+-->

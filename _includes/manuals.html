@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuals</title>
+</head>
+
+<body>
+    <article class="post">
+        <header class="post-header home">
+            <div class="post-title">
+                <span id="category-name"></span>
+            </div>
+            <div id="manual-lang-note" role="note" style="display:none;margin-top:8px;padding:10px 12px;border-radius:6px;
+              background:#fff8e1;border:1px solid #ffe0a1;color:#644a00;font-size:0.95rem;">
+                This manual is currently available only in Korean.
+            </div>
+        </header>
+        <div class="fade-in">
+            <div class="post-content">
+                {%- if site.manuals.size > 0 -%}
+                <ul class="post-list" id="manual-list">
+                    {%- assign sorted_manuals = site.manuals | sort: "order" -%}
+                    {%- assign previous_hundreds = nil -%}
+                    {%- for manual in sorted_manuals -%}
+                    {%- assign current_hundreds = manual.order | divided_by: 1000 | floor -%}
+
+                    {%- if manual.title contains "Chapter" or manual.title contains "챕터" -%}
+                    {%- continue -%}
+                    {%- endif -%}
+
+
+                    {%- if previous_hundreds != nil and previous_hundreds != current_hundreds -%}
+                    <hr class="manual-divider post-category-{{ manual.categories }}">
+                    {%- endif -%}
+
+
+                    {%- assign thousands = manual.order | modulo: 10000 | divided_by: 1000 | floor -%}
+                    {%- assign hundreds = manual.order | modulo: 1000 | divided_by: 100 | floor -%}
+                    {%- assign tens = manual.order | modulo: 100 | divided_by: 10 | floor -%}
+                    {%- assign ones = manual.order | modulo: 10 -%}
+
+                    {%- if hundreds == 0 and tens == 0 and ones == 0 -%}
+                    <!-- 1000, 2000 등 -->
+                    <li class="post-list-item post-category-{{ manual.categories }}"
+                        style="font-size: 1.8em; font-weight: bold;padding-left: 0px;">
+                        {%- elsif tens == 0 and ones == 0 -%}
+                        <!-- 1100, 1200 등 -->
+                    <li class="post-list-item post-category-{{ manual.categories }}"
+                        style="font-size: 1.5em; font-weight: 600; padding-left: 20px;">
+                        {%- elsif ones == 0 -%}
+                        <!-- 1110, 1210 등 -->
+                    <li class="post-list-item post-category-{{ manual.categories }}"
+                        style="font-size: 1.2em; font-weight: 500; padding-left: 40px;">
+                        {%- else -%}
+                        <!-- 기본 -->
+                    <li class="post-list-item post-category-{{ manual.categories }}" style="padding-left: 60px;">
+                        {%- endif -%}
+                        {%- assign rp = manual.relative_path -%}
+
+                        {%- if rp contains "manuals_lite_kor/Chapter 1/" -%}
+                        {%- assign chapter_url = "/manuals_lite_kor/ch1/" -%}
+                        {%- elsif rp contains "manuals_lite_kor/Chapter 2/" -%}
+                        {%- assign chapter_url = "/manuals_lite_kor/ch2/" -%}
+                        {%- elsif rp contains "manuals_lite_kor/Chapter 3/" -%}
+                        {%- assign chapter_url = "/manuals_lite_kor/ch3/" -%}
+                        {%- elsif rp contains "manuals_lite_kor/Chapter 4/" -%}
+                        {%- assign chapter_url = "/manuals_lite_kor/ch4/" -%}
+                        {%- else -%}
+                        {%- assign chapter_url = manual.url | relative_url -%}
+                        {%- endif -%}
+
+                        <a class="post-link" href="{{ chapter_url | relative_url }}#m{{ manual.order }}">
+                            {{ manual.title | escape }}
+                        </a>
+
+                    </li>
+
+                    {%- assign previous_hundreds = current_hundreds -%}
+                    {%- endfor -%}
+                </ul>
+                {%- else -%}
+                <p>No manuals found.</p>
+                {%- endif -%}
+            </div>
+        </div>
+    </article>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const hash = window.location.hash.substring(1);
+  const categoryNameElement = document.getElementById("category-name");
+  const manualListItems = document.querySelectorAll(".post-list-item");
+  const manualDividers = document.querySelectorAll(".manual-divider"); // ✅ 추가(에러 방지)
+
+  if (hash) {
+    if (hash === "lite_kor") categoryNameElement.textContent = "QRT-LITE (KOR)";
+    else categoryNameElement.textContent = hash;
+
+    // 리스트 + 구분선 둘 다 필터링
+    manualListItems.forEach(item => {
+      if (!item.classList.contains(`post-category-${hash}`)) item.style.display = "none";
+    });
+    manualDividers.forEach(divider => {
+      if (!divider.classList.contains(`post-category-${hash}`)) divider.style.display = "none";
+    });
+  }
+
+  // ✅ 영어(en)일 때만 경고 배너 노출
+  const manualNote = document.getElementById("manual-lang-note");
+  if (manualNote) {
+    const lang = (localStorage.getItem("lang") || "").toLowerCase();
+    const isEnglish =
+      lang === "en" || lang.startsWith("en-") ||
+      window.location.pathname.includes("/en/"); // ✅ startsWith -> includes
+
+    manualNote.style.display = isEnglish ? "block" : "none";
+  }
+});
+</script>
+
+</body>
+
+</html>

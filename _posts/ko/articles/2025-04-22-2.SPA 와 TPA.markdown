@@ -1,0 +1,96 @@
+---
+layout: post
+title: SPA vs TPA
+description: SPA와 TPA 레이저를 활용한 단일 이벤트 업셋(SEE) 평가와 차이점, 장단점을 비교 설명합니다.
+date: 2025-03-29 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1002
+---
+
+
+
+SPA와 TPA 레이저 모두 중이온 조사로 인해 발생하는 에러현상을 아주 잘 재현 가능하며 대부분의 업셋 현상을 효과적으로 재현이 가능합니다. 이는 반응 위치, 깊이 그리고 에너지 등을 독립적으로 제어할 수 있어 단일 이벤트 업셋의 진단과 업셋에 의해서 소진이 일어난 원인과 고장 메커니즘 분석에 적합합니다. 
+
+<p align="center"> 
+  <img src="/assets/Articles/SPATPA.webp" style="max-width: 40%;" alt= "Single Photon Absorption & Two Photon Absorption">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>SPA와 TPA의 원리</h5>
+</div>
+
+# SPA (Single Photon Absorption)
+조사된 레이저에 의해 반도체에서 하나의 광자를 흡수하여 전자-전공 쌍을 만드는 선형 흡수입니다. 광자가 물질에 도달하고
+광자의 에너지가 물질의 밴드갭보다 크거나 같으면 물질에 있던 전자가 밸런스 밴드에서 전도 밴드로 '점프'하고 이로 인해 전자-전공 쌍이 생성됩니다.
+
+<!-- 중앙 정렬 이미지 -->
+<p align="center"> 
+  <img src="/assets/Chapter-1/fig_1_heavy-ion_vs_pulsed_laser.png" style="max-width: 80%;" alt=" Heavy Ion & Pulsed Laser">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>중이온과 Femtosecond pulsed Laser (이하 Pulsed Laser)</h5>
+</div>
+
+
+# TPA (Two Photon Absorption)
+에너지 밴드갭보다 적은 에너지의 짧은 펄스(~200 fs)로 레이저를 반도체 소자 내에 조사하여 에너지 밴드갭보다 광자가 확률적으로 흡수되며 전자-전공 쌍을 만드는 비선형 흡수가 일어나게 됩니다.
+TPA 레이저는 전자-전공 쌍(electron-hole pair) 생성으로 반도체 내에서 발생하는 방사선 입자가 만드는 대부분의 단일 이벤트 업셋를 재현하고 평가가 가능합니다. 고장 메커니즘, 임계 에너지 그리고 Sensitive Volume의 위치를 알아낼 수 있습니다.
+
+<div align="center">
+
+|                | Single Photon Absorption (SPA)                      | Two Photon Absorption (TPA)                                      |
+|------------------|-----------------------------------------------------|-------------------------------------------------------------------|
+| **파장 조건**    | 정확히 전이 에너지에 해당하는 파장의 광자 1개       | 전이 에너지의 절반에 해당하는 파장의 광자 2개 필요                 |
+| **요구 광세기**  | 낮음 (자연광, 일반 LED/레이저 가능)                 | 매우 높음 (펨토초 레이저 등 고출력 필요)                         |
+| **선형/비선형**  | 선형 광학 현상                                       | 비선형 광학 현상                                         |
+| **파장***         | 1064nm                                            | 1260nm                                                           |
+
+</div>
+
+*: QRT Femto second Laser 및 Si(실리콘)기준
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,157 @@
+---
+layout: post
+title: Rad‑hard와 Rad‑tolerant의 차이
+description: 방사선 경화(rad-hard)와 방사선 내성(rad-tolerant)의 차이, RHA 등급과 TID/SEE 시험 기준을 실제 적용 관점에서 쉽게 정리합니다.
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Space Environment & Space-Grade Electronics
+order: 3007
+---
+
+
+# Rad-hard (방사선 경화)
+반도체 공정(RHBP)이나 회로 설계(RHBD) 단계에서 처음부터 방사선의 영향을 최소화하도록 특별히 제작된 부품과 기술을 의미합니다. 이러한 기술은 주로 군사 및 우주 분야의 엄격한 규격을 기반으로 하며, **공식 보증 수치(RHA 등급)**를 함께 명시합니다. 대표적인 예로, MIL-PRF-38535 규격에서는 R=100 krad(Si), F=300 krad(Si), H=1 Mrad(Si)와 같이 구체적인 RHA 등급을 명확하게 표시합니다.
+
+
+<div class="levels">
+<details >
+
+<summary class="clickable-summary">
+<h4  style="display:inline-block">
+공정/설계 차원의 경화
+</h4>
+</summary>
+
+SOI, 특수 산화막, 레이아웃 가드링, 트리플 모듈러 리던던시(TMR) 등과 같은 RHBP/RHBD 기법이 전제되는 경우가 많습니다. 구체적인 방식은 기기와 공정마다 달라지고, 문헌에 따라 용어도 조금씩 차이가 있습니다. NASA 문서 전반에서도 '경화'라는 표현은 주로 설계/공정적 접근을 의미하는 문맥에서 일관되게 사용됩니다.
+<br/> <!-- 한줄 띄기 -->
+</details>
+
+<details >
+
+<summary class="clickable-summary">
+<h4  style="display:inline-block">
+RHA 등급 표기
+</h4>
+</summary>
+미군 규격 MIL-PRF-38535에서는 마이크로서킷에 대해 RHA 문자 등급으로 TID 보증치를 표시합니다. 예를 들어 R=100 krad(Si), F=300 krad(Si), H=1 Mrad(Si)와 같은 방식입니다. 이 표기는 DLA와 NASA 자료에도 동일하게 사용되며, 다만 SEE까지 모두 포함하는 것은 아니므로 SEE 특성은 별도 시험과 데이터를 통해 확인해야 합니다.
+<br/> <!-- 한줄 띄기 -->
+</details>
+
+<details >
+
+<summary class="clickable-summary">
+<h4  style="display:inline-block">
+시험 표준의 적용
+</h4>
+</summary>
+TID 평가는 보통 MIL-STD-883 TM1019 절차에 따라 진행되며, ELDRS 고려도 포함됩니다. 보고서나 SMD에 TM1019 기반의 시험 결과가 첨부되어 있으면 신뢰성을 판단하는 데 도움이 됩니다.
+<br/> <!-- 한줄 띄기 -->
+</details>
+</div>
+
+<br>
+
+# Rad‑tolerant(방사선 내성/허용)
+완전한 방사선 경화 수준은 아니지만, 설계, 공정, 아키텍처, 운용 측면에서 방사선 영향에 어느 정도 저항성을 가진 부품이나 시스템을 의미합니다. NASA의 문서에서도 이를 "방사선 효과를 고려하여 설계 단계에서 완화한 전자 부품"으로 설명하고 있습니다. 다만, 이 용어의 특징은 공식적인 수치 기준이 아직 명확하게 통일되어 있지 않다는 점입니다
+
+
+
+<div class="levels">
+<details >
+
+<summary class="clickable-summary">
+<h4  style="display:inline-block">
+주의 사항
+</h4>
+</summary>
+Rad-hard처럼 보편적으로 통용되는 수치 기준(예: "무조건 100 krad 이상")이 정해져 있지는 않습니다. 실제 적용에서는 임무 환경과 수명 조건에 맞춰 RHA 문서를 통해 TID, DDD, SEE 수치를 직접 확인해야 합니다. NASA의 RHA 표준 및 가이드라인 역시 이러한 프로세스 중심 접근을 권장합니다.
+<br/> <!-- 한줄 띄기 -->
+</details>
+
+<details >
+
+<summary class="clickable-summary">
+<h4  style="display:inline-block">
+시스템 관점
+</h4>
+</summary>
+NASA의 RHA 설명에서는 방사선 내성(system-level tolerance) 설계를 중요한 활동으로 포함합니다. 즉, 부품이 rad-tolerant라 하더라도 단독으로는 충분하지 않고, ECC, TMR, 스크러빙, 전원 보호 등과 같은 시스템 레벨 완화 기법과 함께 고려해야 신뢰성을 확보할 수 있습니다.
+<br/> <!-- 한줄 띄기 -->
+</details>
+</div>
+
+<br>
+
+# Conclusion
+
+
+<div style="overflow: hidden;">
+  <!-- 이미지 -->
+  <img src="/assets/Articles/Rad‑tolerant.webp" style="float: right; margin: 10px 0 20px 20px; width: 100%; max-width: 600px;" alt= "Rad‑tolerant">
+  <p>
+    Rad-hard는 보통 공정과 설계 경화를 거쳤으며, 공식 RHA 등급까지 확보된 방사선 내성 시스템을 의미합니다.
+    Rad-tolerant는 경화 수준이 상대적으로 낮거나 불명확하지만, 설계와 운용 측면에서 방사선 환경을 충분히 견딜 수 있도록 만든 광범위한 접근 방식을 포함하는 용어입니다.
+    그러나 두 용어 모두 국제적으로 통일된 수치 기준(예: 특정 krad 수준 이상)은 아직 존재하지 않습니다. 실제 방사선 내성 판단은 해당 임무의 환경과 요구되는 수명을 고려한 RHA 문서 및 시험 데이터를 근거로 이루어져야 합니다.
+  </p>
+</div>
+
+
+<br><br>
+
+>[1] U.S. Department of Defense, MIL-PRF-38535: Performance Specification, Integrated Circuits (Microcircuits) Manufacturing, General Specification for, Defense Logistics Agency (DLA), Fort Belvoir, VA, USA, 2021.
+
+>[2] U.S. Department of Defense, MIL-STD-883: Test Method Standard, Microcircuits, Method 1019, “Ionizing Radiation (Total Dose) Test Procedure,” 2020.
+
+>[3] NASA, “EEE-INST-002: Instructions for EEE Parts Selection, Screening, Qualification, and Derating,” NASA Office of Safety and Mission Assurance, Washington, DC, USA, Rev. D, 2019.
+
+>[4] D. A. Pellish, “Radiation Engineering for Designers,” NASA Radiation Effects and Analysis Group (REAG) Training Material, NASA Goddard Space Flight Center, Greenbelt, MD, USA, 2018.
+
+>[5] NASA, “Radiation Hardness Assurance (RHA) Standard Development and Guidelines,” NASA Electronic Parts and Packaging (NEPP) Program / NASA Engineering and Safety Center (NESC), Technical Presentation, 2020.
+
+>[6] European Cooperation for Space Standardization (ECSS), ECSS-Q-ST-60-15C, Space Product Assurance - Radiation Hardness Assurance - EEE Components, ESA Requirements and Standards Division, Noordwijk, The Netherlands, 2013.
+
+
+
+
+
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

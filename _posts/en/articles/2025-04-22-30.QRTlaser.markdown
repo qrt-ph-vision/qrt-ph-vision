@@ -1,0 +1,148 @@
+---
+layout: post
+title: Strengths of QRT Laser Testing
+description: With QRT-LITE’s Image Stitch, Scan List, and image-to-stage synchronization, we deliver fast and accurate laser-based SEE evaluation while reducing cost and lead time.
+category: article
+lang: en
+permalink: en/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1008
+---
+
+# Radiation Testing Expertise
+Since 2018, QRT has provided radiation evaluation services (TID/SEE/DDD). Building on years of test design, measurement, and analysis know-how, we are continuously collecting data to establish a rigorous correlation between laser-based SEE evaluation and heavy-ion testing. Our goal is to refine models so that laser results can serve as reliable leading indicators for heavy-ion outcomes.
+
+# Best-in-Class Device Preprocessing
+For both heavy-ion and laser evaluations, decapsulation and back-side thinning are essential steps in sample preparation. QRT performs these preprocessing steps in-house rather than outsourcing. Leveraging 40+ years of comprehensive analysis and reliability experience, we deliver preprocessing with consistent, high quality, enabling a reproducible test environment that meets your objectives and timelines. Performing preprocessing and evaluation as a single, integrated workflow minimizes inter-process loss and reduces both lead time and cost.
+
+<p align="center">
+  <img src="/assets/Articles/decap_ex.webp" alt="Decapsulated device" style="width: 35%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Decapsulated Device</h5>
+</div>
+
+# Combination with Instrumentation
+QRT’s laser evaluation integrates not only with our in-house [QRT SEE Analysis System (SAS)](https://www.qrtkr.com/en/equipment/see/equipment_see_analysis.php) but also flexibly with platforms such as National Instruments PXI. By combining oscilloscopes, DAQ, and SMU (source measure unit), we synchronize laser conditions and measurements to implement richer test scenarios tailored to each device.
+
+<p align="center">
+  <img src="/assets/Chapter-2/QRT SEE Analysis System.png" alt="QRT SEE Analysis System (SAS)" style="width: 35%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>QRT SEE Analysis System (SAS)</h5>
+</div>
+
+# 10–25% of the cost of heavy-ion testing
+Radiation hardness evaluation is mandatory for up-screening, and heavy-ion SEE testing dominates total cost. For the same device, laser-based SEE evaluation typically costs about 10–25% of heavy-ion testing, dramatically easing budget pressure. Because rapid, iterative verification is possible—from early screening through design refinement—you save both budget and lead time.
+
+<div class="qrt-button-wrapper">
+  <a class="qrt-button" href="https://www.laser2cots.com/en/article/11.%EB%A0%88%EC%9D%B4%EC%A0%80-%ED%8F%89%EA%B0%80%EA%B0%80-%ED%95%84%EC%9A%94%ED%95%9C-%EC%9D%B4%EC%9C%A0-(%EB%B9%84%EC%9A%A9%EC%A0%81-%EC%B8%A1%EB%A9%B4).html">
+    Why Laser Evaluation Matters (Cost Perspective)
+  </a>
+</div>
+
+# Sensitive Area Analysis
+Using a high-precision XYZ stage (nanometer-level control) and laser scanning, QRT precisely irradiates targeted positions on a semiconductor die. This allows us to pinpoint SEE event locations and visualize sensitive areas across the circuit.
+
+<p align="center">
+  <img src="/assets/Chapter-3/S-Map.png" alt="Sensitive Area Map" style="width: 35%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Sensitive Area Map</h5>
+</div>
+
+# Lab Access Service
+QRT’s Laser Testing Lab is powered by our in-house software, [QRT-LITE (Laser Irradiation Tools for Evaluation)](/manuals/manuals_lite_kor/Chapter%201/Chapter%201/), which delivers more intuitive operation and precise control than competing tools—so even first-time users can set up and run evaluations quickly.
+
+Key capabilities of our in-house software include:
+
+### High-Resolution Chip Image
+To achieve higher resolution, chip images are captured as multiple tiles and stitched into a single image. QRT-LITE’s Auto Image Scan automates capture and stitching to produce a seamless, high-resolution composite.
+
+<p align="center">
+  <img src="/assets/Articles/stitch.webp" alt="Principle of Image Stitching" style="width: 70%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Image Stitching Principle</h5>
+</div>
+
+### Synchronization of Chip Image and XYZ Stage
+For easy operation, QRT-LITE links the stitched high-resolution chip image with the XYZ stage. Clicking a point on the image converts pixel coordinates to the real stage coordinate system and moves the stage automatically to the exact location.
+
+<p align="center">
+  <img src="/assets/Articles/click to move stage.webp" alt="Move stage by clicking on the chip image" style="width: 70%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Stage Movement by Clicking on the Chip Image</h5>
+</div>
+
+### Flexible Integration with Oscilloscope and Source Meter
+QRT-LITE connects directly to Keysight oscilloscopes to automatically capture and store transient responses. When a trigger occurs, QRT-LITE immediately receives and records waveforms with timestamps, which can later be mapped to coordinates to create a Sensitive Area Map. Integration with SMU and DAQ enables combined analysis of current/voltage responses.  
+These features allow simple devices to be evaluated without additional development.
+
+<p align="center">
+  <img src="/assets/Articles/Trigger Mode.webp" alt="Oscilloscope integration panel" style="width: 35%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Oscilloscope Integration Panel</h5>
+</div>
+
+### Scheduling
+Set coordinates directly or drag to select scan regions; QRT-LITE automatically adds those positions to the Scan List. You can configure per-item laser conditions (e.g., energy, pulse repetition rate), enabling efficient, repeatable evaluation.
+
+<p align="center">
+  <img src="/assets/Articles/addscanlist.webp" alt="Defining scan regions by dragging" style="width: 70%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Define Scan Regions by Dragging</h5>
+</div>
+
+You can also save and reload previously used settings for one-click reuse.
+
+<p align="center">
+  <img src="/assets/Articles/importscanlist.webp" alt="Import Scan List" style="width: 70%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Import Scan List</h5>
+</div>
+
+### Fast Testing
+QRT-LITE minimizes latency by optimizing communication and control parameters, bringing out the maximum performance of the hardware. In addition, the system supports a wide pulse repetition range of 1 Hz–1 kHz, enabling faster and more diverse evaluation scenarios depending on your needs.
+
+<p align="center">
+  <img src="/assets/Articles/fast_scan.webp" alt="Speed during actual evaluation" style="width: 70%; border: 1px solid #ccc;">
+</p>
+<div align="center">
+<h5>Speed Demonstration in a Real Evaluation</h5>
+</div>
+
+{% assign current_order = page.order | plus: 0 %}
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+{% assign closest_posts = "" | split: "" %}
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

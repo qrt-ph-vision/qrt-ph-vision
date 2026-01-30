@@ -1,0 +1,15 @@
+---
+layout: post
+title: Reports
+date: 2025-01-29 00:01:00 +0900
+category: publications
+permalink: en/publications/:title.html
+lang: en
+---
+
+
+<div style="display:flex; justify-content:center; align-items:center; height:100vh; text-align:center;">
+  <p style="font-size:2rem; font-weight:bold; color:#333;">
+    Reports will be available soon.
+  </p>
+</div>

@@ -1,0 +1,81 @@
+---
+layout: post
+title: 반도체 기판의 밴드갭 및 광흡수 메커니즘 비교
+description: 반도체 소재별 밴드갭과 레이저 파장에 따른 광흡수 메커니즘(SPA, TPA, MPA)을 비교 분석합니다. QRT의 넓은 파장 범위와 펨토초 레이저 시스템으로 다양한 소자 평가가 가능합니다.
+date: 2025-03-17 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1007
+---
+레이저 내방사선 평가 시, 반도체 소자는 사용되는 소재 마다 레이저 파장에 따른 흡수 메커니즘이 달라집니다.
+다음 표는 QRT에서 사용하는 파장에서, 반도체 소재 별로 다양한 레이저 파장에서 발생 가능한 광자 흡수 메커니즘의 차이를 정리한 것입니다
+
+<div align="center"> 
+<h5>Si, GaAs, SiC, GaN 기판의 광학적 특성 비교</h5>
+</div>
+
+<div align="center">
+
+| Substrate | Band Gap | 1064nm~1260nm   | 630nm |
+|-----------|----------|-----------|-------|
+| Si        | 1.12eV   | SPA/TPA   | SPA   |
+| GaAs      | 1.42eV   | TPA       | SPA   |
+| SiC       | 3.23eV   | MPA       | TPA   |
+| GaN       | 3.42eV   | MPA       | TPA   |
+
+<p align="center" style="color: #666666; font-size:15px;">
+SPA: single photon absorption, 
+ TPA: two photon absorption,
+ MPA: multiple photon absorption
+</p>
+
+</div>
+
+반도체 소재 중 대표적인 Si (Silicon)은 밴드갭이 상대적으로 작아, 상대적으로 긴 파장(1064nm)의 레이저를 활용한 단일 광자 흡수(SPA) 메커니즘을 통해 평가가 가능합니다.
+<br>
+반면, 전력 반도체 소자에 주로 사용되는 GaAs (Gallium Arsenide), SiC (Silicon Carbide), GaN (Gallium Nitride)은 밴드갭이 큰 특성을 가지고 있어, 동일한 파장으로는 SPA 기반의 평가를 수행하기 어렵습니다.
+<br>
+예를 들어, 630nm 파장의 레이저는 약 2eV의 광자 에너지를 가지므로, 밴드갭이 이보다 큰 소재에서는 전자가 밴드갭 위로 여기(excitation)시키기 위해서는 두 개의 광자가 동시에 흡수되는 TPA 메커니즘을 이용해야 합니다.
+<br>
+다양한 소재에서의 레이저 평가를 수행하기 위해서, QRT에서는 **630nm~1700nm의 넓은 파장** 범위와 최소 200fs의 초단 펄스 폭을 구현할 수 있는 레이저 조사 장비를 보유하고 있어, 다양한 반도체 소자에 맞는 유연한 내방사선 평가가 가능합니다.
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

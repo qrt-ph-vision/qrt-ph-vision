@@ -1,0 +1,67 @@
+---
+layout: post
+title: LET (Linear Energy Transfer)란?
+description: LET는 입자가 물질을 통과할 때 단위 경로 길이당 에너지 손실을 나타내는 값으로, 방사선이 반도체 소자에 미치는 영향을 분석하는 핵심 지표입니다.
+date: 2025-03-25 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2003
+---
+# LET (Linear Energy Transfer) - 선형 에너지 전달
+LET는 입자가 재료를 통과할 때 입자의 단위 경로 길이당 에너지 손실을 말합니다. LET의 단위는 MeV cm<sup>2</sup>/mg이고 경로의 단위 길이당 에너지 손실(MeV/cm)은 표적 물질의 밀도(mg/cm<sup>3</sup>)로 정규화되어 LET는 표적과 독립적으로 인용될 수 있습니다.<br>
+이온화 손실(Ionization Loss)은 반도체 소자에서 아주 중요한 과정인데 이온화 과정에서 표적 물질을 관통하는 입자에 의해 단위 길이당 축적되는 에너지인 LET로 그 특성을 나타낼 수 있습니다. 여기에서 에너지 손실은 입자의 에너지가 LET로 손실되어 표적 물질에 축적되는 것을 의미합니다.<br> 
+일반적인 의미에서의 LET는 MeV cm<sup>-1</sup>, eV nm<sup>-1</sup>, keV nm<sup>-1</sup>와 같이 에너지를 거리로 나눈 값으로 표현할 수 있습니다. 그러나 손실된 에너지는 관통하는 재료의 밀도에 정비례하므로 선형 에너지 전달값을 재료의 밀도로 나누는 것이 더 유용합니다. 여러 JEDEC 표준에서는 통상적으로 LET단위를 [MeV cm<sup>2</sup>mg<sup>-1</sup>]로 표시하는데 이는 MeV cm<sup>-1</sup>을 밀도인 mg/cm<sup>3</sup>로 나눈 값을 의미하고 그래서 대상 물질의 밀도로 정규화된 LET는 [MeV cm<sup>2</sup>mg<sup>-1</sup>]단위로 표기합니다.
+
+아래 그래프는 LET의 깊이별 분포를 보여주고 있고 공기 중에서 5.49 MeV의 알파 입자가 이동하면서 점점 더 많은 에너지를 물질에 전달하다가, 이동 경로의 끝에서 급격히 에너지 전달률이 증가한 후 갑자기 멈추는 특성을 보여줍니다.
+이때의 급격한 에너지 전달 구간이 Bragg peak이며, 이 지점이 LET가 가장 높은 지점입니다.
+
+<!-- 중앙 정렬 이미지 -->
+<p align="center"> 
+  <img src="/assets/Articles/Bragg curve.webp" alt= "Bragg curve of 5.49 MeV alpha particles in air. " style="width: 70%;">
+</p>
+
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>Bragg curve of 5.49 MeV alpha particles in air.</h5>
+</div>
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

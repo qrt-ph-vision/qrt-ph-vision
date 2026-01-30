@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+{%- include head.html -%}
+<style>
+  @import url("/public/css/syntax/{{ site.highlighter-theme }}.css");
+</style>
+<title>{{ site.title }}</title>
+<!-- <link href="/public/css/bootstrap.min.css" rel="stylesheet"> -->
+
+<link href="/public/css/style.css" rel="stylesheet">
+
+
+<body>
+
+
+
+  <!-- 문의하기 버튼 -->
+  <div class="float-button-container" id="contactBtn" style="bottom: 15px;">
+    <a class="float-button" href="https://www.qrtkr.com/kr/customer/inquiry.php" target="_blank">
+      <span id="contact-text">문의하기</span>&nbsp;
+      <img class="float-button-image" src="/assets/right_btn_logo.png"
+        style="margin-left: auto; width: 34px; height: 34px;" />
+    </a>
+  </div>
+
+
+  <!-- 최상단 버튼 -->
+  <div id="scrollTopBtn" onclick="scrollToTop()">↑</div>
+
+
+  <!-- Floating Buttons End -->
+  <div class="container">
+    <div class="sidebar">
+      {% include sidebar.html %}
+    </div>
+    <div class="content">
+      {{ content }}
+    </div>
+  </div>
+
+  <script>
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    const contactBtn = document.getElementById('contactBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        scrollBtn.classList.add('show');
+        contactBtn.style.bottom = '70px';
+      } else {
+        scrollBtn.classList.remove('show');
+        contactBtn.style.bottom = '15px';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+
+  </script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+---
+layout: post
+title: Analysis of Laser Evaluation Feasibility by Semiconductor Package Type
+description: This post analyzes the feasibility of SEE laser testing for various semiconductor package types such as BGA, TSSOP, SOIC, and PDIP. It explains decapsulation requirements, test limitations, and includes real evaluation case studies.
+date: 2025-03-12 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1006
+lang: en
+---
+
+QRT's laser evaluation system supports a wide wavelength range from 650 nm to 1650 nm, enabling radiation testing of a variety of semiconductor materials-such as silicon (Si), gallium nitride (GaN), and silicon carbide (SiC)-and device types including memories, processors, and analog components.
+However, for certain 3D-stacked packages such as HBM (High Bandwidth Memory), the stacked architecture prevents sufficient laser access to the die, making complete evaluation infeasible.
+Even outside such cases, feasibility can be constrained by the package's structural characteristics.
+<br>
+A key prerequisite for laser evaluation is decapsulation-removal of the epoxy mold compound from the package. This must be performed with high precision to preserve test accuracy and reliability.
+Devices with simple structures (e.g., amplifiers, ADCs, digital isolators) can typically be evaluated from both the front side and back side.
+By contrast, highly integrated devices such as FPGAs, MCUs, SRAMs, and DRAMs generally require back-side-only evaluation because front-side metal stacks block laser penetration.
+To determine feasibility in a specific case, it is best to consult prior case studies with similar structures.
+
+# Evaluatable Package Types
+
+Packages with structures like the one below are generally straightforward to decapsulate from both sides, making them suitable for evaluation.
+
+<p align="center">
+<img src="/assets/Articles/평가가능소자.webp" style="width: 100%; max-width: 600px;" alt="lead-frame type package">
+</p>
+<p align="center">Example of an evaluatable package type</p>
+
+Even within these types, evaluation feasibility may vary depending on the shape and placement of the lead-frame.
+
+<p align="center">
+<img src="/assets/Articles/메모리1.webp" style="width: 100%; max-width: 300px;" alt="De-capsulated TSSOP device">
+</p>
+<p align="center">De-capsulated TSSOP device</p>
+
+# Non-Evaluatable Package Types
+
+In packages like BGA, the bottom of the chip is fully bonded to the PCB via solder balls, allowing only top-side decapsulation. This generally makes back-side evaluation impossible.
+
+<p align="center">
+<img src="/assets/Articles/평가불가능소자.webp" style="width: 100%; max-width: 400px;" alt="Substrate type package">
+</p>
+<p align="center">Example of a non-evaluatable package type (1)</p>
+
+For BGAs where only the top side can be decapsulated, laser evaluation is often impractical for devices with more than three metal layers (e.g., memories, processors).
+However, some flip-chip BGA packages allow laser access from the bottom side of the die, enabling evaluation.
+In many cases, the same chip can be offered in multiple package options, selecting a laser-compatible package may make evaluation feasible.
+
+<p align="center">
+<img src="/assets/Articles/평가불가능소자2_en.webp" style="width: 100%; max-width: 500px;" alt="Substrate type package">
+</p>
+<p align="center">Example of a non-evaluatable package type (2)</p>
+
+# Preprocessing for Laser Radiation Hardness Testing
+
+The examples above may not provide a definitive answer for every device.
+In most cases, X-ray imaging is used beforehand to inspect internal structures. Below are actual QRT case studies to help assess feasibility in similar situations.
+
+### TSSOP Package (Memory, lead-frame removal not possible)
+
+Front-side evaluation was blocked by the front-side metal stack. X-ray imaging showed the lead-frame was tied to multiple pins, preventing back-side frame removal.
+Even so, partial evaluation was carried out through gaps between lead-frame features, and potential SEE (Single Event Effects) were successfully detected.
+
+<p align="center">
+<img src="/assets/Articles/메모리1.webp" style="width: 100%; max-width: 300px;" alt="Memory">
+</p>
+<p align="center">Memory (TSSOP) back side</p>
+
+### BGA & TSSOP Packages (Memory)
+
+The original device was in BGA form, but a TSSOP version was acquired. Decapsulation was possible from both sides, but since the metal layer was covering the front-side, evaluation was conducted successfully from the back side.
+
+<p align="center">
+<img src="/assets/Articles/메모리2.webp" style="width: 100%; max-width: 300px;" alt="Memory">
+</p>
+<p align="center">Memory (TSSOP) back side</p>
+
+### BGA Package (Memory)
+
+Although BGA packages are generally difficult to evaluate, this particular flip-chip device allowed back-side laser access, enabling successful evaluation.  
+Front-side access was still restricted due to the ball grid array.
+
+<p align="center">
+<img src="/assets/Articles/메모리3.webp" style="width: 100%; max-width: 300px;" alt="Memory">
+</p>
+<p align="center">Memory (BGA) back side</p>
+
+### TSSOP Package (Memory)
+
+The lead-frame fully covered the back of the chip, requiring precise removal. Using detailed X-ray imaging and with support from the manufacturer, removable sections were identified.  
+Frame removal was performed successfully, exposing over 90% of the back-side die area for evaluation. Front-side evaluation remained blocked by the metal layer.
+
+<p align="center">
+<img src="/assets/Articles/메모리4.webp" style="width: 100%; max-width: 300px;" alt="Memory">
+</p>
+<p align="center">Memory (TSSOP) back side</p>
+
+### SOIC-8 Package (Op-Amp)
+
+This simple SOIC-8 device was easily decapsulated and evaluated from both front and back.
+
+<p align="center">
+<img src="/assets/Articles/amp.webp" style="width: 100%; max-width: 300px;" alt="op-amp">
+</p>
+<p align="center">Op-Amp (SOIC) front (left), back (right)</p>
+
+### PDIP Package (ADC)
+
+The ADC, housed in a basic DIP package, was also easily decapsulated and evaluated on both sides.
+
+<p align="center">
+<img src="/assets/Articles/adc.webp" style="width: 100%; max-width: 300px;" alt="adc">
+</p>
+<p align="center">ADC (PDIP) front (left), back (right)</p>
+
+### SOIC-8 Package (Digital Isolator, partial lead-frame removal)
+
+For the digital isolator, full front-side decapsulation caused damage to the internal coil. Selective decapsulation was performed to avoid interference with the coil.  
+The back-side lead-frame was connected to multiple pins, but careful partial removal enabled evaluation from both sides.
+
+<p align="center">
+<img src="/assets/Articles/isolator.webp" style="width: 100%; max-width: 300px;" alt="isolator">
+</p>
+<p align="center">Digital Isolator (SOIC) front (left), back (right)</p>
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

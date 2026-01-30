@@ -1,0 +1,81 @@
+---
+layout: post
+title: "QRT Signs MOU with KRISS to Cooperate on Radiation-Hardness Testing, Analysis, and Certification"
+description: QRT and KRISS signed an MOU in Suwon to cooperate on semiconductor radiation-hardness (TID/SEE) testing, analysis, and certification, aiming for internationally recognized reliability
+date: 2025-08-21 00:01:00 +0900
+category: news
+permalink: en/news/:title.html
+lang: en
+image: /assets/Articles/MOU.webp
+---
+
+# At the Suwon QRT Vision Campus, QRT and KRISS Strengthen Competitiveness in Radiation-Hardness Certification
+
+<p style="color: #666666">August 21, 2025</p>
+
+<p align="center">
+  <img src="/assets/Articles/MOU.webp" style="width: 100%; max-width: 700px;" alt="QRT–KRISS MOU Signing">
+</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  Dr. Young-Kyung Bae, Head of the Biomedical Metrology Division at KRISS (left), and Young-Boo Kim, CEO of QRT Co., Ltd. (right)
+</p>
+
+
+
+QRT signed a memorandum of understanding (MOU) with the Korea Research Institute of Standards and Science (KRISS) to cooperate in semiconductor radiation-hardness testing, analysis, and certification. This collaboration aims to establish a high-reliability semiconductor quality certification system required in the aerospace and strategic industries.
+
+This MOU focuses on advancing radiation-hardness evaluation technologies and establishing a testing and certification framework that enables international mutual recognition. The two organizations plan to pursue phased collaboration based on their respective infrastructure and know-how.
+
+
+Semiconductors used in high-risk environments such as space, aviation, defense, and nuclear power must operate reliably under radiation conditions. For this reason, radiation-hardness testing and certification—such as Total Ionizing Dose (TID) and Single Event Effects (SEE)—are essential. As the domestic aerospace industry enters a full-fledged growth phase, demand for related testing and certification is rapidly increasing.
+
+National standardization of radiation-hardness testing and certification is currently being promoted, led by the Korea Aerospace Administration, and the cooperation between QRT and KRISS is expected to serve as a key foundation for institutional development.
+
+
+As the national metrology institute, KRISS uniquely in Korea possesses gamma-ray testing infrastructure that supports international mutual recognition. This enables the conduct of radiation-hardness tests that meet international standards such as NASA/ESA standards, MIL-STD, and ESCC.
+
+In the private sector, QRT is the only organization in Korea equipped with the infrastructure and capabilities to conduct both TID and SEE tests, and it has KOLAS-based testing expertise as well as experience executing aerospace and defense projects.
+
+
+Through this agreement, QRT is expected to strengthen its differentiated, high-reliability certification foundation, laying the groundwork for expanding its domestic and international customer base and growing service revenue. In addition, the collaboration between the two institutions will contribute to enhancing the reliability and global competitiveness of the Republic of Korea’s semiconductor industry.
+
+{% comment %}
+Show up to 5 latest posts in the "news" category matching the current page language (page.lang), excluding the current page
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: 'ko' %}
+
+{% assign news_candidates = site.posts
+  | where_exp: "p", "p.categories contains 'news'"
+  | where: "lang", current_lang
+  | where_exp: "p", "p.url != page.url"
+  | sort: "date"
+  | reverse
+%}
+
+{% assign news_list = news_candidates | slice: 0, 5 %}
+
+{% if news_list.size > 0 %}
+  <hr>
+  <br>
+  <h3>
+    {% if current_lang == 'en' %}
+      Related News
+    {% else %}
+      관련 뉴스
+    {% endif %}
+  </h3>
+
+  <ul class="related-news">
+    {% for post in news_list %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+          <span class="news-date" style="margin-left:8px; color:#888;">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

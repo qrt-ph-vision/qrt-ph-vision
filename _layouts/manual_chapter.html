@@ -1,0 +1,281 @@
+---
+layout: default
+---
+
+<article class="post">
+  <header class="post-header home">
+    <div class="post-title">
+      <span>{{ page.title }}</span>
+    </div>
+
+    <div id="manual-lang-note" role="note" style="display:none;margin-top:8px;padding:10px 12px;border-radius:6px;
+    background:#fff8e1;border:1px solid #ffe0a1;color:#644a00;font-size:0.95rem;">
+      This manual is currently available only in Korean.
+    </div>
+  </header>
+
+
+  {%- if page.url contains "/manuals_lite_kor/ch1/" or page.url contains "/manuals_lite_kor/ch2/" or page.url contains
+  "/manuals_lite_kor/ch3/" or page.url contains "/manuals_lite_kor/ch4/" -%}
+  <!-- ✅ 오른쪽 고정 목차 (상하 접기/펼치기 가능) -->
+  <nav id="floating-manual-toc" class="floating-manual-toc" aria-label="목차">
+    <div class="toc-head">
+      <span class="toc-head-title">CONTENTS</span>
+      <button id="toc-toggle" type="button" class="toc-toggle" aria-label="접기/펼치기">▲</button>
+    </div>
+
+    <ul class="toc-list" id="toc-list">
+      {%- assign sorted_manuals = site.manuals | sort: "order" -%}
+      {%- assign prev_thousand = nil -%}
+
+      {%- for manual in sorted_manuals -%}
+      {%- if manual.title contains "Chapter" or manual.title contains "챕터" -%}{%- continue -%}{%- endif -%}
+
+      {%- assign rp = manual.relative_path -%}
+      {%- assign chapter_url = "" -%}
+
+      {%- if rp contains "manuals_lite_kor/Chapter 1/" -%}
+      {%- assign chapter_url = "/manuals_lite_kor/ch1/" -%}
+      {%- elsif rp contains "manuals_lite_kor/Chapter 2/" -%}
+      {%- assign chapter_url = "/manuals_lite_kor/ch2/" -%}
+      {%- elsif rp contains "manuals_lite_kor/Chapter 3/" -%}
+      {%- assign chapter_url = "/manuals_lite_kor/ch3/" -%}
+      {%- elsif rp contains "manuals_lite_kor/Chapter 4/" -%}
+      {%- assign chapter_url = "/manuals_lite_kor/ch4/" -%}
+      {%- else -%}
+      {%- continue -%}
+      {%- endif -%}
+
+      {%- assign thousand = manual.order | divided_by: 1000 | floor -%}
+      {%- if prev_thousand == nil or prev_thousand != thousand -%}
+      <li class="toc-group">Chapter {{ thousand }}</li>
+      {%- endif -%}
+
+      {%- assign hundreds = manual.order | modulo: 1000 | divided_by: 100 | floor -%}
+      {%- assign tens = manual.order | modulo: 100 | divided_by: 10 | floor -%}
+      {%- assign ones = manual.order | modulo: 10 -%}
+
+      {%- if hundreds == 0 and tens == 0 and ones == 0 -%}
+      {%- assign pad = 0 -%}
+      {%- elsif tens == 0 and ones == 0 -%}
+      {%- assign pad = 10 -%}
+      {%- elsif ones == 0 -%}
+      {%- assign pad = 20 -%}
+      {%- else -%}
+      {%- assign pad = 30 -%}
+      {%- endif -%}
+
+      <li class="toc-item" style="padding-left: {{ pad }}px;">
+        <a class="toc-link" href="{{ chapter_url }}#m{{ manual.order }}">{{ manual.title | escape }}</a>
+      </li>
+
+      {%- assign prev_thousand = thousand -%}
+      {%- endfor -%}
+    </ul>
+  </nav>
+
+  <style>
+    /* ✅ 오른쪽 고정 목차 */
+    .floating-manual-toc {
+      position: fixed;
+      right: 10px;
+      top: 30px;
+      width: 220px;
+      max-height: calc(100vh - 160px);
+      display: flex;
+      flex-direction: column;
+      transition: width .18s ease;
+      border: 1px solid rgba(0, 0, 0, .12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .10);
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .toc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, .10);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .toc-toggle {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      line-height: 1;
+    }
+
+    .toc-toggle:hover {
+      background: rgba(0, 0, 0, .06);
+    }
+
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 6px 4px;
+      overflow: auto;
+      max-height: calc(100vh - 140px);
+    }
+
+    .toc-group {
+      margin: 8px 6px 6px;
+      font-weight: 800;
+      opacity: .75;
+      font-size: .82rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 6px 6px;
+      margin: 2px 4px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      font-size: .84rem;
+      line-height: 1.2;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toc-link:hover {
+      background: rgba(0, 0, 0, .06);
+      font-weight: 800;
+    }
+
+    /* ✅ 접히면 옆으로(가로) 더 작게 */
+    .floating-manual-toc.collapsed {
+      width: 130px;
+    }
+
+    .floating-manual-toc.collapsed .toc-head-title {
+      font-size: 0.85rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .floating-manual-toc.collapsed .toc-list {
+      display: none;
+    }
+
+    /* ✅ 작은 화면에서는 숨김 */
+    @media (max-width: 1100px) {
+      .floating-manual-toc {
+        display: none;
+      }
+    }
+
+    /* ✅ 본문 왼쪽 원복 + (원하면) 목차만큼 오른쪽 여백 */
+    @media (min-width: 1101px) {
+      .post-content {
+        padding-left: 0px;
+        /* padding-right: 240px; */
+      }
+    }
+
+
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toc = document.getElementById("floating-manual-toc");
+      const btn = document.getElementById("toc-toggle");
+      if (!toc || !btn) return;
+
+      const KEY = "manual_toc_collapsed_right_v1";
+
+      const applyIcon = () => {
+        btn.textContent = toc.classList.contains("collapsed") ? "▼" : "▲";
+      };
+
+      // ✅ 기본: 접힘 (저장값이 없으면 1로 세팅)
+      if (localStorage.getItem(KEY) === null) {
+        localStorage.setItem(KEY, "1");
+      }
+
+      if (localStorage.getItem(KEY) === "1") toc.classList.add("collapsed");
+      applyIcon();
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toc.classList.toggle("collapsed");
+        localStorage.setItem(KEY, toc.classList.contains("collapsed") ? "1" : "0");
+        applyIcon();
+      });
+
+      // ✅ 영어(en)일 때만 경고 배너 노출 (챕터 페이지에서도)
+      const manualNote = document.getElementById('manual-lang-note');
+      if (manualNote) {
+        const lang = (localStorage.getItem('lang') || '').toLowerCase();
+        const isEnglish =
+          lang === 'en' || lang.startsWith('en-') ||
+          window.location.pathname.includes('/en/');
+
+        manualNote.style.display = isEnglish ? 'block' : 'none';
+      }
+    });
+  </script>
+  {%- endif -%}
+
+  <div class="fade-in">
+    <div class="post-content">
+      {%- assign sorted_manuals = site.manuals | sort: "order" -%}
+      {%- assign printed = 0 -%}
+
+      {%- for manual in sorted_manuals -%}
+      {%- assign rp = manual.relative_path | downcase -%}
+      {%- assign target = page.chapter_folder | downcase -%}
+
+      {%- unless rp contains target -%}{%- continue -%}{%- endunless -%}
+
+      {%- assign hundreds = manual.order | modulo: 1000 | divided_by: 100 | floor -%}
+      {%- assign tens = manual.order | modulo: 100 | divided_by: 10 | floor -%}
+      {%- assign ones = manual.order | modulo: 10 -%}
+
+      {%- comment -%}
+      ✅ 모든 포스트 사이 hr 넣되,
+      1.1.1.1 같은 leaf(ones != 0) 레벨은 제외 => ones == 0일 때만 hr
+      {%- endcomment -%}
+      {%- if printed > 0 and ones == 0 -%}
+      <hr class="gray-hr">
+      {%- endif -%}
+
+      <!-- ✅ 앵커(목차에서 #mXXXX로 점프) -->
+      <div id="m{{ manual.order }}" style="scroll-margin-top:90px;"></div>
+
+      <!-- ✅ 목차랑 “똑같은 스타일” 그대로 복붙 -->
+      {%- if hundreds == 0 and tens == 0 and ones == 0 -%}
+      <div style="font-size: 1.8em; font-weight: bold;padding-left: 0px; margin-top: 22px;"></div>
+      {%- elsif tens == 0 and ones == 0 -%}
+      <div style="font-size: 1.5em; font-weight: 600; padding-left: 20px; margin-top: 18px;"></div>
+      {%- elsif ones == 0 -%}
+      <div style="font-size: 1.2em; font-weight: 500; padding-left: 40px; margin-top: 14px;"></div>
+      {%- else -%}
+      <div style="padding-left: 60px; margin-top: 10px;"></div>
+      {%- endif -%}
+
+      <!-- ✅ 본문 -->
+      <div style="
+          {% if hundreds == 0 and tens == 0 and ones == 0 %}padding-left:0px;{% endif %}
+          {% if tens == 0 and ones == 0 and not (hundreds == 0 and tens == 0 and ones == 0) %}padding-left:20px;{% endif %}
+          {% if ones == 0 and not (tens == 0 and ones == 0) %}padding-left:40px;{% endif %}
+          {% if ones != 0 %}padding-left:60px;{% endif %}
+          margin-top: 8px;">
+        {{ manual.content | markdownify }}
+      </div>
+
+      {%- assign printed = printed | plus: 1 -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</article>

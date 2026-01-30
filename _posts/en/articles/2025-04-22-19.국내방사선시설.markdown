@@ -1,0 +1,155 @@
+---
+layout: post
+title: Korean Radiation Test Facilities
+description: This post summarizes South Korea's radiation testing infrastructure, including proton and gamma facilities such as KOMAC, KIRAMS, and ARTI. It also covers the current lack of heavy ion accelerators and future plans like RAON and KIST initiatives.
+date: 2025-03-13 00:00:00 +0900
+category: article
+lang: en
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2008
+---
+
+Evaluating soft errors and single-event phenomena in high-altitude and space environments primarily involves testing with heavy ions and protons, as these are among the dominant contributors to space radiation effects. In practice, space radiation test campaigns focus on heavy-ion SEE (Single Event Effects) and TID (Total Ionizing Dose) evaluations, with proton testing used as a complementary method.
+<br>
+Another key evaluation is the assessment of TID, which is caused by ionizing radiation. Although both protons and heavy ions can induce TID, gamma rays are commonly and efficiently used to simulate these effects.
+<br>
+Demand for radiation-tolerant electronic components has grown significantly across advanced sectors such as space, defense, nuclear energy, and medical technology. In the space sector in particular, electronic components used in satellites and launch vehicles are continually exposed to radiation, making it essential to verify reliable performance under such conditions.
+<br>
+Radiation-evaluation infrastructure is foundational to Korea's efforts to develop-and potentially export-space-grade components. As private-sector space initiatives expand, the need for high-reliability electronics grows in parallel.
+<br>
+This infrastructure not only supports the domestic space industry but also serves as a strategic asset for Korea's leadership ambitions in future space technology. The following is an overview of major radiation-evaluation facilities in Korea.
+
+# Proton Accelerators
+
+### KOMAC - Korea Multi-purpose Accelerator Complex (Gyeongju, Gyeongbuk)
+
+KOMAC, located in Gyeongju, offers proton irradiation at 20 MeV and 100 MeV. The table below summarizes the specifications of its proton accelerator.
+
+<p align="center"> 
+  <img src="/assets/Articles/양성자과학연구단.webp" alt="KOMAC 100MeV Proton Accelerator" style="width: 40%;">
+</p>
+
+<div align="center"> 
+<h5>KOMAC 100 MeV Proton Accelerator</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray;">
+  Image source: KOMAC Official Website<br>
+  https://komac.kaeri.re.kr/komac/img/sub/inst01_01.png
+</div>
+
+<div align="center">
+
+|         Category         |   20 MeV    |   100 MeV    |
+|:------------------------:|:-----------:|:------------:|
+|     Energy [MeV]         |     20      |     100      |
+|   Peak Current [mA]      | 0.1 ~ 20    |  0.1 ~ 20    |
+| Max Beam Duty [%]        |     24      |      8       |
+|   Average Current [mA]   | 0.1 ~ 4.8   |  0.1 ~ 1.6   |
+|  Pulse Length [ms]       | 0.02 ~ 2.0  | 0.05 ~ 1.33  |
+| Max Repetition Rate [Hz] |    120      |     60       |
+| Max Beam Power [kW]      |     96      |    160       |
+
+</div>
+<div align="center"> 
+<h5>KOMAC Proton Accelerator Specifications</h5>
+</div>
+
+### KIRAMS - Korea Institute of Radiological & Medical Sciences (Nowon-gu, Seoul)
+
+Located in Nowon-gu, Seoul, KIRAMS operates a 20-45 MeV proton beam system using the MC-50 cyclotron. A cyclotron accelerates particles by spinning them in a magnetic field at high speeds. The table below shows its key specifications.
+
+<p align="center"> 
+  <img src="/assets/Articles/KIRAMS.webp" alt="KIRAMS MC-50 Cyclotron" style="width: 40%;">
+</p>
+
+<div align="center"> 
+<h5>KIRAMS 50 MeV Particle Accelerator</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray;">
+  Image source: KIRAMS Official Website<br>
+  https://www.kirams.re.kr/common/front/rirams/images/sub/img_equip_02.png
+</div>
+
+<div align="center">
+
+|    Particle    |     Energy     |   Current    | Max Irradiation Area |
+|:--------------:|:--------------:|:------------:|:--------------------:|
+|     Proton     | 20 ~ 40 MeV    | 1 nA ~ 20 μA |      2 cm × 2 cm     |
+|    Deuteron    | up to 45 MeV   |      -       |     30 cm × 30 cm    |
+|  Alpha (⁴He)   | 25 ~ 45 MeV    | up to 200 nA |      2 cm × 2 cm     |
+
+</div>
+<div align="center"> 
+<h5>KIRAMS Particle Accelerator Specifications</h5>
+</div>
+
+# Gamma Ray Irradiation Facilities
+
+### ARTI - Advanced Radiation Technology Institute (Jeongeup, Jeonbuk)
+
+Located in Jeongeup, ARTI offers gamma irradiation services with facilities ranging from 0.5 kCi to 470 kCi. Using gamma rays from Co-60 sources, ARTI supports precise irradiation for sectors including agriculture, aerospace, and basic science.
+
+<p align="center"> 
+  <img src="/assets/Articles/ARTI.webp" alt="ARTI Low-Dose Gamma Irradiation Facility" style="width: 40%;">
+</p>
+
+<div align="center"> 
+<h5>ARTI Low-Dose Gamma Irradiation Facility</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray;">
+  Image source: ARTI Official Website<br>
+  https://www.kaeri.re.kr/resources/images/arti/contents/facility_02.jpg
+</div>
+
+# Heavy Ion Accelerators
+
+Currently, South Korea lacks domestic heavy-ion accelerator infrastructure suitable for semiconductor SEE testing. As a result, overseas facilities must be used for radiation testing related to space environments.
+<br>
+To address this, the Korea Institute of Science and Technology (KIST) is pursuing the development of a heavy-ion accelerator. In addition, the RAON accelerator being developed by the Institute for Basic Science (IBS) is intended to be Korea's first large-scale heavy-ion accelerator, designed for both nuclear-physics research and practical applications such as SEE evaluation. Once these facilities are operational, Korea will be able to conduct SEE testing domestically.
+<br>
+
+# QRT Radiation Hardness Evaluation Services
+
+QRT provides customized radiation-hardness evaluation services in collaboration with both domestic and international facilities. 
+Please contact us through [this inquiry link](https://www.qrtkr.com/en/customer/inquiry.php) for more information.
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

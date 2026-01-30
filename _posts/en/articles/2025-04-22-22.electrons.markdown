@@ -1,0 +1,81 @@
+---
+layout: post
+title: Energy Transfer Mechanisms of Electrons
+description: This article explains how electrons transfer energy through electron-electron and electron-nucleus interactions, including mechanisms such as delta-rays and Bremsstrahlung radiation. It also covers their effects on semiconductors in space and industrial environments.
+date: 2025-03-12 00:00:00 +0900
+category: article
+permalink: en/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2010
+lang: en
+---
+
+# Electron
+
+Incident electrons carry negative charge and interact with bound electrons and atomic nuclei in materials via the Coulomb force. Through these interactions, the electron's path can be deflected; energy may be deposited as excitation or ionization; and in some cases photons are emitted.
+
+### Electron-Electron Interaction
+
+Because both particles are negatively charged, a strong repulsive (Coulomb) force acts when an incident electron approaches a bound electron. This deflects the incoming electron, while the target electron generally remains bound unless sufficient energy is transferred.
+The incident electron can excite the target electron to a higher energy level or ionize it. If an inner-shell electron is ejected, a vacancy is created and subsequently filled by an outer electron, often emitting characteristic radiation during de-excitation. In low-Z materials this may appear in the visible/UV range; in higher-Z materials, X-ray emission is more likely.<br>
+If the ejected electron retains enough kinetic energy to cause further ionization, it becomes a secondary energetic electron-commonly called a delta ray.
+
+### Electron-Nucleus Interaction
+
+As a negatively charged electron passes near a positively charged nucleus, it experiences an attractive force that slows and deflects it. Because the nucleus (and thus the atom) is much more massive, its motion is usually small.
+If sufficient energy is transferred to an atom, it can be displaced from its lattice site, producing [Displacement Damage](/en/article/18.DD.html). <br>
+However, for most energies relevant to electronics, ionization is the dominant energy-loss process.
+When an electron is rapidly decelerated in the nuclear field, it can emit a photon-bremsstrahlung (“braking radiation”). The closer the approach, the greater the deceleration and the higher the photon energy. Bremsstrahlung forms a continuous spectrum whose upper cutoff is the kinetic energy of the incident electron.
+
+<p align="center">
+  <img src="/assets/Articles/전자산란.webp" style="width: 100%; max-width: 500px;" alt="Electron Scattering">
+</p>
+<p align="center">Electron Scattering</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+Image source: [Electron-beam interaction and transmission with sample - Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Electron-beam_interaction_and_transmission_with_sample.jpg)  
+Author: Zephyris / CC BY-SA 3.0
+</p>
+
+Most semiconductor devices are enclosed in opaque packages (plastic, ceramic, metal, etc.), so incident electrons typically need energies on the order of a few hundred keV or more to penetrate the package and reach the die.
+In industrial and medical applications, beta particles from electron beams or radioactive sources often span ~0.01-4 MeV; such electrons can penetrate outer layers and affect internal circuitry.<br>
+At ground level, the flux of high-energy electrons is generally too low to dominate semiconductor reliability concerns. In space-especially within the [Van Allen Radiation Belts](/en/article/16.지구의-자기장과-방사선대의-관계.html)-electron fluxes are much higher. Electrons in the ~0.1-10 MeV range are common and can readily penetrate packaging, contributing to effects such as [Total Ionizing Dose (TID)](/en/article/7.TID.html).
+
+
+<!-- 관련 글 자동화 -->
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>Related Articles</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

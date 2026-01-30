@@ -1,0 +1,79 @@
+---
+layout: post
+title: "큐알티, KRISS와 내방사선 시험·분석·인증 협력 MOU 체결"
+description: 큐알티와 KRISS가 수원에서 내방사선(TID/SEE) 시험·분석·인증 협력 MOU를 체결했습니다. 국제 상호인정 기반의 고신뢰 반도체 품질 인증을 추진합니다.
+date: 2025-08-21 00:01:00 +0900
+category: news
+permalink: ko/news/:title.html
+lang: ko
+image: /assets/Articles/MOU.webp
+---
+
+# 수원 큐알티 비전캠퍼스에서 만난 큐알티와 KRISS, 내방사선 인증 경쟁력 키운다
+
+<p style="color: #666666">2025년 8월 21일</p>
+
+<p align= "center">
+<img src="/assets/Articles/MOU.webp" style="width: 100%; max-width: 700px;" alt= "큐알티·KRISS MOU 체결">
+</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  한국표준과학연구원 바이오의료측정본부 본부장 배영경 박사님(좌측)과 큐알티 주식회사 김영부 대표이사님(우측) 
+</p> 
+
+
+**큐알티(QRT)**는 **한국표준과학연구원(KRISS)**과 반도체 내방사선 시험·분석·인증 분야 협력을 위한 업무협약(MOU)을 체결했습니다. 이번 협력은 우주항공 및 전략 산업에서 요구되는 고신뢰 반도체 품질 인증 체계 마련을 목표로 합니다.
+
+이번 MOU는 내방사선 평가 기술 고도화와 국제 상호인정이 가능한 시험·인증 기반 확립에 초점을 맞추고 있습니다. 양 기관은 각자의 인프라와 노하우를 바탕으로 단계적인 협업을 추진할 계획입니다.
+
+
+우주·항공·국방·원전 등 고위험 환경에서 사용하는 반도체는 방사선 환경에서도 안정적으로 동작해야 합니다. 이러한 이유로 총이온화선량(TID), 단일사건효과(SEE) 등 내방사선 시험과 인증이 필수적입니다. 국내 우주항공산업이 본격 성장 국면에 들어선 가운데, 관련 시험·인증 수요가 빠르게 증가하고 있습니다.
+
+현재 우주항공청을 중심으로 내방사선 시험·인증에 대한 국가 표준화가 추진되고 있으며, 큐알티와 KRISS의 협력은 제도 정립의 핵심 기반이 될 것으로 기대됩니다.
+
+
+KRISS는 국가측정표준기관으로서 국내에서 유일하게 국제 상호인정이 가능한 감마선 시험 인프라를 보유하고 있습니다. 이를 통해 NASA·ESA 표준, MIL-STD, ESCC 등 국제 규격을 충족하는 내방사선 시험 수행이 가능합니다.
+
+큐알티는 민간 분야에서 국내 유일하게 TID와 SEE 시험을 모두 수행할 수 있는 인프라와 역량을 갖추고 있으며, KOLAS 기반의 시험 노하우와 우주항공·국방 프로젝트 수행 경험을 보유하고 있습니다.
+
+이번 협약을 통해 큐알티는 차별화된 고신뢰 인증 기반을 강화하여 국내외 고객 저변 확대와 서비스 매출 성장의 발판을 마련할 것으로 기대합니다. 또한, 양 기관의 협업은 대한민국 반도체 산업의 신뢰성과 글로벌 경쟁력 제고에 기여할 것입니다.
+
+{% comment %}
+뉴스 카테고리에서 현재 언어(page.lang) 기준으로 최신 5개 노출
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: 'ko' %}
+
+{% assign news_candidates = site.posts
+  | where_exp: "p", "p.categories contains 'news'"
+  | where: "lang", current_lang
+  | where_exp: "p", "p.url != page.url"
+  | sort: "date"
+  | reverse
+%}
+
+{% assign news_list = news_candidates | slice: 0, 5 %}
+
+{% if news_list.size > 0 %}
+  <hr>
+  <br>
+  <h3>
+    {% if current_lang == 'en' %}
+      Related News
+    {% else %}
+      관련 뉴스
+    {% endif %}
+  </h3>
+
+  <ul class="related-news">
+    {% for post in news_list %}
+      <li>
+        <a href="{{ post.url | relative_url }}">
+          {{ post.title }}
+          <span class="news-date" style="margin-left:8px; color:#888;">
+            {{ post.date | date: "%Y-%m-%d" }}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

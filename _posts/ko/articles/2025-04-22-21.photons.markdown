@@ -1,0 +1,87 @@
+---
+layout: post
+title: 광자(Photon)의 에너지 전달 메커니즘
+description: 광자의 에너지 전달 메커니즘인 광전 효과, 콤프턴 산란, 쌍생성의 원리를 설명하고, 반도체 및 방사선 평가에서의 물리적 영향을 분석합니다. 전자기 스펙트럼과 고에너지 광자의 상호작용도 함께 다룹니다.
+date: 2025-03-12 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Radiation Effects & Hardness Test
+order: 2009
+---
+# 광자(Photon)
+광자는 전자기 에너지의 기본 캐리어로, 낮은 에너지에서 높은 에너지, 긴 파장에서 짧은 파장에 이르기까지 전자기 스펙트럼 전체를 아우릅니다. 여기에는 라디오파, 마이크로파, 가시광선, 자외선, X선, 감마선이 포함됩니다.
+대부분의 전자기 소자는 불투명한 패키지(플라스틱, 세라믹, 금속 등)로 밀봉되어 있어, 가시광선 영역의 광자들은 일반적으로 큰 문제가 되지 않습니다. 그러나 X선이나 감마선과 같은 고에너지 광자는 패키징 재료를 쉽게 관통할 수 있어, 소자에 영향을 미칠 수 있습니다.
+지상 환경과 우주 환경에서는 X선과 감마선에 의한 직접적인 광자 플럭스가 다른 방사선 유형에 비해 그다지 유의미한 수준이 아닙니다.
+산업용 및 의료 환경에서는 X선과 감마선이 주된 방사선으로, 광자 에너지는 보통 10~1,000 keV 범위에 있습니다. 이 범위에서는 광전 효과가 전하 생성의 주요 원인이 되며, 콤프턴 산란도 부수적으로 기여합니다.
+광자는 전하를 가지지 않기 때문에, 전하를 띤 입자들이 전자나 원자핵과 상호작용할 때 나타나는 현상들은 발생하지 않습니다.
+아래는 광자가 에너지를 전달하는 3가지 주요 메커니즘입니다:
+
+<p align="center"> <img src="/assets/Articles/선스펙트럼.webp" alt= "Diagram illustrating the electromagnetic spectrum" style="width: 40%;"> </p> 
+<!-- 이미지 설명 -->
+<div align="center"> 
+<h5>Diagram illustrating the electromagnetic spectrum</h5>
+</div>
+<div align="center" style="font-size: 10px; color: gray; ">
+  이미지 출처: EM Spectrum Properties edit.svg, created by Inductiveload & NASA (adapted from NASA's File:EM Spectrum3-new.jpg).<br>
+Licensed under CC BY-SA 3.0 and GNU Free Documentation License 1.2+.<br>
+You are free to use and modify this image with attribution and ShareAlike terms.
+</div>
+
+### 1. 광전 효과 (Photoelectric Effect)
+반도체에 입사된 광자가 밸런스 밴드(Valence Band)나 결합 상태(Bound State)의 전자를 자유롭게 만들 수 있을 만큼 충분한 에너지를 가질 때, 광자는 파괴되며 그 에너지는 전자에 흡수되어 광전자를 생성합니다. 이때 전자가 있던 자리에 양전하를 띤 구멍(Hole)이 생성됩니다. 이를 광전효과라고 합니다.
+광전효과가 일어날 때, 가시광선부터 약 100 keV 범위의 X선까지의 광자는 강하게 결합된 내각 전자를 여기시킬 수 있으며, 이 내각 전자의 빈자리를 외각 전자가 채우게 되어 특성 X선이 방출되기도 합니다. 방출되는 특성 X선은 특정 원소의 특성을 반영합니다.
+광전 효과는 비탄성(inelastic) 효과로, 광자의 에너지는 주파수에 비례합니다. 만약 광자의 에너지가 전자-정공 쌍을 생성하기에 충분하지 않다면, 광자는 물질을 투과하게 되며, 이를 투명(Transparent)하다고 합니다.
+
+### 2. 콤프턴 산란 (Compton Scattering)
+콤프턴 산란에서는 광자가 전자와 충돌한 후 일부 에너지를 잃고, 이전보다 낮은 에너지의 산란 광자(scattered photon)와 반동 전자(Recoil electron)를 생성합니다. 광자가 전자에 전달한 에너지에 따라 전자는 더 높은 결합 상태로 여기되거나, 결합 에너지보다 더 많은 에너지가 전달될 경우 자유 전자가 되어 다른 전자나 원자와 상호작용할 수 있습니다.
+
+### 3. 쌍생성 (Pair Production)
+쌍생성은 특히 감마선의 주요 에너지 손실 메커니즘으로, 광자와 원자핵 사이에서 발생합니다. 이 과정에서 전자(electron)와 양전자(positron)가 생성됩니다.
+쌍생성이 일어나려면, 광자의 에너지가 전자와 양전자를 만들 수 있을 만큼 충분히 커야 합니다. 이 임계값을 넘는 남은 에너지는 두 입자(전자, 양전자)의 운동 에너지로 변환됩니다.
+이 에너지보다 낮으면 쌍생성은 일어나지 않으며, 반대로 에너지가 높을수록 쌍생성이 더 잘 일어나고, 원자 번호가 클수록(원자핵이 클수록) 감마선을 더 잘 흡수하게 됩니다.
+
+
+
+
+
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

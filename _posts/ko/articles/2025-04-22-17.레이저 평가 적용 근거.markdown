@@ -1,0 +1,90 @@
+---
+layout: post
+title: NASA 문건으로 본 레이저 평가
+description: NASA 공식 문서를 기반으로 레이저 기반 SEE 평가의 타당성과 적용 사례를 소개합니다. COTS 부품의 방사선 내성 시험에서 레이저가 중이온 평가를 대체하거나 보완하는 방법으로 권장되는 이유를 설명합니다.
+date: 2025-03-14 00:00:00 +0900
+category: article
+lang: ko
+permalink: ko/article/:title.html
+sub_category: Laser-Based SEE Evaluation
+order: 1004
+---
+
+레이저를 활용한 SEE(단일 이벤트 효과) 평가는 반도체의 방사선 내성을 분석하는 데 있어 중이온 빔을 대체할 수 있는 유용한 대체 평가 방법입니다. 현재 미국, 중국, 러시아 등 여러 국가에서 활발히 활용되고 있으며, 그중에서 미국의 적용 사례를 보겠습니다.<br>
+미국의 경우, NASA 산하 연구소에서 레이저를 활용해서 다양한 방사선 평가를 수행하고 있으며, 레이저 기반 SEE 시험은 빠른 시험 속도와 정밀한 취약점 탐지가 가능하다는 점에서 주목받고 있습니다. 레이저를 이용하면 회로 내 민감한 영역을 정밀하게 조사할 수 있으며, 설계 초기 단계에서 SEE 취약점을 조기에 식별할 수 있는 장점이 있습니다.<br>
+NASA/TM-20205011579 문서는 NASA 임무에서 COTS EEE parts(상용 전자 부품)를 사용할 때의 권장사항을 기술한 공식 지침입니다. COTS에 대한 SEE(단일 이벤트 효과) 평가 시 Laser 평가를 주요 평가 방법 중 하나로 명시하고 있습니다. 해당 문서에서는 SEE 평가 항목으로 피코초 레이저 평가, 중이온 및 양성자 평가, 그리고 Cf-252 스크리닝 등을 제시하고 있으며, Laser를 활용한 방사선 내성 평가는 방사선 소스들 보다 앞서서 기술 될 정도로 COTS를 평가하는 데 있어서 효율적인 평가 방법 중 하나 입니다.
+ 
+<p align= "center">
+<img src="/assets/Articles/적용근거.webp" style="width: 100%; max-width: 700px;" alt= "Recommendations on Use of 
+Commercial-Off-The-Shelf (COTS) <br>Electrical,
+Electronic, and Electromechanical (EEE) Parts 
+for NASA Missions">
+</p>
+<p align= "center">Recommendations on Use of 
+Commercial-Off-The-Shelf (COTS) <br>Electrical,
+Electronic, and Electromechanical (EEE) Parts 
+for NASA Missions</p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  참고문헌[NASA Engineering and Safety Center. (2020). Recommendations on use of commercial-off-the-shelf (COTS) electrical, electronic, and electromechanical (EEE) parts for NASA missions (NASA/TM-20205011579, NESC-RP-19-01490). Langley Research Center.]
+</p> 
+<br>
+또, MEAL(Mission, Environment, Application, Lifetime) 가이드라인(NASA/TM-2018-220074)에서도 Radiation Test 항목 중 하나로 레이저 기반 SEE(단일 이벤트 효과) 평가가 기술되어 있음을 확인 할 수 있습니다.<br>
+해당 가이드라인에서는 레이저 평가는 양성자나 중이온 빔 시험에 비해 비용이 저렴하고 평가 시간도 짧아 실용적이다고 소개합니다. 특히, 중이온 빔 시험과는 상호 보완적인 정보를 제공합니다.<br>
+레이저 평가는 초기 분석 단계에서 회로의 취약성을 빠르게 식별하는 데 매우 효과적이며, SEE 내성 설계(Hardening) 연구나 회로가 복잡한 고집적 부품 평가에도 적합한 방법으로 권장되고 있습니다.<br>
+
+
+<br>
+
+<p align= "center">
+<img src="/assets/Articles/적용근거1.webp" style="width: 100%; max-width: 700px;" alt= "Guidelines for Verification Strategies to 
+Minimize RISK Based On  
+Mission Environment, -Application and  -Lifetime (MEAL)">
+</p>
+<p align= "center">Guidelines for Verification Strategies to 
+Minimize RISK Based On  
+Mission Environment, -Application and  -Lifetime (MEAL) </p>
+<p style="font-size: 10px; color: gray; text-align: center;">
+  참고문헌[NASA, Guidelines for Verification Strategies to Minimize RISK Based On Mission Environment, Application and Lifetime (MEAL), NASA/TM-2018-220074, June 2018.]
+</p> 
+<br>
+QRT에서는 이런 국제적인 동향에 근거하여 레이저 평가기술을 개발 하고 있습니다. 레이저 에너지와 LET(선형 에너지 전달) 간의 상관관계를 분석함으로써, 레이저 시험 결과를 기반으로 중이온 시험 결과를 예측하고 부품 내 SEE(단일 이벤트 효과) 취약점을 보다 정밀하게 식별 하는 평가를 수행하고 있습니다.
+
+
+
+{% assign current_order = page.order | plus: 0 %}
+
+{% assign candidates = site.posts 
+  | where: "sub_category", page.sub_category 
+  | where: "lang", page.lang 
+  | where_exp: "item", "item.url != page.url" 
+%}
+
+{% assign closest_posts = "" | split: "" %}
+
+{% for offset in (1..1000) %}
+  {% assign up = current_order | plus: offset %}
+  {% assign down = current_order | minus: offset %}
+
+  {% for post in candidates %}
+    {% if post.order == up or post.order == down %}
+      {% assign closest_posts = closest_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% if closest_posts.size >= 7 %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign related_posts = closest_posts | slice: 0, 7 %}
+
+{% if related_posts.size > 0 %}
+  <hr>
+  <br>
+  <h3>관련 글</h3>
+  <ul>
+    {% for post in related_posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

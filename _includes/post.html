@@ -1,0 +1,31 @@
+<article class="post">
+	<header class="post-header" style="display: flex; align-items: center; justify-content: space-between;">
+		<span id='category-name'></span>
+		<!-- 원래 카테고리로 돌아가는 버튼 -->
+		<div style="margin-top: 20px; text-align: center;">
+			{%- assign category_name = page.url | split: '/' | slice: 2 -%}
+			<a href="/category/#{{ category_name }}" class="btn btn-primary"
+				style="font-size: 15px; padding: 5px 10px; background-color: #888888; color: white; text-decoration: none; border-radius: 5px; margin-right: auto;"
+				onmouseover="this.style.backgroundColor='#555555'" onmouseout="this.style.backgroundColor='#888888'">
+				←List
+			</a>
+
+		</div>
+
+		<div class="post-title" style="margin-left: auto; margin-right: auto; padding-right: 10%;">
+			{{ page.title | escape }}
+
+		</div>
+		<!--time class="post-date dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+			{%- assign date_format = site.date_forma | default: "%Y/%m/%d" -%}
+			{{ page.date | date: date_format }}
+		</time-->
+	</header>
+
+	<div class="post-content">
+		<div class="fade-in">
+			{{ content }}
+		</div>
+	</div>
+
+</article>
