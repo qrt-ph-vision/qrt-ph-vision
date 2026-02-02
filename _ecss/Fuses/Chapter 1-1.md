@@ -11,7 +11,7 @@ order: 1100
 
 QRT Laser Evaluation System은 Pulsed Laser를 통해 우주 방사선이 반도체 소자에 미치는 영향을 모사하여 기존 방사선 시험을 대체하여 평가를 수행하는 장비입니다.
 
-<img align= "center" src="/assets/Articles/QRT-laser.webp" alt= "Laser Evaluation system">
+<img align= "center" src="/assets/logo.png" alt= "Laser Evaluation system">
 
 
 <br/>

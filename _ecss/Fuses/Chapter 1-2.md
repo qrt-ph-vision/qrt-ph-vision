@@ -19,7 +19,7 @@ SEE(Single Event Effect)란 방사선 입자(중이온, 양성자, 중성자, �
 
 <!-- 중앙 정렬 이미지 -->
 <p align="center"> 
-  <img src="/assets/Chapter-1/fig_1_heavy-ion_vs_pulsed_laser.png">
+  <img src="/assets/logo.png">
 </p>
 
 <!-- 이미지 설명 -->
