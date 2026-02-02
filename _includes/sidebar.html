@@ -1,34 +1,35 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
 <div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-		<!-- 📘 아이콘 추가된 제목 -->
-		<li class="nav-title">
-			<i class="fa-solid fa-book" style="margin-right: 6px;"></i>
-			ECSS Archive
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="{{ root_url }}/{{ site.manuals_dir }}#lite_kor">
-				<span class="name">Connectors</span>
-				<!--span class="badge">{{ site.manuals | size }}</span-->
-			</a>
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="{{ root_url }}/{{ site.manuals_dir }}#lite_kor">
-				<span class="name">Fuses</span>
-				<!--span class="badge">{{ site.manuals | size }}</span-->
-			</a>
-		</li>
-		<li>
-			<!-- _includes/manual.html -->
-			<a class="nav-item" href="{{ root_url }}/{{ site.manuals_dir }}#lite_kor">
-				<span class="name">Intergrated Circuits</span>
-				<!--span class="badge">{{ site.manuals | size }}</span-->
-			</a>
-		</li>
-	</ul>
+  <ul class="nav">
+    <li class="nav-title">
+      <i class="fa-solid fa-layer-group" style="margin-right: 6px;"></i>
+      ECSS Archive
+    </li>
+
+    {%- assign ecss_docs = site.ecss -%}
+{%- if ecss_docs == nil or ecss_docs.size == 0 -%}
+  {%- assign ecss_docs = site.pages
+    | where_exp: "p", "p.dir contains '/ecss/'"
+    | where_exp: "p", "p.dir != '/ecss/'"
+  -%}
+{%- endif -%}
+
+{%- assign sorted_docs = ecss_docs | sort: "order" -%}
+{%- assign ordered_categories = sorted_docs | map: "category" | uniq -%}
+
+{%- for cat in ordered_categories -%}
+  {%- if cat == nil or cat == "" -%}{%- continue -%}{%- endif -%}
+  {%- assign cnt = ecss_docs | where: "category", cat | size -%}
+  <li>
+    <a class="nav-item" href="{{ '/ecss/' | relative_url }}#{{ cat | slugify }}">
+      <span class="name">{{ cat }}</span>
+      <span class="badge">{{ cnt }}</span>
+    </a>
+  </li>
+{%- endfor -%}
+
+  </ul>
 </div>
 
 

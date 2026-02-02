@@ -2,7 +2,7 @@
 layout: post_manual
 title: 1. About QRT-LITE
 date: 2025-03-31 12:20:23 +0900
-category: "lite_kor"
+category: "Wires and Cables"
 lang: ko
 order: 1000
 ---

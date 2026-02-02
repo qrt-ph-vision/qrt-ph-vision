@@ -2,7 +2,7 @@
 layout: post_manual
 title: 1.2. 레이저 평가 방법
 date: 2025-03-31 13:20:23 +0900
-category: "lite_kor"
+category: "Fuses"
 lang: ko
 order: 1200
 ---

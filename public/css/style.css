@@ -24,6 +24,7 @@
 	--dark: #343a40;
 	--qrt-red: #E0002A;
 	--qrt-orange: #fa6400;
+	--qrt-sky-blue: #00ACEE;
 	--ink: #222;
 	--muted: #666;
 	--line: #eee;
@@ -162,7 +163,7 @@ a.nav-item {
 }
 
 a.nav-item:hover {
-	color: #E42044;
+	color: var(--qrt-sky-blue);
 }
 
 .badge {
@@ -185,7 +186,7 @@ ul.post-list {
 }
 
 .post-list > li::marker{
-  color: var(--qrt-red);
+  color: var(--qrt-sky-blue);
   font-size: .9em;
 }
 
@@ -197,7 +198,7 @@ ul.post-list {
 .post-list>li {}
 
 .post-list>li:hover .post-link {
-	color: #E42044;
+	color: var(--qrt-sky-blue);
 	text-decoration: underline;
 	transition: color 0.2s;
 	transform: translateY(-5px);
@@ -220,10 +221,10 @@ ul.post-list {
 }
 
 .post-list > li:hover .post-link{
-  color: var(--qrt-red);
+  color: var(--qrt-sky-blue);
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-decoration-color: var(--qrt-red);
+  text-decoration-color: var(--qrt-sky-blue);
 }
 
 #contact-list li .fa,
@@ -237,8 +238,8 @@ article .share .btn {
 
 #contact-list li:hover .fa-twitter,
 article .share .twitter:hover {
-	color: #00ACEE;
-	border-color: #00ACEE;
+	color: var(--qrt-sky-blue);
+	border-color: var(--qrt-sky-blue);
 }
 
 #contact-list li:hover .fa-linkedin {

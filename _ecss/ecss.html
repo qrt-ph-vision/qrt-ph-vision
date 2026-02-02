@@ -1,0 +1,97 @@
+---
+layout: page
+title: ECSS Archive
+permalink: /ecss/
+---
+
+{%- assign ecss_docs = site.ecss -%}
+{%- if ecss_docs == nil or ecss_docs.size == 0 -%}
+  {%- assign ecss_docs = site.pages
+    | where_exp: "p", "p.dir contains '/ecss/'"
+    | where_exp: "p", "p.dir != '/ecss/'"
+  -%}
+{%- endif -%}
+
+{%- assign sorted_docs = ecss_docs | sort: "order" -%}
+{%- assign ordered_categories = sorted_docs | map: "category" | uniq -%}
+
+<style>
+  /* 카테고리명은 숨김 + 해시 점프용 앵커 */
+  .ecss-anchor { height: 0; scroll-margin-top: 90px; }
+
+  /* 섹션 간격만 아주 살짝 */
+  .ecss-group { margin-top: 10px; }
+</style>
+
+<div class="ecss-archive">
+  {%- for cat in ordered_categories -%}
+    {%- if cat == nil or cat == "" -%}{%- continue -%}{%- endif -%}
+    {%- assign cat_slug = cat | slugify -%}
+    {%- assign items = sorted_docs | where: "category", cat -%}
+
+    <section class="ecss-group" data-cat="{{ cat_slug }}">
+      <!-- ✅ 화면에는 안 보이지만 /ecss/#cat 점프는 되게 -->
+      <div class="ecss-anchor" id="{{ cat_slug }}"></div>
+
+      <!-- ✅ manuals.html이 쓰는 클래스 그대로: post-list -->
+      <ul class="post-list">
+        {%- for doc in items -%}
+          {%- assign o = doc.order | default: 999999 -%}
+          {%- assign ones = o | modulo: 10 -%}
+          {%- assign tens = o | modulo: 100 | divided_by: 10 | floor -%}
+          {%- assign hundreds = o | modulo: 1000 | divided_by: 100 | floor -%}
+
+          {%- if hundreds == 0 and tens == 0 and ones == 0 -%}
+            <li class="post-list-item post-category-{{ cat_slug }}"
+                style="font-size: 1.8em; font-weight: bold; padding-left: 0px;">
+          {%- elsif tens == 0 and ones == 0 -%}
+            <li class="post-list-item post-category-{{ cat_slug }}"
+                style="font-size: 1.5em; font-weight: 600; padding-left: 20px;">
+          {%- elsif ones == 0 -%}
+            <li class="post-list-item post-category-{{ cat_slug }}"
+                style="font-size: 1.2em; font-weight: 500; padding-left: 40px;">
+          {%- else -%}
+            <li class="post-list-item post-category-{{ cat_slug }}"
+                style="padding-left: 60px;">
+          {%- endif -%}
+
+              <!-- ✅ manuals.html이 쓰는 클래스 그대로: post-link -->
+              <a class="post-link"
+                 href="{{ '/ecss/view/' | relative_url }}#{{ cat_slug }}--m{{ doc.order }}">
+                {{ doc.title | escape }}
+              </a>
+            </li>
+        {%- endfor -%}
+      </ul>
+    </section>
+  {%- endfor -%}
+</div>
+
+<script>
+(function () {
+  function applyListFilter() {
+    var cat = (location.hash || "").slice(1); // ex) "fuses"
+    var groups = document.querySelectorAll(".ecss-group");
+
+    // ✅ 타이틀은 고정(카테고리명 표시 안 함)
+    var titleEl = document.querySelector("header .post-title");
+    if (titleEl) titleEl.textContent = "ECSS Archive";
+
+    if (!cat) {
+      groups.forEach(function (g) { g.style.display = ""; });
+      return;
+    }
+
+    groups.forEach(function (g) {
+      g.style.display = (g.dataset.cat === cat) ? "" : "none";
+    });
+
+    // 카테고리 앵커로 점프
+    var head = document.getElementById(cat);
+    if (head) head.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.addEventListener("DOMContentLoaded", applyListFilter);
+  window.addEventListener("hashchange", applyListFilter);
+})();
+</script>

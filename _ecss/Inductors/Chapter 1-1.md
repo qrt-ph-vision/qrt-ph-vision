@@ -2,7 +2,7 @@
 layout: post_manual
 title: 1.1. About QRT Laser Evaluation System
 date: 2025-03-31 12:20:23 +0900
-category: "lite_kor"
+category: "Inductors"
 lang: ko
 order: 1100
 ---

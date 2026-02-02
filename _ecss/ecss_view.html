@@ -1,0 +1,340 @@
+---
+layout: page
+title: ECSS Archive
+permalink: /ecss/view/
+---
+
+{%- assign ecss_docs = site.ecss -%}
+{%- if ecss_docs == nil or ecss_docs.size == 0 -%}
+  {%- assign ecss_docs = site.pages
+    | where_exp: "p", "p.dir contains '/ecss/'"
+    | where_exp: "p", "p.dir != '/ecss/'"
+  -%}
+{%- endif -%}
+
+{%- assign sorted_docs = ecss_docs | sort: "order" -%}
+{%- assign ordered_categories = sorted_docs | map: "category" | uniq -%}
+
+<article class="post">
+  <header class="post-header home">
+    <div class="post-title">
+      <!-- ✅ 여기 텍스트는 JS가 카테고리명으로 바꿔줌 -->
+      <span>{{ page.title }}</span>
+    </div>
+  </header>
+
+  <!-- ✅ 오른쪽 고정 목차 (manual 디자인/틀 그대로) -->
+  <nav id="floating-manual-toc" class="floating-manual-toc" aria-label="목차">
+    <div class="toc-head">
+      <span class="toc-head-title">CONTENTS</span>
+      <button id="toc-toggle" type="button" class="toc-toggle" aria-label="접기/펼치기">▲</button>
+    </div>
+
+    <ul class="toc-list" id="toc-list">
+      {%- for cat in ordered_categories -%}
+        {%- if cat == nil or cat == "" -%}{%- continue -%}{%- endif -%}
+        {%- assign cat_slug = cat | slugify -%}
+        {%- assign items = sorted_docs | where: "category", cat -%}
+
+        {%- for doc in items -%}
+          {%- assign hundreds = doc.order | modulo: 1000 | divided_by: 100 | floor -%}
+          {%- assign tens = doc.order | modulo: 100 | divided_by: 10 | floor -%}
+          {%- assign ones = doc.order | modulo: 10 -%}
+
+          {%- if hundreds == 0 and tens == 0 and ones == 0 -%}
+            {%- assign pad = 0 -%}
+          {%- elsif tens == 0 and ones == 0 -%}
+            {%- assign pad = 10 -%}
+          {%- elsif ones == 0 -%}
+            {%- assign pad = 20 -%}
+          {%- else -%}
+            {%- assign pad = 30 -%}
+          {%- endif -%}
+
+          <!-- ✅ Section# 제거: toc-group 없이 toc-item만 -->
+          <li class="toc-item" data-cat="{{ cat_slug }}" style="padding-left: {{ pad }}px;">
+            <a class="toc-link"
+               data-target="m{{ doc.order }}"
+               data-cat="{{ cat_slug }}"
+               href="#{{ cat_slug }}--m{{ doc.order }}">
+              {{ doc.title | escape }}
+            </a>
+          </li>
+        {%- endfor -%}
+      {%- endfor -%}
+    </ul>
+  </nav>
+
+  <style>
+    /* ✅ 오른쪽 고정 목차 (manual CSS 그대로) */
+    .floating-manual-toc {
+      position: fixed;
+      right: 10px;
+      top: 30px;
+      width: 220px;
+      max-height: calc(100vh - 160px);
+      display: flex;
+      flex-direction: column;
+      transition: width .18s ease;
+      border: 1px solid rgba(0, 0, 0, .12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, .10);
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .toc-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 10px;
+      border-bottom: 1px solid rgba(0, 0, 0, .10);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .toc-toggle {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      line-height: 1;
+    }
+
+    .toc-toggle:hover {
+      background: rgba(0, 0, 0, .06);
+    }
+
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 6px 4px;
+      overflow: auto;
+      max-height: calc(100vh - 140px);
+    }
+
+    /* (남아있어도 무해) */
+    .toc-group {
+      margin: 8px 6px 6px;
+      font-weight: 800;
+      opacity: .75;
+      font-size: .82rem;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 6px 6px;
+      margin: 2px 4px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      font-size: .84rem;
+      line-height: 1.2;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toc-link:hover {
+      background: rgba(0, 0, 0, .06);
+      font-weight: 800;
+    }
+
+    /* ✅ 접히면 옆으로(가로) 더 작게 */
+    .floating-manual-toc.collapsed {
+      width: 130px;
+    }
+
+    .floating-manual-toc.collapsed .toc-head-title {
+      font-size: 0.85rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .floating-manual-toc.collapsed .toc-list {
+      display: none;
+    }
+
+    /* ✅ 작은 화면에서는 숨김 */
+    @media (max-width: 1100px) {
+      .floating-manual-toc {
+        display: none;
+      }
+    }
+
+    /* ✅ 본문 왼쪽 원복 + 목차만큼 오른쪽 여백 */
+    @media (min-width: 1101px) {
+      .post-content {
+        padding-left: 0px;
+        padding-right: 240px;
+      }
+    }
+
+    /* ✅ ECSS 점프 앵커 */
+    .ecss-anchor { scroll-margin-top: 90px; height: 0; }
+  </style>
+
+  <script>
+    (function () {
+      const toc = document.getElementById("floating-manual-toc");
+      const btn = document.getElementById("toc-toggle");
+      const KEY = "ecss_toc_collapsed_right_v1";
+
+      let ticking = false;
+
+      function parseHash() {
+        // "#cat--m3000"
+        const raw = (location.hash || "").slice(1);
+        if (!raw) return { cat: "", anchor: "" };
+        const idx = raw.indexOf("--");
+        if (idx === -1) return { cat: raw, anchor: "" };
+        return { cat: raw.slice(0, idx), anchor: raw.slice(idx + 2) };
+      }
+
+      function applyIcon() {
+        if (!toc || !btn) return;
+        btn.textContent = toc.classList.contains("collapsed") ? "▼" : "▲";
+      }
+
+      function setActive(targetId, cat) {
+        const links = document.querySelectorAll('.toc-link');
+        links.forEach(a => {
+          const isOn = (a.dataset.target === targetId && a.dataset.cat === cat);
+          // hover 느낌 그대로 고정
+          a.style.background = isOn ? "rgba(0, 0, 0, .06)" : "";
+          a.style.fontWeight = isOn ? "800" : "";
+        });
+      }
+
+      function filterTOC(cat) {
+        const items = document.querySelectorAll('.toc-item');
+        items.forEach(li => {
+          const c = li.getAttribute("data-cat");
+          li.style.display = (!cat || c === cat) ? "" : "none";
+        });
+      }
+
+      function updateActiveFromScroll(cat) {
+        if (!cat) return;
+
+        const anchors = Array.from(document.querySelectorAll(`.ecss-anchor[data-cat="${cat}"]`));
+        if (!anchors.length) return;
+
+        const offset = 120;
+        let activeId = anchors[0].id;
+
+        for (const a of anchors) {
+          const top = a.getBoundingClientRect().top;
+          if (top - offset <= 0) activeId = a.id;
+          else break;
+        }
+
+        setActive(activeId, cat);
+
+        // active가 목차 안에서 안 보이면 가운데로 당겨줌
+        const activeLink = document.querySelector(`.toc-link[data-cat="${cat}"][data-target="${activeId}"]`);
+        const list = document.getElementById("toc-list");
+        if (activeLink && list && toc && !toc.classList.contains("collapsed")) {
+          const r1 = activeLink.getBoundingClientRect();
+          const r2 = list.getBoundingClientRect();
+          if (r1.top < r2.top + 20 || r1.bottom > r2.bottom - 20) {
+            activeLink.scrollIntoView({ block: "center" });
+          }
+        }
+      }
+
+      function applyView() {
+        const h = parseHash();
+        const titleEl = document.querySelector("header .post-title span");
+
+        // ✅ 상단 타이틀: ECSS View 대신 카테고리명
+        if (titleEl) titleEl.textContent = h.cat ? h.cat.replace(/-/g, " ") : "ECSS View";
+
+        filterTOC(h.cat);
+
+        // 본문도 카테고리 하나만 보이게
+        document.querySelectorAll(".ecss-view-group").forEach(g => {
+          g.style.display = (h.cat && g.dataset.cat === h.cat) ? "block" : "none";
+        });
+
+        // 점프
+        if (h.anchor) {
+          const el = document.getElementById(h.anchor);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        setTimeout(() => updateActiveFromScroll(h.cat), 60);
+      }
+
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const h = parseHash();
+          updateActiveFromScroll(h.cat);
+          ticking = false;
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!toc || !btn) return;
+
+        // 기본: 접힘 (저장값 없으면 1)
+        if (localStorage.getItem(KEY) === null) localStorage.setItem(KEY, "1");
+        if (localStorage.getItem(KEY) === "1") toc.classList.add("collapsed");
+        applyIcon();
+
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          toc.classList.toggle("collapsed");
+          localStorage.setItem(KEY, toc.classList.contains("collapsed") ? "1" : "0");
+          applyIcon();
+        });
+
+        applyView();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      });
+
+      window.addEventListener("hashchange", applyView);
+    })();
+  </script>
+
+  <div class="fade-in">
+    <div class="post-content">
+
+      {%- for cat in ordered_categories -%}
+        {%- if cat == nil or cat == "" -%}{%- continue -%}{%- endif -%}
+        {%- assign cat_slug = cat | slugify -%}
+        {%- assign items = sorted_docs | where: "category", cat -%}
+
+        <!-- ✅ 본문에서 카테고리명(h2) 없음 -->
+        <section class="ecss-view-group" data-cat="{{ cat_slug }}" style="display:none;">
+          {%- for doc in items -%}
+            <!-- ✅ 목차 점프용 앵커 -->
+            <div id="m{{ doc.order }}" class="ecss-anchor" data-cat="{{ cat_slug }}"></div>
+
+            <!-- ✅ 본문 -->
+            <div style="
+              {% assign hundreds = doc.order | modulo: 1000 | divided_by: 100 | floor %}
+              {% assign tens = doc.order | modulo: 100 | divided_by: 10 | floor %}
+              {% assign ones = doc.order | modulo: 10 %}
+              {% if hundreds == 0 and tens == 0 and ones == 0 %}padding-left:0px;{% endif %}
+              {% if tens == 0 and ones == 0 and not (hundreds == 0 and tens == 0 and ones == 0) %}padding-left:20px;{% endif %}
+              {% if ones == 0 and not (tens == 0 and ones == 0) %}padding-left:40px;{% endif %}
+              {% if ones != 0 %}padding-left:60px;{% endif %}
+              margin-top: 8px;">
+              {{ doc.content }}
+            </div>
+
+          {%- endfor -%}
+        </section>
+      {%- endfor -%}
+
+    </div>
+  </div>
+</article>
