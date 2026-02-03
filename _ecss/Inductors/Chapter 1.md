@@ -4,7 +4,7 @@ title: 1. About QRT-LITE
 date: 2025-03-31 12:20:23 +0900
 category: "Inductors"
 lang: ko
-order: 1000
+order: 1000000
 ---
 
 # 1. QRT-LITE 

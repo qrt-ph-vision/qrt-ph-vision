@@ -4,7 +4,7 @@ title: 1.1.1. QRT Femtosecond laser spec.
 date: 2025-03-31 13:20:23 +0900
 category: "Wires and Cables"
 lang: ko
-order: 1110
+order: 1010100
 ---
 
 # 1.1.1.	QRT Femtosecond laser spec.

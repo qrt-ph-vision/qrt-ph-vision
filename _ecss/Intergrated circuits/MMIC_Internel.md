@@ -4,7 +4,7 @@ title: Internal Visual Inspection of Mo
 date: 2025-03-31 13:20:23 +0900
 category: "Intergrated circuits"
 lang: ko
-order: 3100
+order: 3010000
 ---
 
 # MMIC Generic and Sectional Basic Spec.

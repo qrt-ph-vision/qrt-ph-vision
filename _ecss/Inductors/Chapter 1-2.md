@@ -4,7 +4,7 @@ title: 1.2. 레이저 평가 방법
 date: 2025-03-31 13:20:23 +0900
 category: "Inductors"
 lang: ko
-order: 1200
+order: 1002000
 ---
 
 # 1.2 레이저 평가 방법

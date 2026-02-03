@@ -4,7 +4,7 @@ title: MMIC Generic and Sectional Basic Spec.
 date: 2025-03-31 13:20:23 +0900
 category: "Intergrated circuits"
 lang: ko
-order: 3000
+order: 3000000
 ---
 
 # MMIC Generic and Sectional Basic Spec.

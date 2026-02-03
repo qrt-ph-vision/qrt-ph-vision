@@ -4,7 +4,7 @@ title: 1.1. About QRT Laser Evaluation System
 date: 2025-03-31 12:20:23 +0900
 category: "Inductors"
 lang: ko
-order: 1100
+order: 1010000
 ---
 
 # 1.1. QRT Laser Evaluation System

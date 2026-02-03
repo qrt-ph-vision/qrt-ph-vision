@@ -4,7 +4,7 @@ title: IC's Generic
 date: 2025-03-31 13:20:23 +0900
 category: "Intergrated circuits"
 lang: ko
-order: 1000
+order: 1000000
 ---
 
 # IC's Generic
