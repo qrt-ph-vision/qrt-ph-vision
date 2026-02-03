@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: "LASER2COTS"
+title: "temparary title"
 email: jieseok.kim@qrtkr.com
 description: >- # this means to ignore newlines until "baseurl:"
 
 # QRT laser lab
 # baseurl: "/" # the subpath of your site, e.g. /blog
 # url: "http://ejjoo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: QRT-Laser
+github_username: qrt-ph-vision
 highlighter: rouge
 svg:
   optimize: true
@@ -61,11 +61,11 @@ collections:
 
 
 
-analytics:
-  provider: "google"
+# analytics:
+#   provider: "google"
 
-  google:
-    tracking_id: "G-866KXKSPRQ"
+#   google:
+#     tracking_id: "G-866KXKSPRQ"
 
 
 # Exclude from processing.
